@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { RawIngredient } from "../../common/interfaces/raw-ingredient.interface";
+import { environmentVariables } from "../../utils/environment-variables";
+
+const URL = `${environmentVariables().backendUrl}/nutritional-entities/get-all`;
 
 export default function Page() {
   const [rawIngredients, setRawIngredients] = useState([] as RawIngredient[]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/nutritional-entities/get-all")
+    fetch(URL)
       .then((response) => response.json())
       .then((nutritionalGroups: any[]) => {
         const rawIngredients = nutritionalGroups.find(
