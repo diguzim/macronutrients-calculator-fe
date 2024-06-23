@@ -20,9 +20,3 @@
   align-items: center;
   gap: 5px;
 }
-
-.navigation {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
