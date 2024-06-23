@@ -25,7 +25,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <div className={styles.container}>
             <Sidebar />
-            {children}
+            <div className={styles.content}>{children}</div>
           </div>
         </AppRouterCacheProvider>
       </body>
