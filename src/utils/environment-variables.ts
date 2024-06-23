@@ -1,5 +1,7 @@
 export function environmentVariables() {
   return {
-    backendUrl: process.env.BACKEND_URL,
+    public: {
+      backendUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
+    },
   };
 }
