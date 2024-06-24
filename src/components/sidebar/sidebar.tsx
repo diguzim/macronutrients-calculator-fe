@@ -1,6 +1,7 @@
 import PercentOutlinedIcon from "@mui/icons-material/PercentOutlined";
 import styles from "./sidebar.module.css";
 import NavigationLinks from "./navigation-links";
+import VerticalPlaceholder from "./vertical-placeholder";
 
 export default function Sidebar() {
   return (
@@ -14,6 +15,7 @@ export default function Sidebar() {
         <p>Macronutrients Calculator</p>
       </div>
       <NavigationLinks />
+      <VerticalPlaceholder />
     </div>
   );
 }
