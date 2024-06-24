@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { RawIngredient } from "../../common/interfaces/raw-ingredient.interface";
 import { environmentVariables } from "../../utils/environment-variables";
+import Table from "./table";
+
+import styles from "./page.module.css";
+import NewIngredientForm from "./new-ingredient-form";
 
 const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
 
@@ -25,13 +29,13 @@ export default function Page() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Raw Ingredients</h1>
-      <ul>
-        {rawIngredients.map((rawIngredient) => (
-          <li key={rawIngredient.id}>{rawIngredient.name}</li>
-        ))}
-      </ul>
+      <Table rawIngredients={rawIngredients} />
+      <div className={styles.newIngredientContainer}>
+        <h2>Add new raw ingredient</h2>
+        <NewIngredientForm />
+      </div>
     </div>
   );
 }
