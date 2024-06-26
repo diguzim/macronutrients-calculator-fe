@@ -5,8 +5,8 @@ import { RawIngredient } from "../../common/interfaces/raw-ingredient.interface"
 import { environmentVariables } from "../../utils/environment-variables";
 import Table from "./table";
 
-import styles from "./page.module.css";
 import NewIngredientForm from "./new-ingredient-form";
+import styles from "./page.module.css";
 
 const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
 
