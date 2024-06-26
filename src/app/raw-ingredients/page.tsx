@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import RawIngredientsTable from "./raw-ingredients-table";
 
-import NewIngredientForm from "./new-ingredient-form";
+import NewIngredientForm from "./new-raw-ingredient-form";
 import styles from "./page.module.css";
 
 export default function Page() {

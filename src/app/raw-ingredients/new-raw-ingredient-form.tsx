@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import FormInput from "../../components/form-input/form-input";
 
 import { environmentVariables } from "../../utils/environment-variables";
-import styles from "./new-ingredient-form.module.css";
+import styles from "./new-raw-ingredient-form.module.css";
 
 const URL = `${environmentVariables().public.backendUrl}/raw-ingredients`;
 
@@ -17,7 +17,7 @@ type FormData = {
   kcal: number;
 };
 
-export default function NewIngredientForm() {
+export default function NewRawIngredientForm() {
   const { control, handleSubmit } = useForm<FormData>({
     defaultValues: {
       name: "",

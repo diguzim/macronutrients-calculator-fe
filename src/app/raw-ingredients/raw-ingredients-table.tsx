@@ -1,6 +1,6 @@
 import { environmentVariables } from "../../utils/environment-variables";
 
-import styles from "./table.module.css";
+import styles from "./raw-ingredients-table.module.css";
 
 const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
 
