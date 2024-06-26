@@ -1,12 +1,22 @@
-import { RawIngredient } from "../../common/interfaces/raw-ingredient.interface";
+import { environmentVariables } from "../../utils/environment-variables";
 
 import styles from "./table.module.css";
 
-export default function Table({
-  rawIngredients,
-}: {
-  rawIngredients: RawIngredient[];
-}) {
+const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
+
+const fetchRawIngredients = async () => {
+  const response = await fetch(URL);
+  const nutritionalGroups: any[] = await response.json();
+  const rawIngredients: any[] = nutritionalGroups.find(
+    (nutritionalGroup) => nutritionalGroup.type === "raw-ingredient"
+  ).values;
+
+  return rawIngredients;
+};
+
+export default async function RawIngredientsTable() {
+  const rawIngredients = await fetchRawIngredients();
+
   return (
     <table className={styles.table}>
       <thead>
