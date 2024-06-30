@@ -1,9 +1,9 @@
 "use client";
 
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import RawIngredientsTable from "./raw-ingredients-table";
 
-import NewIngredientForm from "./new-raw-ingredient-form";
+import { Suspense } from "react";
 import styles from "./page.module.css";
 
 export default function Page() {
@@ -13,10 +13,10 @@ export default function Page() {
       <Suspense fallback={<div>Loading...</div>}>
         <RawIngredientsTable />
       </Suspense>
-      <div className={styles.newIngredientContainer}>
+      {/* <div className={styles.newIngredientContainer}>
         <h2>Add new raw ingredient</h2>
         <NewIngredientForm />
-      </div>
+      </div> */}
     </div>
   );
 }

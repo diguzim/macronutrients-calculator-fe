@@ -2,13 +2,13 @@ import { environmentVariables } from "../../utils/environment-variables";
 
 import styles from "./cooked-dishes-table.module.css";
 
-const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
+const URL = `${environmentVariables().public.backendUrl}/items`;
 
 const fetchCookedDishes = async () => {
   const response = await fetch(URL);
   const nutritionalGroups: any[] = await response.json();
   const cookedDishes: any[] = nutritionalGroups.find(
-    (nutritionalGroup) => nutritionalGroup.type === "cooked-dish"
+    (nutritionalGroup) => nutritionalGroup.type === "recipe"
   ).values;
 
   return cookedDishes;

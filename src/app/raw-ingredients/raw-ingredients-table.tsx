@@ -1,21 +1,29 @@
+import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../utils/environment-variables";
 
 import styles from "./raw-ingredients-table.module.css";
 
-const URL = `${environmentVariables().public.backendUrl}/nutritional-entities/get-all`;
+const URL = `${environmentVariables().public.backendUrl}/items`;
 
-const fetchRawIngredients = async () => {
-  const response = await fetch(URL);
-  const nutritionalGroups: any[] = await response.json();
-  const rawIngredients: any[] = nutritionalGroups.find(
-    (nutritionalGroup) => nutritionalGroup.type === "raw-ingredient"
-  ).values;
+export default function RawIngredientsTable() {
+  const [rawIngredients, setRawIngredients] = useState<any[]>([]);
 
-  return rawIngredients;
-};
+  const fetchRawIngredients = useCallback(async () => {
+    const response = await fetch(URL);
+    const rawIngredients: any[] = await response.json();
 
-export default async function RawIngredientsTable() {
-  const rawIngredients = await fetchRawIngredients();
+    return rawIngredients;
+  }, []);
+
+  const loadRawIngredients = useCallback(async () => {
+    const rawIngredients = await fetchRawIngredients();
+
+    setRawIngredients(rawIngredients);
+  }, []);
+
+  useEffect(() => {
+    loadRawIngredients();
+  }, []);
 
   return (
     <table className={styles.table}>
