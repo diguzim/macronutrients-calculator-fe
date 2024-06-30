@@ -4,13 +4,15 @@ import { useForm } from "react-hook-form";
 
 import FormInput from "../../components/form-input/form-input";
 
+import FormSelect from "../../components/form-select/form-select";
 import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./new-item-form.module.css";
 
-const URL = `${environmentVariables().public.backendUrl}/items`;
+const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
 type FormData = {
   name: string;
+  type: string;
   weight: number;
   protein: number;
   fat: number;
@@ -23,6 +25,7 @@ export default function NewItemForm() {
   const { control, handleSubmit } = useForm<FormData>({
     defaultValues: {
       name: "",
+      type: undefined,
       weight: 0,
       protein: 0,
       fat: 0,
@@ -65,6 +68,16 @@ export default function NewItemForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <FormInput name="name" control={control} label="Name" required />
+      <FormSelect
+        name="type"
+        control={control}
+        label="Type"
+        options={[
+          { label: "Raw ingredient", value: "raw" },
+          { label: "Recipe", value: "recipe" },
+        ]}
+        required
+      />
       <FormInput
         name="weight"
         control={control}
