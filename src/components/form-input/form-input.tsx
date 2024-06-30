@@ -1,8 +1,7 @@
-import React from "react";
-import { Controller, Control } from "react-hook-form";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
+import React from "react";
+import { Control, Controller } from "react-hook-form";
 
-// Definindo as props que nosso componente `FormInput` aceitará
 interface FormInputProps extends Omit<TextFieldProps, "name"> {
   name: string;
   control: Control<any>;
