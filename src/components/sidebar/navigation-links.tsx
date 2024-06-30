@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
 import NavigationLink from "./navigation-link";
@@ -22,13 +21,8 @@ const links: Link[] = [
     icon: <HomeOutlinedIcon />,
   },
   {
-    name: "Raw Ingredients",
-    href: "/raw-ingredients",
-    icon: <ShoppingCartOutlinedIcon />,
-  },
-  {
-    name: "Cooked Dishes",
-    href: "/cooked-dishes",
+    name: "Items",
+    href: "/items",
     icon: <SoupKitchenOutlinedIcon />,
   },
 ];

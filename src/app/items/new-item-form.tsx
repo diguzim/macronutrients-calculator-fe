@@ -1,11 +1,13 @@
+"use client";
+
 import { useForm } from "react-hook-form";
 
 import FormInput from "../../components/form-input/form-input";
 
 import { environmentVariables } from "../../utils/environment-variables";
-import styles from "./new-raw-ingredient-form.module.css";
+import styles from "./new-item-form.module.css";
 
-const URL = `${environmentVariables().public.backendUrl}/raw-ingredients`;
+const URL = `${environmentVariables().public.backendUrl}/items`;
 
 type FormData = {
   name: string;
@@ -17,7 +19,7 @@ type FormData = {
   kcal: number;
 };
 
-export default function NewRawIngredientForm() {
+export default function NewItemForm() {
   const { control, handleSubmit } = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -53,7 +55,7 @@ export default function NewRawIngredientForm() {
       if (response.ok) {
         alert("Ingredient added successfully");
       } else {
-        throw new Error("Error adding ingredient");
+        throw new Error("Error adding item");
       }
     } catch (error) {
       console.error(error);

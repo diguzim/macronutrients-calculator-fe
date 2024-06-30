@@ -4,7 +4,7 @@
   gap: 10px;
 }
 
-.cookedDishContainer {
+.newItemContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;

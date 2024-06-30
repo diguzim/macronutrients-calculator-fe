@@ -1,4 +1,4 @@
-export type RawIngredient = {
+export type Item = {
   id: string;
   name: string;
   proteinRatio: number;
