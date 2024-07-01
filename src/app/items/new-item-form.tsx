@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 
 import FormInput from "../../components/form-input/form-input";
 
+import { useCallback } from "react";
 import FormSelect from "../../components/form-select/form-select";
 import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./new-item-form.module.css";
@@ -35,7 +36,7 @@ export default function NewItemForm() {
     },
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = useCallback(async (data: FormData) => {
     const transformedData = {
       ...data,
       weight: Number(data.weight),
@@ -63,7 +64,7 @@ export default function NewItemForm() {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
