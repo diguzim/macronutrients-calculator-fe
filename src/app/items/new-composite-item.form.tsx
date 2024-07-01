@@ -11,20 +11,38 @@ import styles from "./new-composite-item.module.css";
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
 
+type ItemWithWeight = {
+  tempFormId: string;
+  itemId: string;
+  name: string;
+  weight: number;
+};
+
 type FormData = {
   name: string;
-  itemIdsWithWeights: { itemId: string; weight: number }[];
   finalWeight: number;
 };
 
 export default function NewCompositeItemForm() {
-  const [items, setItems] = useState<any[]>([]);
-  console.log("items", items);
+  const [availableItems, setAvailableItems] = useState<any[]>([]);
+  const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>([
+    {
+      tempFormId: "1",
+      itemId: "",
+      name: "",
+      weight: 0,
+    },
+    {
+      tempFormId: "2",
+      itemId: "",
+      name: "",
+      weight: 0,
+    },
+  ]);
 
   const { control, handleSubmit } = useForm<FormData>({
     defaultValues: {
       name: "",
-      itemIdsWithWeights: [],
       finalWeight: 0,
     },
   });
@@ -32,12 +50,30 @@ export default function NewCompositeItemForm() {
   const fetchItems = useCallback(async () => {
     const response = await fetch(GET_URL);
     const items = (await response.json()) as any[];
-    setItems(items);
+    setAvailableItems(items);
   }, []);
 
   useEffect(() => {
     fetchItems();
   }, [fetchItems]);
+
+  const onAddItem = useCallback(() => {
+    setItemsWithWeights((prev) => [
+      ...prev,
+      {
+        tempFormId: String(Math.random()),
+        itemId: "",
+        name: "",
+        weight: 0,
+      },
+    ]);
+  }, []);
+
+  const onRemoveItem = useCallback((tempFormId: string) => {
+    setItemsWithWeights((prev) =>
+      prev.filter((item) => item.tempFormId !== tempFormId)
+    );
+  }, []);
 
   const onSubmit = useCallback(async (data: FormData) => {
     const transformedData = {
@@ -74,7 +110,18 @@ export default function NewCompositeItemForm() {
         type="number"
         required
       />
-      <button type="submit">Add</button>
+      {itemsWithWeights.map((item, index) => (
+        <div key={item.tempFormId}>
+          <p>Olá</p>
+          <button type="button" onClick={() => onRemoveItem(item.tempFormId)}>
+            Remove
+          </button>
+        </div>
+      ))}
+      <button type="button" onClick={onAddItem}>
+        Add item
+      </button>
+      <button type="submit">Create</button>
     </form>
   );
 }

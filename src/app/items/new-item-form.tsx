@@ -121,7 +121,7 @@ export default function NewItemForm() {
         type="number"
         required
       />
-      <button type="submit">Add</button>
+      <button type="submit">Create</button>
     </form>
   );
 }
