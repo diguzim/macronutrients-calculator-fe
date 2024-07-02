@@ -1,5 +1,9 @@
 "use client";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 
 import FormInput from "../../components/form-input/form-input";
@@ -12,7 +16,7 @@ const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
 
 type ItemWithWeight = {
-  tempFormId: string;
+  tempKeyId: string;
   itemId: string;
   name: string;
   weight: number;
@@ -27,13 +31,13 @@ export default function NewCompositeItemForm() {
   const [availableItems, setAvailableItems] = useState<any[]>([]);
   const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>([
     {
-      tempFormId: "1",
+      tempKeyId: "1",
       itemId: "",
       name: "",
       weight: 0,
     },
     {
-      tempFormId: "2",
+      tempKeyId: "2",
       itemId: "",
       name: "",
       weight: 0,
@@ -61,7 +65,7 @@ export default function NewCompositeItemForm() {
     setItemsWithWeights((prev) => [
       ...prev,
       {
-        tempFormId: String(Math.random()),
+        tempKeyId: String(Math.random()),
         itemId: "",
         name: "",
         weight: 0,
@@ -69,16 +73,20 @@ export default function NewCompositeItemForm() {
     ]);
   }, []);
 
-  const onRemoveItem = useCallback((tempFormId: string) => {
+  const onRemoveItem = useCallback((tempKeyId: string) => {
     setItemsWithWeights((prev) =>
-      prev.filter((item) => item.tempFormId !== tempFormId)
+      prev.filter((item) => item.tempKeyId !== tempKeyId)
     );
   }, []);
 
-  const onSubmit = useCallback(async (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     const transformedData = {
       ...data,
       finalWeight: Number(data.finalWeight),
+      itemIdsWithWeights: itemsWithWeights.map((item) => ({
+        itemId: item.itemId,
+        weight: item.weight,
+      })),
     };
 
     try {
@@ -98,7 +106,7 @@ export default function NewCompositeItemForm() {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -110,10 +118,59 @@ export default function NewCompositeItemForm() {
         type="number"
         required
       />
-      {itemsWithWeights.map((item, index) => (
-        <div key={item.tempFormId}>
-          <p>Olá</p>
-          <button type="button" onClick={() => onRemoveItem(item.tempFormId)}>
+      {itemsWithWeights.map((itemWithWeight) => (
+        <div key={itemWithWeight.tempKeyId}>
+          {/* This is not a FormSelect because we need to control it's state by ourselves */}
+          {/* Therefore we used the pure Select from mui */}
+          <InputLabel>Item</InputLabel>
+          <Select
+            value={itemWithWeight.itemId}
+            onChange={(e) => {
+              const selectedItemId = e.target.value;
+              const selectedItem = availableItems.find(
+                (item) => item.id === selectedItemId
+              );
+
+              setItemsWithWeights((prev) =>
+                prev.map((item) =>
+                  item.tempKeyId === itemWithWeight.tempKeyId
+                    ? {
+                        ...item,
+                        itemId: selectedItemId,
+                        name: selectedItem?.name,
+                      }
+                    : item
+                )
+              );
+            }}
+          >
+            <MenuItem value="">Select an item</MenuItem>
+            {availableItems.map((item) => (
+              <MenuItem key={item.id} value={item.id}>
+                {item.name}
+              </MenuItem>
+            ))}
+          </Select>
+          {/* Similar, but now with TextField from mui instead of FormInput */}
+          <TextField
+            label="Weight"
+            type="number"
+            value={itemWithWeight.weight}
+            onChange={(e) => {
+              const weight = Number(e.target.value);
+              setItemsWithWeights((prev) =>
+                prev.map((item) =>
+                  item.tempKeyId === itemWithWeight.tempKeyId
+                    ? { ...item, weight }
+                    : item
+                )
+              );
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}
+          >
             Remove
           </button>
         </div>
