@@ -4,3 +4,17 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.itemWithWeight {
+  display: flex;
+  gap: 10px;
+}
+
+.itemWithWeightSelect {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectItem {
+  min-width: 200px;
+}

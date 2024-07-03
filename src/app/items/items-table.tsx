@@ -15,7 +15,6 @@ const fetchItems = async () => {
 
 export default async function ItemsTable() {
   const items = await fetchItems();
-  console.log("items", items);
 
   return (
     <table className={styles.table}>

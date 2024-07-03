@@ -1,6 +1,5 @@
 "use client";
 
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
@@ -126,63 +125,68 @@ export default function NewCompositeItemForm() {
         type="number"
         required
       />
-      {itemsWithWeights.map((itemWithWeight) => (
-        <div key={itemWithWeight.tempKeyId}>
-          {/* This is not a FormSelect because we need to control it's state by ourselves */}
-          {/* Therefore we used the pure Select from mui */}
-          <InputLabel>Item</InputLabel>
-          <Select
-            value={itemWithWeight.itemId}
-            onChange={(e) => {
-              const selectedItemId = e.target.value;
-              const selectedItem = availableItems.find(
-                (item) => item.id === selectedItemId
-              );
+      {itemsWithWeights.map((itemWithWeight) => {
+        console.log("itemWithWeight", itemWithWeight);
+        return (
+          <div key={itemWithWeight.tempKeyId} className={styles.itemWithWeight}>
+            {/* This is not a FormSelect because we need to control it's state by ourselves */}
+            {/* Therefore we used the pure Select from mui */}
+            <Select
+              label="Item"
+              name="Item"
+              id={`item-${itemWithWeight.tempKeyId}`}
+              value={itemWithWeight.itemId}
+              onChange={(e) => {
+                const selectedItemId = e.target.value;
+                const selectedItem = availableItems.find(
+                  (item) => item.id === selectedItemId
+                );
 
-              setItemsWithWeights((prev) =>
-                prev.map((item) =>
-                  item.tempKeyId === itemWithWeight.tempKeyId
-                    ? {
-                        ...item,
-                        itemId: selectedItemId,
-                        name: selectedItem?.name,
-                      }
-                    : item
-                )
-              );
-            }}
-          >
-            <MenuItem value="">Select an item</MenuItem>
-            {availableItems.map((item) => (
-              <MenuItem key={item.id} value={item.id}>
-                {item.name}
-              </MenuItem>
-            ))}
-          </Select>
-          {/* Similar, but now with TextField from mui instead of FormInput */}
-          <TextField
-            label="Weight"
-            type="number"
-            value={itemWithWeight.weight}
-            onChange={(e) => {
-              const weight = Number(e.target.value);
-              setItemsWithWeights((prev) =>
-                prev.map((item) =>
-                  item.tempKeyId === itemWithWeight.tempKeyId
-                    ? { ...item, weight }
-                    : item
-                )
-              );
-            }}
-          />
-          <button
-            type="button"
-            onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}
-          >
-            Remove
-          </button>
-        </div>
-      ))}
+                setItemsWithWeights((prev) =>
+                  prev.map((item) =>
+                    item.tempKeyId === itemWithWeight.tempKeyId
+                      ? {
+                          ...item,
+                          itemId: selectedItemId,
+                          name: selectedItem?.name,
+                        }
+                      : item
+                  )
+                );
+              }}
+              className={styles.selectItem}
+            >
+              {availableItems.map((item) => (
+                <MenuItem key={item.id} value={item.id}>
+                  {item.name}
+                </MenuItem>
+              ))}
+            </Select>
+            {/* Similar, but now with TextField from mui instead of FormInput */}
+            <TextField
+              label="Weight"
+              type="number"
+              value={itemWithWeight.weight}
+              onChange={(e) => {
+                const weight = Number(e.target.value);
+                setItemsWithWeights((prev) =>
+                  prev.map((item) =>
+                    item.tempKeyId === itemWithWeight.tempKeyId
+                      ? { ...item, weight }
+                      : item
+                  )
+                );
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}
+            >
+              Remove
+            </button>
+          </div>
+        );
+      })}
       <button type="button" onClick={onAddItem}>
         Add item
       </button>
