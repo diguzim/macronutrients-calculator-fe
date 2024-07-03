@@ -1,4 +1,4 @@
-import { environmentVariables } from "../../utils/environment-variables";
+import { environmentVariables } from "../../../utils/environment-variables";
 
 import styles from "./items-table.module.css";
 

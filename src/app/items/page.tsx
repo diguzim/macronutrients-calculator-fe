@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 
-import ItemsTable from "./items-table";
-import NewCompositeItemForm from "./new-composite-item.form";
-import NewItemForm from "./new-item-form";
+import ItemsTable from "./items-table/items-table";
+import NewCompositeItemForm from "./new-composite-item/new-composite-item.form";
+import NewItemForm from "./new-item/new-item-form";
 import styles from "./page.module.css";
 
 export default function Page() {

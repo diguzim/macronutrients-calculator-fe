@@ -2,13 +2,13 @@
 
 import { useForm } from "react-hook-form";
 
-import FormInput from "../../components/form-input/form-input";
+import FormInput from "../../../components/form-input/form-input";
 
 import { useCallback } from "react";
-import FormSelect from "../../components/form-select/form-select";
-import { environmentVariables } from "../../utils/environment-variables";
+import FormSelect from "../../../components/form-select/form-select";
+import { environmentVariables } from "../../../utils/environment-variables";
+import { revalidateItems } from "./../revalidate-items";
 import styles from "./new-item-form.module.css";
-import { revalidateItems } from "./revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 

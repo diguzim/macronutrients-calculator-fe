@@ -5,12 +5,12 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
 
-import FormInput from "../../components/form-input/form-input";
+import FormInput from "../../../components/form-input/form-input";
 
 import { useCallback, useEffect, useState } from "react";
-import { environmentVariables } from "../../utils/environment-variables";
+import { environmentVariables } from "../../../utils/environment-variables";
+import { revalidateItems } from "../revalidate-items";
 import styles from "./new-composite-item.module.css";
-import { revalidateItems } from "./revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
