@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import FormSelect from "../../components/form-select/form-select";
 import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./new-item-form.module.css";
+import { revalidateItems } from "./revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
@@ -22,18 +23,20 @@ type FormData = {
   kcal: number;
 };
 
+const initialFormData: FormData = {
+  name: "",
+  type: "",
+  weight: 0,
+  protein: 0,
+  fat: 0,
+  carbohydrate: 0,
+  fiber: 0,
+  kcal: 0,
+};
+
 export default function NewItemForm() {
-  const { control, handleSubmit } = useForm<FormData>({
-    defaultValues: {
-      name: "",
-      type: undefined,
-      weight: 0,
-      protein: 0,
-      fat: 0,
-      carbohydrate: 0,
-      fiber: 0,
-      kcal: 0,
-    },
+  const { control, handleSubmit, reset } = useForm<FormData>({
+    defaultValues: initialFormData,
   });
 
   const onSubmit = useCallback(async (data: FormData) => {
@@ -58,6 +61,8 @@ export default function NewItemForm() {
 
       if (response.ok) {
         alert("Ingredient added successfully");
+        reset(initialFormData);
+        await revalidateItems();
       } else {
         throw new Error("Error adding item");
       }

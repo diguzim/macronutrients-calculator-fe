@@ -11,14 +11,15 @@ import FormInput from "../../components/form-input/form-input";
 import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./new-composite-item.module.css";
+import { revalidateItems } from "./revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
 
 type ItemWithWeight = {
   tempKeyId: string;
-  itemId: string;
-  name: string;
+  itemId?: string;
+  name?: string;
   weight: number;
 };
 
@@ -27,32 +28,40 @@ type FormData = {
   finalWeight: number;
 };
 
+function generateEmptyItemWithWeight(): ItemWithWeight {
+  return {
+    tempKeyId: String(Math.random()),
+    itemId: undefined,
+    name: undefined,
+    weight: 0,
+  };
+}
+
+const initialFormData: FormData = {
+  name: "",
+  finalWeight: 0,
+};
+
+const initialItemsWithWeights: ItemWithWeight[] = [
+  generateEmptyItemWithWeight(),
+];
+
 export default function NewCompositeItemForm() {
   const [availableItems, setAvailableItems] = useState<any[]>([]);
-  const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>([
-    {
-      tempKeyId: "1",
-      itemId: "",
-      name: "",
-      weight: 0,
-    },
-    {
-      tempKeyId: "2",
-      itemId: "",
-      name: "",
-      weight: 0,
-    },
-  ]);
 
-  const { control, handleSubmit } = useForm<FormData>({
-    defaultValues: {
-      name: "",
-      finalWeight: 0,
-    },
+  const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>(
+    initialItemsWithWeights
+  );
+  const { control, handleSubmit, reset } = useForm<FormData>({
+    defaultValues: initialFormData,
   });
 
   const fetchItems = useCallback(async () => {
-    const response = await fetch(GET_URL);
+    const response = await fetch(GET_URL, {
+      next: {
+        tags: ["items"],
+      },
+    });
     const items = (await response.json()) as any[];
     setAvailableItems(items);
   }, []);
@@ -62,21 +71,18 @@ export default function NewCompositeItemForm() {
   }, [fetchItems]);
 
   const onAddItem = useCallback(() => {
-    setItemsWithWeights((prev) => [
-      ...prev,
-      {
-        tempKeyId: String(Math.random()),
-        itemId: "",
-        name: "",
-        weight: 0,
-      },
-    ]);
+    setItemsWithWeights((prev) => [...prev, generateEmptyItemWithWeight()]);
   }, []);
 
   const onRemoveItem = useCallback((tempKeyId: string) => {
     setItemsWithWeights((prev) =>
       prev.filter((item) => item.tempKeyId !== tempKeyId)
     );
+  }, []);
+
+  const onResetAll = useCallback(() => {
+    setItemsWithWeights(initialItemsWithWeights);
+    reset(initialFormData);
   }, []);
 
   const onSubmit = async (data: FormData) => {
@@ -100,6 +106,8 @@ export default function NewCompositeItemForm() {
 
       if (response.ok) {
         alert("Composite item created successfully");
+        await revalidateItems();
+        onResetAll();
       } else {
         throw new Error("Error creating composite item");
       }
