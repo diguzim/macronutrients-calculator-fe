@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import Sidebar from "../components/sidebar/sidebar";
-
 import Topbar from "../components/topbar/topbar";
+
 import "./globals.css";
-import styles from "./layout.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <div className={styles.topbarContainer}>
+          <div className="flex flex-col w-full h-full">
             <Topbar />
-            <div className={styles.sidebarMainContainer}>
+            <div className="flex flex-row w-full h-full">
               <Sidebar />
-              <main className={styles.main}>{children}</main>
+              <main className="flex flex-col flex-1 p-1">{children}</main>
             </div>
           </div>
         </AppRouterCacheProvider>
