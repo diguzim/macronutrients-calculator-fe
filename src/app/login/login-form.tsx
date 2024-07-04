@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 
 import { useSnackbar } from "notistack";
 import FormInput from "../../components/form-input/form-input";
+import useAuth from "../../contexts/auth/use-auth";
 import { environmentVariables } from "../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/auth/login`;
@@ -25,6 +26,7 @@ export default function RegisterForm() {
     defaultValues: initialFormData,
   });
 
+  const { login } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = useCallback(async (data: FormData) => {
@@ -38,6 +40,8 @@ export default function RegisterForm() {
       });
 
       if (response.ok) {
+        const { token, user } = await response.json();
+        login(user, token);
         enqueueSnackbar("Login successful!", { variant: "success" });
         reset(initialFormData);
       } else {
