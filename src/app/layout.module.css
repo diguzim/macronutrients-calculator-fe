@@ -1,15 +1,22 @@
-.container {
+.topbarContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: 'green';
 }
 
-.content {
+.sidebarMainContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 5px;
 }

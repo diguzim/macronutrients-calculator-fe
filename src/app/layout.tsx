@@ -1,9 +1,10 @@
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import Sidebar from "../components/sidebar/sidebar";
 
+import Topbar from "../components/topbar/topbar";
 import "./globals.css";
 import styles from "./layout.module.css";
 
@@ -23,9 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <div className={styles.container}>
-            <Sidebar />
-            <div className={styles.content}>{children}</div>
+          <div className={styles.topbarContainer}>
+            <Topbar />
+            <div className={styles.sidebarMainContainer}>
+              <Sidebar />
+              <main className={styles.main}>{children}</main>
+            </div>
           </div>
         </AppRouterCacheProvider>
       </body>
