@@ -1,12 +1,9 @@
 import NavigationLinks from "./navigation-links";
-import styles from "./sidebar.module.css";
-import VerticalPlaceholder from "./vertical-placeholder";
 
 export default function Sidebar() {
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col gap-1 h-full w-60 m-1">
       <NavigationLinks />
-      <VerticalPlaceholder />
     </div>
   );
 }

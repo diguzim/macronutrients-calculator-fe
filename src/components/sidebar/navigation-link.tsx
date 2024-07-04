@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./navigation-link.module.css";
 
 export default function NavigationLink({
   href,
@@ -13,7 +12,10 @@ export default function NavigationLink({
   return (
     <Link
       href={href}
-      className={`${styles.link} ${active ? styles.active : ""}`}
+      className={`
+        flex flex-row items-center gap-1 bg-gray-50 p-2.5 rounded font-semibold text-sm
+        ${active ? "bg-blue-100 text-blue-600" : ""}
+      `}
     >
       {children}
     </Link>

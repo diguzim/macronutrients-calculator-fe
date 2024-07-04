@@ -6,7 +6,6 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
 import NavigationLink from "./navigation-link";
-import styles from "./navigation-links.module.css";
 
 type Link = {
   name: string;
@@ -31,7 +30,7 @@ export default function NavigationLinks() {
   const pathname = usePathname();
 
   return (
-    <nav className={styles.container}>
+    <nav className="flex flex-col gap-1">
       {links.map(({ name, href, icon }) => (
         <NavigationLink key={href} href={href} active={pathname === href}>
           {icon}
