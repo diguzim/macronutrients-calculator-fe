@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import FormSelect from "../../../components/form-select/form-select";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "./../revalidate-items";
-import styles from "./new-item-form.module.css";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
@@ -72,7 +71,10 @@ export default function NewItemForm() {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-2 max-w-96"
+    >
       <FormInput name="name" control={control} label="Name" required />
       <FormSelect
         name="type"

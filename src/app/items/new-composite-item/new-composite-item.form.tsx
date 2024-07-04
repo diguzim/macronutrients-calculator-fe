@@ -10,7 +10,6 @@ import FormInput from "../../../components/form-input/form-input";
 import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "../revalidate-items";
-import styles from "./new-composite-item.module.css";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
@@ -116,7 +115,10 @@ export default function NewCompositeItemForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-2 max-w-96"
+    >
       <FormInput name="name" control={control} label="Name" required />
       <FormInput
         name="finalWeight"
@@ -126,9 +128,8 @@ export default function NewCompositeItemForm() {
         required
       />
       {itemsWithWeights.map((itemWithWeight) => {
-        console.log("itemWithWeight", itemWithWeight);
         return (
-          <div key={itemWithWeight.tempKeyId} className={styles.itemWithWeight}>
+          <div key={itemWithWeight.tempKeyId} className="flex flex-row gap-2">
             {/* This is not a FormSelect because we need to control it's state by ourselves */}
             {/* Therefore we used the pure Select from mui */}
             <Select
@@ -136,6 +137,7 @@ export default function NewCompositeItemForm() {
               name="Item"
               id={`item-${itemWithWeight.tempKeyId}`}
               value={itemWithWeight.itemId}
+              className="min-w-52"
               onChange={(e) => {
                 const selectedItemId = e.target.value;
                 const selectedItem = availableItems.find(
@@ -154,7 +156,6 @@ export default function NewCompositeItemForm() {
                   )
                 );
               }}
-              className={styles.selectItem}
             >
               {availableItems.map((item) => (
                 <MenuItem key={item.id} value={item.id}>

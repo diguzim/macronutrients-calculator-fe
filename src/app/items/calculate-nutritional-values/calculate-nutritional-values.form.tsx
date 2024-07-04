@@ -111,14 +111,10 @@ export default function CalculateNutritionalValuesForm() {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className={styles.form}>
+      <form onSubmit={onSubmit} className="flex flex-col gap-2 max-w-96">
         {itemsWithWeights.map((itemWithWeight) => {
-          console.log("itemWithWeight", itemWithWeight);
           return (
-            <div
-              key={itemWithWeight.tempKeyId}
-              className={styles.itemWithWeight}
-            >
+            <div key={itemWithWeight.tempKeyId} className="flex gap-2">
               {/* This is not a FormSelect because we need to control it's state by ourselves */}
               {/* Therefore we used the pure Select from mui */}
               <Select
@@ -126,6 +122,7 @@ export default function CalculateNutritionalValuesForm() {
                 name="Item"
                 id={`item-${itemWithWeight.tempKeyId}`}
                 value={itemWithWeight.itemId}
+                className="min-w-52"
                 onChange={(e) => {
                   const selectedItemId = e.target.value;
                   const selectedItem = availableItems.find(
@@ -144,7 +141,6 @@ export default function CalculateNutritionalValuesForm() {
                     )
                   );
                 }}
-                className={styles.selectItem}
               >
                 {availableItems.map((item) => (
                   <MenuItem key={item.id} value={item.id}>

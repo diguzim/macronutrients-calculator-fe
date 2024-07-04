@@ -1,24 +1,3 @@
-.form {
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.itemWithWeight {
-  display: flex;
-  gap: 10px;
-}
-
-.itemWithWeightSelect {
-  display: flex;
-  flex-direction: column;
-}
-
-.selectItem {
-  min-width: 200px;
-}
-
 .table,
 .table th,
 .table td {
