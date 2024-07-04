@@ -1,5 +1,6 @@
 "use client";
 
+import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 
 import FormInput from "../../../components/form-input/form-input";
@@ -37,6 +38,7 @@ export default function NewItemForm() {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
+  const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = useCallback(async (data: FormData) => {
     const transformedData = {
@@ -59,14 +61,17 @@ export default function NewItemForm() {
       });
 
       if (response.ok) {
-        alert("Ingredient added successfully");
+        enqueueSnackbar("Ingredient added successfully", {
+          variant: "success",
+        });
         reset(initialFormData);
         await revalidateItems();
       } else {
         throw new Error("Error adding item");
       }
     } catch (error) {
-      console.error(error);
+      console.log("error", error);
+      enqueueSnackbar("Error adding item", { variant: "error" });
     }
   }, []);
 

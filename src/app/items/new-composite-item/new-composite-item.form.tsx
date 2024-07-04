@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 
 import FormInput from "../../../components/form-input/form-input";
 
+import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "../revalidate-items";
@@ -46,13 +47,14 @@ const initialItemsWithWeights: ItemWithWeight[] = [
 
 export default function NewCompositeItemForm() {
   const [availableItems, setAvailableItems] = useState<any[]>([]);
-
   const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>(
     initialItemsWithWeights
   );
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const fetchItems = useCallback(async () => {
     const response = await fetch(GET_URL, {
@@ -103,7 +105,9 @@ export default function NewCompositeItemForm() {
       });
 
       if (response.ok) {
-        alert("Composite item created successfully");
+        enqueueSnackbar("Composite item created successfully", {
+          variant: "success",
+        });
         await revalidateItems();
         onResetAll();
       } else {
@@ -111,6 +115,9 @@ export default function NewCompositeItemForm() {
       }
     } catch (error) {
       console.error(error);
+      enqueueSnackbar("Error creating composite item", {
+        variant: "error",
+      });
     }
   };
 

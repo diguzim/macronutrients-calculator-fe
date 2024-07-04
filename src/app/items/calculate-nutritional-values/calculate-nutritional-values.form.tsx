@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
+import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../../utils/environment-variables";
 import styles from "./calculate-nutritional-values.module.css";
@@ -50,10 +51,10 @@ export default function CalculateNutritionalValuesForm() {
       fiber: 0,
     }
   );
-
   const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>(
     initialItemsWithWeights
   );
+  const { enqueueSnackbar } = useSnackbar();
 
   const fetchItems = useCallback(async () => {
     const response = await fetch(GET_URL, {
@@ -106,6 +107,9 @@ export default function CalculateNutritionalValuesForm() {
       }
     } catch (error) {
       console.error(error);
+      enqueueSnackbar("Error calculating nutritional values", {
+        variant: "error",
+      });
     }
   };
 

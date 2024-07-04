@@ -10,7 +10,13 @@ const fetchItems = async () => {
       tags: ["items"],
     },
   });
-  return (await response.json()) as any[];
+
+  // return (await response.json()) as any[];
+  if (response.ok) {
+    return (await response.json()) as any[];
+  } else {
+    throw new Error("Failed to fetch items");
+  }
 };
 
 export default async function ItemsTable() {

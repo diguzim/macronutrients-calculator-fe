@@ -1,10 +1,10 @@
 "use client";
 
 import Button from "@mui/material/Button";
-import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
+import { useSnackbar } from "notistack";
 import FormInput from "../../components/form-input/form-input";
 import { environmentVariables } from "../../utils/environment-variables";
 
@@ -24,7 +24,8 @@ export default function RegisterForm() {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
-  const router = useRouter();
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = useCallback(async (data: FormData) => {
     try {
@@ -37,14 +38,14 @@ export default function RegisterForm() {
       });
 
       if (response.ok) {
-        alert("Login successful!");
+        enqueueSnackbar("Login successful!", { variant: "success" });
         reset(initialFormData);
-        // router.push("/");
       } else {
         throw new Error("Error logging in user");
       }
     } catch (error) {
       console.error(error);
+      enqueueSnackbar("Error logging in user", { variant: "error" });
     }
   }, []);
 
