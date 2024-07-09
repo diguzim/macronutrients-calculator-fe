@@ -1,10 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useMemo } from "react";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
+import useAuth from "../../contexts/auth/use-auth";
 import NavigationLink from "./navigation-link";
 
 type Link = {
@@ -13,7 +16,7 @@ type Link = {
   icon: JSX.Element;
 };
 
-const links: Link[] = [
+const generalLinks: Link[] = [
   {
     name: "Home",
     href: "/",
@@ -26,8 +29,21 @@ const links: Link[] = [
   },
 ];
 
+const authenticatedLinks: Link[] = [
+  {
+    name: "Meals",
+    href: "/meals",
+    icon: <LocalDiningIcon />,
+  },
+];
+
 export default function NavigationLinks() {
   const pathname = usePathname();
+  const { isAuthenticated } = useAuth();
+
+  const links = useMemo(() => {
+    return [...generalLinks, ...(isAuthenticated ? authenticatedLinks : [])];
+  }, [isAuthenticated]);
 
   return (
     <nav className="flex flex-col gap-1">
