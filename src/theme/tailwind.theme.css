@@ -1,0 +1,11 @@
+/* Used together with theme defined in tailwind.config.js */
+
+.bg-primary {
+  background-color: theme('colors.primary.DEFAULT');
+  color: theme('colors.primary.contrast');
+}
+
+.bg-secondary {
+  background-color: theme('colors.secondary.DEFAULT');
+  color: theme('colors.secondary.contrast');
+}

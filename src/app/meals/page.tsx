@@ -4,7 +4,7 @@ import NewMealForm from "./new-meal/new-meal.form";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-2 bg-gray-50 p-2">
+    <div className="flex flex-col gap-2 bg-white p-2">
       <h1>Meals</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <MealsTable />

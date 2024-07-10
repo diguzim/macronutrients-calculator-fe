@@ -13,8 +13,8 @@ export default function NavigationLink({
     <Link
       href={href}
       className={`
-        flex flex-row items-center gap-1 bg-gray-50 p-2.5 rounded font-semibold text-sm
-        ${active ? "bg-blue-100 text-blue-600" : ""}
+        flex flex-row items-center gap-1 bg-white p-2.5 rounded font-semibold text-sm
+        ${active ? "bg-primary text-primary" : ""}
       `}
     >
       {children}
