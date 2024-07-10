@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../../utils/environment-variables";
 
 import useAuth from "../../../contexts/auth/use-auth";
+import { formatDatetime } from "../../../utils/datetime/formatDateTime";
 import styles from "./meals-table.module.css";
 
 const URL = `${environmentVariables().public.backendUrl}/meals`;
@@ -54,6 +55,7 @@ export default function MealsTable() {
           <th>Protein</th>
           <th>Fat</th>
           <th>Fiber</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
@@ -65,6 +67,7 @@ export default function MealsTable() {
             <td>{meal.protein}</td>
             <td>{meal.fat}</td>
             <td>{meal.fiber}</td>
+            <td>{formatDatetime(meal.createdAt)}</td>
           </tr>
         ))}
       </tbody>
