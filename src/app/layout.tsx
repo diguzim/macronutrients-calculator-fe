@@ -33,10 +33,10 @@ export default function RootLayout({
             <ThemeProvider theme={theme}>
               <AuthProvider>
                 <NotificationProvider>
-                  <div className="flex flex-col w-full h-full">
-                    <Topbar />
-                    <div className="flex flex-row w-full h-full">
-                      <Sidebar />
+                  <div className="flex flex-row w-full h-full">
+                    <Sidebar />
+                    <div className="flex flex-col w-full h-full">
+                      <Topbar />
                       <main className="flex flex-col flex-1 p-1">
                         {children}
                       </main>

@@ -46,7 +46,7 @@ export default function NavigationLinks() {
   }, [isAuthenticated]);
 
   return (
-    <nav className="flex flex-col gap-1">
+    <nav className="flex flex-col">
       {links.map(({ name, href, icon }) => (
         <NavigationLink key={href} href={href} active={pathname === href}>
           {icon}
