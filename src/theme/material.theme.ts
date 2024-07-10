@@ -5,15 +5,15 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#18c00a",
-      light: "#18c00a",
-      dark: "#18c00a",
+      main: "#1976d2",
+      light: "#63a4ff",
+      dark: "#004ba0",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#7a26ff",
-      light: "#7a26ff",
-      dark: "#7a26ff",
+      main: "#4caf50",
+      light: "#80e27e",
+      dark: "#087f23",
       contrastText: "#ffffff",
     },
   },
