@@ -59,7 +59,13 @@ export default function RegisterForm() {
       className="flex flex-col gap-2 max-w-96"
     >
       <FormInput name="email" control={control} label="Email" required />
-      <FormInput name="password" control={control} label="Password" required />
+      <FormInput
+        name="password"
+        type="password"
+        control={control}
+        label="Password"
+        required
+      />
       <Button variant="contained" size="large" type="submit">
         Login
       </Button>
