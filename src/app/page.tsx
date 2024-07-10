@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import Header from "../components/header/header";
 
 export default function Page() {
   const { t } = useTranslation();
@@ -8,12 +9,10 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <header>
-        <h1 className="text-4xl text-primary">
-          Welcome to the Macronutrient Calculator
-        </h1>
+        <Header text="Welcome to the Macronutrient Calculator" size={1} />
       </header>
       <section>
-        <h2 className="text-2xl text-primary">About Our Application</h2>
+        <Header text="About Our Application" size={2} />
         <p>
           Our macronutrient calculator is designed to help you manage and
           understand your nutritional intake effectively. Whether you're
@@ -22,10 +21,9 @@ export default function Page() {
         </p>
       </section>
       <section className="flex flex-col gap-3">
-        <h2 className="text-2xl text-primary">Key Features</h2>
-
+        <Header text="Key Features" size={2} />
         <article>
-          <h3 className="text-xl text-primary">Item Listing</h3>
+          <Header text="Item Listing" size={3} />
           <p>
             Browse through a comprehensive list of food items, each with
             detailed nutritional values. Easily add new items to the list,
@@ -34,7 +32,7 @@ export default function Page() {
         </article>
 
         <article>
-          <h3 className="text-xl text-primary">Recipe Creation</h3>
+          <Header text="Recipe Creation" size={3} />
           <p>
             Create new composite items (recipes) by combining various
             ingredients from your item list. Our app calculates the total
@@ -43,7 +41,7 @@ export default function Page() {
         </article>
 
         <article>
-          <h3 className="text-xl text-primary">Nutritional Calculation</h3>
+          <Header text="Nutritional Calculation" size={3} />
           <p>
             Calculate the nutritional values of any item based on its weight.
             Get precise information on macronutrients to better manage your
@@ -52,7 +50,7 @@ export default function Page() {
         </article>
 
         <article>
-          <h3 className="text-xl text-primary">Meal Recording</h3>
+          <Header text="Meal Recording" size={3} />
           <p>
             Record your meals and get detailed nutritional equivalents for
             everything you consume. Track your intake over time and make
