@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 
+import Header from "../../components/header/header";
 import CalculateNutritionalValuesForm from "./calculate-nutritional-values/calculate-nutritional-values.form";
 import ItemsTable from "./items-table/items-table";
 import NewCompositeItemForm from "./new-composite-item/new-composite-item.form";
@@ -7,23 +8,25 @@ import NewItemForm from "./new-item/new-item-form";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-2p-2">
-      <h1>Items</h1>
+    <div className="flex flex-col gap-2">
+      <header>
+        <Header size={1} text="Items" />
+      </header>
       <Suspense fallback={<div>Loading...</div>}>
         <ItemsTable />
       </Suspense>
-      <div className="flex flex-col gap-2 w-full">
-        <h2>Add new item</h2>
+      <section className="flex flex-col gap-2 w-full">
+        <Header size={2} text="Add new item" />
         <NewItemForm />
-      </div>
-      <div className="flex flex-col gap-2 w-full">
-        <h2>Add new composite</h2>
+      </section>
+      <section className="flex flex-col gap-2 w-full">
+        <Header size={2} text="Add new recipe" />
         <NewCompositeItemForm />
-      </div>
-      <div className="flex flex-col gap-2 w-full">
-        <h2>Calculate nutritional values</h2>
+      </section>
+      <section className="flex flex-col gap-2 w-full">
+        <Header size={2} text="Calculate nutritional values" />
         <CalculateNutritionalValuesForm />
-      </div>
+      </section>
     </div>
   );
 }
