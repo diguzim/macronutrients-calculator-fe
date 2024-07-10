@@ -7,7 +7,7 @@ import NewItemForm from "./new-item/new-item-form";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-2 bg-white p-2">
+    <div className="flex flex-col gap-2p-2">
       <h1>Items</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <ItemsTable />
