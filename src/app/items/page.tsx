@@ -7,7 +7,7 @@ import ItemsTable from "./items-table/items-table";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       <header>
         <Header size={1} text="Items" />
       </header>

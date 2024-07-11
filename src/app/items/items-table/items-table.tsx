@@ -67,14 +67,28 @@ export default function ItemsTable() {
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Kcal</TableCell>
-              <TableCell>Carbohydrates</TableCell>
-              <TableCell>Protein</TableCell>
-              <TableCell>Fat</TableCell>
-              <TableCell>Fiber</TableCell>
+            <TableRow className="bg-gray-200">
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Name
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Type
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Kcal
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Carbohydrates
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Protein
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Fat
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
+                Fiber
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
