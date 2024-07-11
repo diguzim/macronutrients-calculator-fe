@@ -11,7 +11,6 @@ const fetchItems = async () => {
     },
   });
 
-  // return (await response.json()) as any[];
   if (response.ok) {
     return (await response.json()) as any[];
   } else {

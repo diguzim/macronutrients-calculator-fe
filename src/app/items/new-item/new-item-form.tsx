@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 
 import FormInput from "../../../components/form-input/form-input";
 
+import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import FormSelect from "../../../components/form-select/form-select";
 import { environmentVariables } from "../../../utils/environment-variables";
@@ -39,6 +40,7 @@ export default function NewItemForm() {
     defaultValues: initialFormData,
   });
   const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
 
   const onSubmit = useCallback(async (data: FormData) => {
     const transformedData = {
@@ -61,11 +63,12 @@ export default function NewItemForm() {
       });
 
       if (response.ok) {
-        enqueueSnackbar("Ingredient added successfully", {
+        await revalidateItems();
+        reset(initialFormData);
+        enqueueSnackbar("Item added successfully", {
           variant: "success",
         });
-        reset(initialFormData);
-        await revalidateItems();
+        router.push("/items");
       } else {
         throw new Error("Error adding item");
       }

@@ -1,10 +1,11 @@
+import Button from "@mui/material/Button";
 import { Suspense } from "react";
 
+import Link from "next/link";
 import Header from "../../components/header/header";
 import CalculateNutritionalValuesForm from "./calculate-nutritional-values/calculate-nutritional-values.form";
 import ItemsTable from "./items-table/items-table";
 import NewCompositeItemForm from "./new-composite-item/new-composite-item.form";
-import NewItemForm from "./new-item/new-item-form";
 
 export default function Page() {
   return (
@@ -15,10 +16,11 @@ export default function Page() {
       <Suspense fallback={<div>Loading...</div>}>
         <ItemsTable />
       </Suspense>
-      <section className="flex flex-col gap-2 w-full">
-        <Header size={2} text="Add new item" />
-        <NewItemForm />
-      </section>
+      <Link href="items/new-item" passHref>
+        <Button variant="contained" size="large">
+          Create Item
+        </Button>
+      </Link>
       <section className="flex flex-col gap-2 w-full">
         <Header size={2} text="Add new recipe" />
         <NewCompositeItemForm />
