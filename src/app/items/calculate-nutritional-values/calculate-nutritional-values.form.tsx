@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
@@ -177,10 +178,12 @@ export default function CalculateNutritionalValuesForm() {
             </div>
           );
         })}
-        <button type="button" onClick={onAddItem}>
-          Add item
-        </button>
-        <button type="submit">Calculate</button>
+        <Button onClick={onAddItem} variant="outlined" size="medium">
+          + Add item
+        </Button>
+        <Button type="submit" variant="contained" size="large">
+          Calculate
+        </Button>
       </form>
       <div>
         <h3>Result</h3>

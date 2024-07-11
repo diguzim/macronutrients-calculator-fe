@@ -3,7 +3,6 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 import Header from "../../components/header/header";
-import CalculateNutritionalValuesForm from "./calculate-nutritional-values/calculate-nutritional-values.form";
 import ItemsTable from "./items-table/items-table";
 
 export default function Page() {
@@ -15,19 +14,25 @@ export default function Page() {
       <Suspense fallback={<div>Loading...</div>}>
         <ItemsTable />
       </Suspense>
-      <Link href="items/new-item" passHref>
-        <Button variant="contained" size="large">
-          Create Item
-        </Button>
-      </Link>
-      <Link href="items/new-recipe" passHref>
-        <Button variant="contained" size="large">
-          Create Recipe
-        </Button>
-      </Link>
-      <section className="flex flex-col gap-2 w-full">
-        <Header size={2} text="Calculate nutritional values" />
-        <CalculateNutritionalValuesForm />
+      <section>
+        <Header size={2} text="Actions" className="mb-2" />
+        <div className="flex flex-row gap-4">
+          <Link href="items/new-item" passHref>
+            <Button variant="contained" size="large">
+              Create Item
+            </Button>
+          </Link>
+          <Link href="items/new-recipe" passHref>
+            <Button variant="contained" size="large">
+              Create Recipe
+            </Button>
+          </Link>
+          <Link href="items/calculate-nutritional-values" passHref>
+            <Button variant="contained" size="large">
+              Calculate Nutritional Values
+            </Button>
+          </Link>
+        </div>
       </section>
     </div>
   );

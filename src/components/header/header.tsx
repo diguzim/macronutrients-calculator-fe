@@ -1,4 +1,4 @@
-export interface HeaderProps {
+export interface HeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
   text: string;
   size: 1 | 2 | 3 | 4 | 5 | 6;
 }
@@ -12,10 +12,19 @@ const sizeMappingClass = {
   6: "text-base",
 };
 
-const Header: React.FC<HeaderProps> = ({ text, size }) => {
-  const HeaderElement = `h${size}` as keyof JSX.IntrinsicElements;
+const Header: React.FC<HeaderProps> = ({
+  text,
+  size,
+  className,
+  ...remainingProps
+}) => {
+  const HeaderElement = `h${size}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
   return (
-    <HeaderElement className={`text-primary ${sizeMappingClass[size]}`}>
+    <HeaderElement
+      className={`text-primary ${sizeMappingClass[size]} ${className}`}
+      {...remainingProps}
+    >
       {text}
     </HeaderElement>
   );
