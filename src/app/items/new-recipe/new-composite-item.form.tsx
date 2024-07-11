@@ -1,5 +1,6 @@
 "use client";
 
+import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -140,7 +141,10 @@ export default function NewCompositeItemForm() {
       />
       {itemsWithWeights.map((itemWithWeight) => {
         return (
-          <div key={itemWithWeight.tempKeyId} className="flex flex-row gap-2">
+          <div
+            key={itemWithWeight.tempKeyId}
+            className="flex flex-row gap-2 items-center"
+          >
             {/* This is not a FormSelect because we need to control it's state by ourselves */}
             {/* Therefore we used the pure Select from mui */}
             <Select
@@ -190,12 +194,10 @@ export default function NewCompositeItemForm() {
                 );
               }}
             />
-            <button
-              type="button"
+            <RemoveCircleOutlineOutlinedIcon
               onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}
-            >
-              Remove
-            </button>
+              color="error"
+            />
           </div>
         );
       })}
