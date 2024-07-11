@@ -27,13 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-full`}>
         <AppRouterCacheProvider>
           <I18nProvider>
             <ThemeProvider theme={theme}>
               <AuthProvider>
                 <NotificationProvider>
-                  <div className="flex flex-row w-full h-full">
+                  <div className="flex flex-row w-full min-h-full">
                     <Sidebar />
                     <div className="flex flex-col w-full h-full">
                       <Topbar />

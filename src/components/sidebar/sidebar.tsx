@@ -4,7 +4,7 @@ import NavigationLinks from "./navigation-links";
 
 export default function Sidebar() {
   return (
-    <div className="flex flex-col gap-1 h-full w-80 bg-secondary">
+    <div className="flex flex-col gap-1 min-h-screen w-80 bg-secondary">
       <Link href="/">
         <Image
           src="/logo-no-background.svg"
