@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
@@ -7,6 +8,7 @@ import { useForm } from "react-hook-form";
 
 import FormInput from "../../../components/form-input/form-input";
 
+import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { environmentVariables } from "../../../utils/environment-variables";
@@ -53,6 +55,7 @@ export default function NewCompositeItemForm() {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
+  const router = useRouter();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -105,17 +108,18 @@ export default function NewCompositeItemForm() {
       });
 
       if (response.ok) {
-        enqueueSnackbar("Composite item created successfully", {
-          variant: "success",
-        });
         await revalidateItems();
         onResetAll();
+        enqueueSnackbar("Recipe created successfully", {
+          variant: "success",
+        });
+        router.push("/items");
       } else {
-        throw new Error("Error creating composite item");
+        throw new Error("Error creating recipe");
       }
     } catch (error) {
       console.error(error);
-      enqueueSnackbar("Error creating composite item", {
+      enqueueSnackbar("Error creating recipe", {
         variant: "error",
       });
     }
@@ -195,10 +199,12 @@ export default function NewCompositeItemForm() {
           </div>
         );
       })}
-      <button type="button" onClick={onAddItem}>
-        Add item
-      </button>
-      <button type="submit">Create</button>
+      <Button onClick={onAddItem} variant="outlined" size="medium">
+        + Add item
+      </Button>
+      <Button type="submit" variant="contained" size="large">
+        Create
+      </Button>
     </form>
   );
 }

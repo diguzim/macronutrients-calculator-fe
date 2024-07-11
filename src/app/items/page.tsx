@@ -5,7 +5,6 @@ import Link from "next/link";
 import Header from "../../components/header/header";
 import CalculateNutritionalValuesForm from "./calculate-nutritional-values/calculate-nutritional-values.form";
 import ItemsTable from "./items-table/items-table";
-import NewCompositeItemForm from "./new-composite-item/new-composite-item.form";
 
 export default function Page() {
   return (
@@ -21,10 +20,11 @@ export default function Page() {
           Create Item
         </Button>
       </Link>
-      <section className="flex flex-col gap-2 w-full">
-        <Header size={2} text="Add new recipe" />
-        <NewCompositeItemForm />
-      </section>
+      <Link href="items/new-recipe" passHref>
+        <Button variant="contained" size="large">
+          Create Recipe
+        </Button>
+      </Link>
       <section className="flex flex-col gap-2 w-full">
         <Header size={2} text="Calculate nutritional values" />
         <CalculateNutritionalValuesForm />

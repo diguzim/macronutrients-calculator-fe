@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@mui/material/Button";
 import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 
@@ -136,7 +137,9 @@ export default function NewItemForm() {
         type="number"
         required
       />
-      <button type="submit">Create</button>
+      <Button type="submit" variant="contained" size="large">
+        Create
+      </Button>
     </form>
   );
 }
