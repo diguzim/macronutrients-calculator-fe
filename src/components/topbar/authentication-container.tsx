@@ -1,9 +1,9 @@
 "use client";
 
-import Button from "@mui/material/Button";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import useAuth from "../../contexts/auth/use-auth";
+import Button from "../button/button";
 
 export default function AuthenticationContainer() {
   const { isAuthenticated, logout } = useAuth();

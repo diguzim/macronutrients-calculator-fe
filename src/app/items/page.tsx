@@ -1,7 +1,7 @@
-import Button from "@mui/material/Button";
 import { Suspense } from "react";
 
 import Link from "next/link";
+import Button from "../../components/button/button";
 import Header from "../../components/header/header";
 import LinearProgress from "../../components/linear-progress/linear-progress";
 import ItemsTable from "./items-table/items-table";

@@ -9,6 +9,7 @@ import FormInput from "../../../components/form-input/form-input";
 
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
+import Button from "../../../components/button/button";
 import useAuth from "../../../contexts/auth/use-auth";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateMeals } from "../revalidate-meals";
@@ -186,19 +187,14 @@ export default function NewMealForm() {
                 );
               }}
             />
-            <button
-              type="button"
-              onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}
-            >
+            <Button onClick={() => onRemoveItem(itemWithWeight.tempKeyId)}>
               Remove
-            </button>
+            </Button>
           </div>
         );
       })}
-      <button type="button" onClick={onAddItem}>
-        Add item
-      </button>
-      <button type="submit">Create</button>
+      <Button onClick={onAddItem}>Add item</Button>
+      <Button type="submit">Create</Button>
     </form>
   );
 }

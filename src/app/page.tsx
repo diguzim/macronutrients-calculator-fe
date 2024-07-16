@@ -9,12 +9,11 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <header>
-        <Header text="Welcome to the Macronutrient Calculator" size={1} />
+        <Header text="Welcome to MaCal" size={1} />
       </header>
       <section>
-        <Header text="About Our Application" size={2} />
         <p>
-          Our macronutrient calculator is designed to help you manage and
+          MaCal (Macronutrients Calculator) is designed to help you manage and
           understand your nutritional intake effectively. Whether you're
           tracking your meals, creating new recipes, or simply curious about the
           nutritional content of your food, our app has you covered.

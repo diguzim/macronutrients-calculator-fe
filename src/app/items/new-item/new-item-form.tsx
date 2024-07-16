@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@mui/material/Button";
 import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 
@@ -8,6 +7,7 @@ import FormInput from "../../../components/form-input/form-input";
 
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import Button from "../../../components/button/button";
 import FormSelect from "../../../components/form-select/form-select";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "./../revalidate-items";
