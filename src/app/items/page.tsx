@@ -3,6 +3,7 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 import Header from "../../components/header/header";
+import LinearProgress from "../../components/linear-progress/linear-progress";
 import ItemsTable from "./items-table/items-table";
 
 export default function Page() {
@@ -11,7 +12,7 @@ export default function Page() {
       <header>
         <Header size={1} text="Items" />
       </header>
-      <Suspense fallback={<div className="bg-red-500">Loading...</div>}>
+      <Suspense fallback={<LinearProgress />}>
         <ItemsTable />
       </Suspense>
       <section>
