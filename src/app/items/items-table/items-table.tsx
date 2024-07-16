@@ -8,35 +8,38 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TextField from "@mui/material/TextField";
-
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { Item } from "../../../common/interfaces/item.interface";
 import { environmentVariables } from "../../../utils/environment-variables";
+import { createSuspenseResource } from "../../../utils/suspense/createSuspenseResource";
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
 
-const fetchItems = async () => {
-  const response = await fetch(URL, {
+// const fetchItems = async () => {
+//   const response = await fetch(URL, {
+//     next: {
+//       tags: ["items"],
+//     },
+//   });
+
+//   if (response.ok) {
+//     return (await response.json()) as any[];
+//   } else {
+//     throw new Error("Failed to fetch items");
+//   }
+// };
+
+const itemsResource = createSuspenseResource<Item[]>(() =>
+  fetch(URL, {
     next: {
       tags: ["items"],
     },
-  });
-
-  if (response.ok) {
-    return (await response.json()) as any[];
-  } else {
-    throw new Error("Failed to fetch items");
-  }
-};
+  }).then((response) => response.json())
+);
 
 export default function ItemsTable() {
   const [portion, setPortion] = useState(100);
-  const [items, setItems] = useState<any[]>([]);
-
-  useEffect(() => {
-    fetchItems().then((items) => {
-      setItems(items);
-    });
-  }, []);
+  const items = itemsResource.read();
 
   const itemsWithNutritionalValues = useMemo(() => {
     return items.map((item) => {

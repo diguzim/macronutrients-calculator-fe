@@ -11,7 +11,7 @@ export default function Page() {
       <header>
         <Header size={1} text="Items" />
       </header>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="bg-red-500">Loading...</div>}>
         <ItemsTable />
       </Suspense>
       <section>
