@@ -15,20 +15,6 @@ import { createSuspenseResource } from "../../../utils/suspense/createSuspenseRe
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
 
-// const fetchItems = async () => {
-//   const response = await fetch(URL, {
-//     next: {
-//       tags: ["items"],
-//     },
-//   });
-
-//   if (response.ok) {
-//     return (await response.json()) as any[];
-//   } else {
-//     throw new Error("Failed to fetch items");
-//   }
-// };
-
 const itemsResource = createSuspenseResource<Item[]>(() =>
   fetch(URL, {
     next: {
