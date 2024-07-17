@@ -10,13 +10,15 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <header>
-        <Header size={1} text="Items" />
+        <Header size={1}>Items</Header>
       </header>
       <Suspense fallback={<LinearProgress />}>
         <ItemsTable />
       </Suspense>
       <section>
-        <Header size={2} text="Actions" className="mb-2" />
+        <Header size={2} className="mb-2">
+          Actions
+        </Header>
         <div className="flex flex-row gap-4">
           <Link href="items/new-item" passHref>
             <Button variant="contained" size="large">

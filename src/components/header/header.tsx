@@ -1,5 +1,4 @@
 export interface HeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  text: string;
   size: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
@@ -13,7 +12,6 @@ const sizeMappingClass = {
 };
 
 const Header: React.FC<HeaderProps> = ({
-  text,
   size,
   className,
   ...remainingProps
@@ -24,9 +22,7 @@ const Header: React.FC<HeaderProps> = ({
     <HeaderElement
       className={`text-primary ${sizeMappingClass[size]} ${className}`}
       {...remainingProps}
-    >
-      {text}
-    </HeaderElement>
+    />
   );
 };
 

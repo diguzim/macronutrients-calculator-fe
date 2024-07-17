@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <header>
-        <Header text="Welcome to MaCal" size={1} />
+        <Header size={1}>Welcome to MaCal</Header>
       </header>
       <section>
         <p>
@@ -20,9 +20,9 @@ export default function Page() {
         </p>
       </section>
       <section className="flex flex-col gap-3">
-        <Header text="Key Features" size={2} />
+        <Header size={2}>Key Features</Header>
         <article>
-          <Header text="Item Listing" size={3} />
+          <Header size={3}>Item Listing</Header>
           <p>
             Browse through a comprehensive list of food items, each with
             detailed nutritional values. Easily add new items to the list,
@@ -31,7 +31,7 @@ export default function Page() {
         </article>
 
         <article>
-          <Header text="Recipe Creation" size={3} />
+          <Header size={3}>Recipe Creation</Header>
           <p>
             Create new composite items (recipes) by combining various
             ingredients from your item list. Our app calculates the total
@@ -40,7 +40,7 @@ export default function Page() {
         </article>
 
         <article>
-          <Header text="Nutritional Calculation" size={3} />
+          <Header size={3}>Nutritional Calculation</Header>
           <p>
             Calculate the nutritional values of any item based on its weight.
             Get precise information on macronutrients to better manage your
@@ -49,7 +49,7 @@ export default function Page() {
         </article>
 
         <article>
-          <Header text="Meal Recording" size={3} />
+          <Header size={3}>Meal Recording</Header>
           <p>
             Record your meals and get detailed nutritional equivalents for
             everything you consume. Track your intake over time and make

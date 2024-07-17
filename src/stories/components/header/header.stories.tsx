@@ -24,42 +24,42 @@ type Story = StoryObj<typeof meta>;
 
 export const H1: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 1,
   },
 };
 
 export const H2: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 2,
   },
 };
 
 export const H3: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 3,
   },
 };
 
 export const H4: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 4,
   },
 };
 
 export const H5: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 5,
   },
 };
 
 export const H6: Story = {
   args: {
-    text: "Hello World",
+    children: "Hello World",
     size: 6,
   },
 };
