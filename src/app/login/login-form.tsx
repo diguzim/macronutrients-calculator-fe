@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
@@ -26,6 +26,7 @@ export default function RegisterForm() {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
   const { login } = useAuth();
@@ -34,6 +35,7 @@ export default function RegisterForm() {
   const onSubmit = useCallback(
     async (data: FormData) => {
       try {
+        setIsLoading(true);
         const response = await fetch(URL, {
           method: "POST",
           headers: {
@@ -45,18 +47,20 @@ export default function RegisterForm() {
         if (response.ok) {
           const { token, user } = await response.json();
           login(user, token);
+          setIsLoading(false);
+          router.push("/meals");
           reset(initialFormData);
           enqueueSnackbar("Login successful!", { variant: "success" });
-          router.push("/meals");
         } else {
           throw new Error("Error logging in user");
         }
       } catch (error) {
+        setIsLoading(false);
         console.error(error);
         enqueueSnackbar("Error logging in user", { variant: "error" });
       }
     },
-    [enqueueSnackbar, login, reset]
+    [enqueueSnackbar, login, reset, router]
   );
 
   return (
@@ -72,7 +76,12 @@ export default function RegisterForm() {
         label="Password"
         required
       />
-      <Button variant="contained" size="large" type="submit">
+      <Button
+        variant="contained"
+        size="large"
+        type="submit"
+        disabled={isLoading}
+      >
         Login
       </Button>
     </form>

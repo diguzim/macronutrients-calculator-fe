@@ -4,7 +4,7 @@ import LoginForm from "./login-form";
 
 export default function RegisterPage() {
   return (
-    <div className="bg-white flex flex-col items-center justify-center gap-10">
+    <div className="flex flex-col items-center justify-center gap-10">
       <Header size={1}>Login to MaCal</Header>
       <LoginForm />
       <div className="flex flex-row gap-2 justify-center">
