@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
+import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
 import Button from "../../components/button/button";
 import FormInput from "../../components/form-input/form-input";
@@ -26,32 +27,37 @@ export default function RegisterForm() {
     defaultValues: initialFormData,
   });
 
+  const router = useRouter();
   const { login } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
 
-  const onSubmit = useCallback(async (data: FormData) => {
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  const onSubmit = useCallback(
+    async (data: FormData) => {
+      try {
+        const response = await fetch(URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
 
-      if (response.ok) {
-        const { token, user } = await response.json();
-        login(user, token);
-        enqueueSnackbar("Login successful!", { variant: "success" });
-        reset(initialFormData);
-      } else {
-        throw new Error("Error logging in user");
+        if (response.ok) {
+          const { token, user } = await response.json();
+          login(user, token);
+          reset(initialFormData);
+          enqueueSnackbar("Login successful!", { variant: "success" });
+          router.push("/meals");
+        } else {
+          throw new Error("Error logging in user");
+        }
+      } catch (error) {
+        console.error(error);
+        enqueueSnackbar("Error logging in user", { variant: "error" });
       }
-    } catch (error) {
-      console.error(error);
-      enqueueSnackbar("Error logging in user", { variant: "error" });
-    }
-  }, []);
+    },
+    [enqueueSnackbar, login, reset]
+  );
 
   return (
     <form
