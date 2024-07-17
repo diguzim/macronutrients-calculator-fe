@@ -57,7 +57,7 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 max-w-96"
+      className="flex flex-col gap-2 w-96"
     >
       <FormInput name="name" control={control} label="Name" required />
       <FormInput name="email" control={control} label="Email" required />
