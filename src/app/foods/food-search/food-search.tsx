@@ -26,14 +26,14 @@ export default function FoodSearch() {
   return (
     <div className="flex flex-col">
       <form
-        className="flex flex-row gap-4 max-w-96 self-center"
+        className="flex flex-row gap-2 max-w-96 self-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <FormInput
-          size="small"
           control={control}
           name="search"
           label="Search"
+          size="small"
         />
         <Button type="submit" variant="contained" size="small">
           <SearchIcon />
