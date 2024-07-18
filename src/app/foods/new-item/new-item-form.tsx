@@ -10,7 +10,7 @@ import { useCallback } from "react";
 import Button from "../../../components/button/button";
 import FormSelect from "../../../components/form-select/form-select";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "./../revalidate-items";
+import { revalidateItems } from "../revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 

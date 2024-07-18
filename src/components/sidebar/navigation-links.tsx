@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
@@ -18,13 +17,8 @@ type Link = {
 
 const generalLinks: Link[] = [
   {
-    name: "Home",
-    href: "/",
-    icon: <HomeOutlinedIcon />,
-  },
-  {
-    name: "Items",
-    href: "/items",
+    name: "Food Search",
+    href: "/foods",
     icon: <SoupKitchenOutlinedIcon />,
   },
 ];
