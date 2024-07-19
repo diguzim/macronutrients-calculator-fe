@@ -5,7 +5,7 @@ const theme = {
       main: "#B3E5FC",
       light: "#E6F7FF",
       dark: "#81B3E0",
-      contrast: "#3C3E5D",
+      contrast: "#565686",
     },
     secondary: {
       main: "#A8E6CF",

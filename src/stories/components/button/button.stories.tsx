@@ -13,41 +13,48 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "Button",
+    children: "Click Me",
+  },
+};
+
+export const Small: Story = {
+  args: {
+    children: "Click Me",
+    size: "small",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: "Click Me",
+    size: "large",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    children: "Button",
+    children: "Click Me",
     disabled: true,
   },
 };
 
 export const FullWidth: Story = {
   args: {
-    children: "Button",
+    children: "Click Me",
     fullWidth: true,
   },
 };
 
 export const Outlined: Story = {
   args: {
-    children: "Button",
+    children: "Click Me",
     variant: "outlined",
   },
 };
 
 export const Text: Story = {
   args: {
-    children: "Button",
+    children: "Click Me",
     variant: "text",
-  },
-};
-
-export const Contained: Story = {
-  args: {
-    children: "Button",
-    variant: "contained",
   },
 };

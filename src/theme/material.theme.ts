@@ -34,22 +34,32 @@ export const materialTheme = createTheme({
       },
     },
     MuiButton: {
+      defaultProps: {
+        variant: "contained",
+      },
       styleOverrides: {
         root: {
+          color: theme.colors.primary.contrast,
           fontFamily: "Roboto, sans-serif",
-          fontWeight: 500,
-          letterSpacing: "0.05em",
+          fontWeight: 600,
+          letterSpacing: "0.06em",
           textTransform: "uppercase",
           textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
         },
         sizeSmall: {
           fontSize: "0.75rem",
-          fontWeight: 400,
-          letterSpacing: "0.025em",
           textShadow: "none",
         },
         sizeLarge: {
           fontSize: "1rem",
+        },
+        outlined: {
+          color: theme.colors.primary.dark,
+          borderColor: theme.colors.primary.dark,
+          "&:hover": {
+            backgroundColor: theme.colors.primary.light,
+            borderColor: theme.colors.primary.light,
+          },
         },
       },
     },

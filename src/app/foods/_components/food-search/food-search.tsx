@@ -26,7 +26,7 @@ export default function FoodSearch() {
     defaultValues: initialFormData,
   });
   const [foods, setFoods] = useState([] as Item[]);
-  const sx = { color: theme.colors.primary.dark };
+  const sx = { color: theme.colors.primary.contrast };
 
   const { isSubmitted, isSubmitting } = formState;
 
@@ -57,7 +57,7 @@ export default function FoodSearch() {
           label="Search"
           size="small"
         />
-        <Button type="submit" variant="contained" size="small">
+        <Button type="submit" size="small">
           <SearchIcon sx={sx} />
         </Button>
       </form>

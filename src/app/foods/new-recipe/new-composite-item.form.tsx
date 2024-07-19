@@ -204,7 +204,7 @@ export default function NewCompositeItemForm() {
       <Button onClick={onAddItem} variant="outlined" size="medium">
         + Add item
       </Button>
-      <Button type="submit" variant="contained" size="large">
+      <Button type="submit" size="large">
         Create
       </Button>
     </form>

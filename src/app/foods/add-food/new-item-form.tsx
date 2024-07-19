@@ -137,7 +137,7 @@ export default function NewItemForm() {
         type="number"
         required
       />
-      <Button type="submit" variant="contained" size="large">
+      <Button type="submit" size="large">
         Create
       </Button>
     </form>

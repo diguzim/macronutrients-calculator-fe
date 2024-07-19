@@ -183,7 +183,7 @@ export default function CalculateNutritionalValuesForm() {
         <Button onClick={onAddItem} variant="outlined" size="medium">
           + Add item
         </Button>
-        <Button type="submit" variant="contained" size="large">
+        <Button type="submit" size="large">
           Calculate
         </Button>
       </form>

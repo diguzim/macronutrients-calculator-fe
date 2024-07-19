@@ -76,12 +76,7 @@ export default function RegisterForm() {
         label="Password"
         required
       />
-      <Button
-        variant="contained"
-        size="large"
-        type="submit"
-        disabled={isLoading}
-      >
+      <Button size="large" type="submit" disabled={isLoading}>
         Login
       </Button>
     </form>

@@ -14,14 +14,10 @@ export default function Page() {
       <section className="flex flex-col self-center">
         <div className="flex flex-row gap-4">
           <Link href="foods/add-food" passHref>
-            <Button variant="contained" size="large">
-              Add Food
-            </Button>
+            <Button>Add Food</Button>
           </Link>
           <Link href="foods/new-recipe" passHref>
-            <Button variant="contained" size="large">
-              Create Recipe
-            </Button>
+            <Button>Create Recipe</Button>
           </Link>
         </div>
       </section>

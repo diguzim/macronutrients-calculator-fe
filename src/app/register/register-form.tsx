@@ -62,7 +62,7 @@ export default function RegisterForm() {
       <FormInput name="name" control={control} label="Name" required />
       <FormInput name="email" control={control} label="Email" required />
       <FormInput name="password" control={control} label="Password" required />
-      <Button variant="contained" size="large" type="submit">
+      <Button size="large" type="submit">
         Register
       </Button>
     </form>
