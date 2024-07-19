@@ -1,3 +1,5 @@
+const theme = require("./src/theme/theme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -5,16 +7,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#1976d2",
-          light: "#63a4ff",
-          dark: "#004ba0",
-          contrast: "#ffffff",
+          DEFAULT: theme.colors.primary.main,
+          light: theme.colors.primary.light,
+          dark: theme.colors.primary.dark,
+          contrast: theme.colors.primary.contrast,
         },
         secondary: {
-          DEFAULT: "#C6E57D",
-          light: "#DAEFAE",
-          dark: "#5F7A1A",
-          contrast: "#013334",
+          DEFAULT: theme.colors.secondary.main,
+          light: theme.colors.secondary.light,
+          dark: theme.colors.secondary.dark,
+          contrast: theme.colors.secondary.contrast,
         },
       },
     },

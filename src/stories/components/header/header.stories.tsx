@@ -2,11 +2,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import { Meta, StoryObj } from "@storybook/react";
 
 import Header, { HeaderProps } from "../../../components/header/header";
-import { theme } from "../../../theme/material.theme";
+import { materialTheme } from "../../../theme/material.theme";
 
 const Container = (props: HeaderProps) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={materialTheme}>
       <Header {...props} />
     </ThemeProvider>
   );

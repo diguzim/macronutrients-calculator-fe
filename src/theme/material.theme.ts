@@ -2,23 +2,25 @@
 
 import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
+import theme from "./theme";
+
+export const materialTheme = createTheme({
   palette: {
     primary: {
-      main: "#1976d2",
-      light: "#63a4ff",
-      dark: "#004ba0",
-      contrastText: "#ffffff",
+      main: theme.colors.primary.main,
+      light: theme.colors.primary.light,
+      dark: theme.colors.primary.dark,
+      contrastText: theme.colors.primary.contrast,
     },
     secondary: {
-      main: "#C6E57D",
-      light: "#C6E57D",
-      dark: "#C6E57D",
-      contrastText: "#013334",
+      main: theme.colors.secondary.main,
+      light: theme.colors.secondary.light,
+      dark: theme.colors.secondary.dark,
+      contrastText: theme.colors.secondary.contrast,
     },
   },
   typography: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: theme.typography.fontFamily,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,

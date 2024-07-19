@@ -9,8 +9,7 @@ import Topbar from "../components/topbar/topbar";
 import AuthProvider from "../contexts/auth/auth.provider";
 import I18nProvider from "../contexts/i18n/i18n.provider";
 import NotificationProvider from "../contexts/notification/notification.provider";
-import { theme } from "../theme/material.theme";
-import "../theme/tailwind.theme.css";
+import { materialTheme } from "../theme/material.theme";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,7 +29,7 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-full`}>
         <AppRouterCacheProvider>
           <I18nProvider>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={materialTheme}>
               <AuthProvider>
                 <NotificationProvider>
                   <div className="flex flex-row w-full min-h-full">

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Topbar from "../../../components/topbar/topbar";
 import AuthContext from "../../../contexts/auth/auth.context";
 import I18nProvider from "../../../contexts/i18n/i18n.provider";
-import { theme } from "../../../theme/material.theme";
+import { materialTheme } from "../../../theme/material.theme";
 
 type ContainerArgsType = {
   isAuthenticated: boolean;
@@ -19,7 +19,7 @@ const Container = (args: ContainerArgsType) => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={materialTheme}>
       <I18nProvider>
         <AuthContext.Provider value={authContextValue}>
           <Topbar />
