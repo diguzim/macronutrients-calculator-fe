@@ -13,7 +13,7 @@ export default function NavigationLink({
     <Link
       href={href}
       className={`
-        flex flex-row items-center gap-1 p-2.5 font-semibold text-sm text-secondary-contrast border-b-2
+        flex flex-row items-center gap-1 p-2.5 font-semibold text-sm text-primary-contrast border-b-2
       `}
     >
       {children}

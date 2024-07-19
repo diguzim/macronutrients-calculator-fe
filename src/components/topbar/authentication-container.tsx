@@ -19,7 +19,7 @@ export default function AuthenticationContainer() {
       {!isAuthenticated && (
         <>
           <Link href="/login" passHref>
-            <Button variant="outlined" size="large">
+            <Button variant="contained" size="large">
               {t("auth.login")}
             </Button>
           </Link>

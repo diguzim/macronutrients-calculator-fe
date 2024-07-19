@@ -14,7 +14,7 @@ function GeneralLink({
     <Link
       href={href}
       passHref
-      className="text-primary font-semibold border-b-2 border-transparent hover:border-primary transition duration-300"
+      className="text-primary-dark font-bold border-b-2 border-transparent hover:border-primary-dark transition duration-300"
     >
       {children}
     </Link>
