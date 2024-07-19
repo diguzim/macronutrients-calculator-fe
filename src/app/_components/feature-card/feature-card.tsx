@@ -25,7 +25,10 @@ export default function FeatureCard({
   return (
     <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
       <div className="flex flex-row items-center justify-center gap-2">
-        <Header size={3} className="text-primary-dark text-center">
+        <Header
+          size={3}
+          className="text-primary-dark font-semibold text-center"
+        >
           {title}
         </Header>
         {icon}
