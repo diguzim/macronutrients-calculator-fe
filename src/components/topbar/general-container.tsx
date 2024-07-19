@@ -1,25 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
-
-function GeneralLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      passHref
-      className="text-primary-dark font-bold border-b-2 border-transparent hover:border-primary-dark transition duration-300"
-    >
-      {children}
-    </Link>
-  );
-}
+import GeneralLink from "./general-link";
 
 export default function GeneralContainer() {
   const { t } = useTranslation();
