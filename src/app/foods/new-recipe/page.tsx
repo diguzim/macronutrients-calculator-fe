@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-2">
       <header>
-        <Header size={1} text="Create Recipe" />
+        <Header size={1}>Create Recipe</Header>
       </header>
       <NewCompositeItemForm />
     </div>

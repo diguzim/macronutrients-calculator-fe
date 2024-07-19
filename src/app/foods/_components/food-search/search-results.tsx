@@ -8,8 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
-import { Item } from "../../../common/interfaces/item.interface";
-import { environmentVariables } from "../../../utils/environment-variables";
+import { Item } from "../../../../common/interfaces/item.interface";
+import { environmentVariables } from "../../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
 
