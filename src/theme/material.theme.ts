@@ -25,4 +25,13 @@ export const materialTheme = createTheme({
     fontWeightMedium: 500,
     fontWeightBold: 700,
   },
+  components: {
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: theme.colors.primary.main,
+        },
+      },
+    },
+  },
 });
