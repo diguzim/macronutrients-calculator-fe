@@ -36,7 +36,11 @@ export default function FeatureCard({
       <p className="mt-2 mb-4 text-secondary-contrast">{description}</p>
       <div className="grow" />
       <Link href={actionLink} className="self-end" passHref>
-        <Button variant="contained" endIcon={<ChevronRightIcon sx={sx} />}>
+        <Button
+          variant="contained"
+          size="small"
+          endIcon={<ChevronRightIcon sx={sx} />}
+        >
           {actionText}
         </Button>
       </Link>
