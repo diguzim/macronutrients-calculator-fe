@@ -59,10 +59,7 @@ export default function Page() {
     <div className="flex flex-col gap-4 max-w-screen-2xl m-auto">
       <div className="flex flex-row gap-12 mb-16">
         <div className="flex flex-col justify-center gap-6 max-w-lg">
-          <Header
-            size={1}
-            className="text-6xl text-center font-bold text-primary-dark"
-          >
+          <Header size={1} className="text-6xl text-center font-bold">
             UNDERSTAND YOUR FOOD
           </Header>
           <p>
@@ -73,10 +70,7 @@ export default function Page() {
         <Image src="/nuts.png" alt="Food" width={700} height={800} />
       </div>
       <section className="flex flex-col gap-3">
-        <Header
-          className="mb-4 self-center font-semibold text-primary-dark"
-          size={2}
-        >
+        <Header className="mb-4 self-center font-semibold" size={2}>
           One Place - Many features
         </Header>
         <div className="flex flex-row flex-wrap gap-10">

@@ -11,6 +11,15 @@ const sizeMappingClass = {
   6: "text-base",
 };
 
+const weightMappingClass = {
+  1: "font-bold",
+  2: "font-semibold",
+  3: "font-medium",
+  4: "font-normal",
+  5: "font-normal",
+  6: "font-normal",
+};
+
 const Header: React.FC<HeaderProps> = ({
   size,
   className,
@@ -20,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <HeaderElement
-      className={`text-primary ${sizeMappingClass[size]} ${className}`}
+      className={`text-primary-dark ${sizeMappingClass[size]} ${weightMappingClass[size]} ${className}`}
       {...remainingProps}
     />
   );
