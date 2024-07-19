@@ -1,19 +1,55 @@
 "use client";
 
 import CalculateIcon from "@mui/icons-material/Calculate";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import ListIcon from "@mui/icons-material/List";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-import Link from "next/link";
-import Button from "../components/button/button";
+import { useMemo } from "react";
 import Header from "../components/header/header";
+import FeatureCard from "./_components/feature-card/feature-card";
 
 export default function Page() {
   const { t } = useTranslation();
+
+  const features = useMemo(() => {
+    return [
+      {
+        title: "Item Listing",
+        description:
+          "Browse through a comprehensive list of food items, each with detailed nutritional values. Easily add new items to the list.",
+        actionLink: "/items",
+        actionText: "Go to Items",
+        icon: <ListIcon />,
+      },
+      {
+        title: "Recipe Creation",
+        description:
+          "Create recipes by combining ingredients. Calculates the total nutritional values for your recipes, making meal planning a breeze.",
+        actionLink: "/items/new-recipe",
+        actionText: "Go to Recipes",
+        icon: <RestaurantMenuIcon />,
+      },
+      {
+        title: "Nutrients Calculator",
+        description:
+          "Calculate the nutritional values of any item based on its weight. Get precise information on macronutrients to better manage your dietary needs.",
+        actionLink: "/items/calculate-nutritional-values",
+        actionText: "Go to Calculator",
+        icon: <CalculateIcon />,
+      },
+      {
+        title: "Meal Recording",
+        description:
+          "Record your meals and get detailed nutritional equivalents for everything you consume. Track your intake over time.",
+        actionLink: "/login",
+        actionText: "Access",
+        icon: <EditNoteIcon />,
+      },
+    ];
+  }, []);
 
   return (
     <div className="flex flex-col gap-4 max-w-screen-2xl m-auto">
@@ -40,88 +76,9 @@ export default function Page() {
           One Place - Many features
         </Header>
         <div className="flex flex-row flex-wrap gap-10">
-          <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
-            <div className="flex flex-row items-center justify-center gap-2">
-              <Header size={3} className="text-primary-dark text-center">
-                Item Listing
-              </Header>
-              <ListIcon />
-            </div>
-            <p className="mt-2 mb-4 text-primary-contrast">
-              Browse through a comprehensive list of food items, each with
-              detailed nutritional values. Easily add new items to the list.
-            </p>
-            <div className="grow" />
-            <Link href="/items" className="self-end" passHref>
-              <Button variant="contained" endIcon={<ChevronRightIcon />}>
-                Go to Items
-              </Button>
-            </Link>
-          </div>
-          <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
-            <div className="flex flex-row items-center justify-center gap-2">
-              <Header size={3} className="text-primary-dark text-center">
-                Recipe Creation
-              </Header>
-              <RestaurantMenuIcon />
-            </div>
-            <p className="mt-2 mb-4 text-primary-contrast">
-              Create recipes by combining ingredients. Calculates the total
-              nutritional values for your recipes, making meal planning a
-              breeze.
-            </p>
-            <div className="grow" />
-            <Link href="/items/new-recipe" className="self-end" passHref>
-              <Button variant="contained" endIcon={<ChevronRightIcon />}>
-                Go to Recipes
-              </Button>
-            </Link>
-          </div>
-          <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
-            <div className="flex flex-row items-center justify-center gap-2">
-              <Header size={3} className="text-primary-dark text-center">
-                Nutrients Calculator
-              </Header>
-              <CalculateIcon />
-            </div>
-            <p className="mt-2 mb-4 text-primary-contrast">
-              Calculate the nutritional values of any item based on its weight.
-              Get precise information on macronutrients to better manage your
-              dietary needs.
-            </p>
-            <div className="grow" />
-            <Link
-              href="/items/calculate-nutritional-values"
-              className="self-end"
-              passHref
-            >
-              <Button variant="contained" endIcon={<ChevronRightIcon />}>
-                Go to Calculator
-              </Button>
-            </Link>
-          </div>
-          <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
-            <div className="flex flex-row items-center justify-center gap-2">
-              <Header size={3} className="text-primary-dark text-center">
-                Meal Recording
-              </Header>
-              <EditNoteIcon />
-            </div>
-            <p className="mt-2 mb-4 text-primary-contrast">
-              Record your meals and get detailed nutritional equivalents for
-              everything you consume. Track your intake over time.
-            </p>
-            <div className="grow" />
-            <Link href="/login" className="self-end" passHref>
-              <Button
-                className="self-end"
-                variant="contained"
-                endIcon={<ChevronRightIcon />}
-              >
-                Access
-              </Button>
-            </Link>
-          </div>
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
         </div>
       </section>
     </div>
