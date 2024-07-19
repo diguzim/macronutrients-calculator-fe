@@ -1,9 +1,9 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Link from "next/link";
 
-import Button from "../../../components/button/button";
-import Header from "../../../components/header/header";
-import theme from "../../../theme/theme";
+import Button from "../../../../components/button/button";
+import Header from "../../../../components/header/header";
+import theme from "../../../../theme/theme";
 
 type FeatureCardProps = {
   title: string;

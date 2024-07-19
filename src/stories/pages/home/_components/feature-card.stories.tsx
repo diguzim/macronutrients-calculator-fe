@@ -1,6 +1,6 @@
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import { Meta, StoryObj } from "@storybook/react";
-import FeatureCard from "../../../../app/_components/feature-card/feature-card";
+import FeatureCard from "../../../../app/home/_components/feature-card/feature-card";
 
 const meta = {
   title: "Pages/Home/Components/FeatureCard",

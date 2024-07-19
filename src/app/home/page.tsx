@@ -8,9 +8,9 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 import { useMemo } from "react";
-import Header from "../components/header/header";
-import theme from "../theme/theme";
-import { withSx } from "../utils/hocs/with-sx.hoc";
+import Header from "../../components/header/header";
+import theme from "../../theme/theme";
+import { withSx } from "../../utils/hocs/with-sx.hoc";
 import FeatureCard from "./_components/feature-card/feature-card";
 
 export default function Page() {
@@ -56,9 +56,9 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 max-w-screen-2xl m-auto">
+    <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-12 mb-16">
-        <div className="flex flex-col justify-center gap-6 max-w-lg">
+        <div className="flex-1 flex flex-col justify-center gap-6">
           <Header size={1} className="text-6xl text-center font-bold">
             UNDERSTAND YOUR FOOD
           </Header>
@@ -67,7 +67,9 @@ export default function Page() {
             understand your nutritional intake effectively.
           </p>
         </div>
-        <Image src="/nuts.png" alt="Food" width={700} height={800} />
+        <div className="flex-1 relative aspect-square">
+          <Image src="/nuts.png" alt="Food" layout="fill" objectFit="contain" />
+        </div>
       </div>
       <section className="flex flex-col gap-3">
         <Header className="mb-4 self-center font-semibold" size={2}>

@@ -17,21 +17,21 @@ type SearchResultsProps = {
   items: Item[];
 };
 
-export default function SearchResults({ items }: SearchResultsProps) {
-  const portion = 100;
+const PORTION = 100;
 
+export default function SearchResults({ items }: SearchResultsProps) {
   const itemsWithNutritionalValues = useMemo(() => {
     return items.map((item) => ({
       id: item.id,
       name: item.name,
       type: item.type,
-      kcal: (item.kcalPerGram * portion).toFixed(0),
-      carbohydrate: (item.carbohydrateRatio * portion).toFixed(1),
-      protein: (item.proteinRatio * portion).toFixed(1),
-      fat: (item.fatRatio * portion).toFixed(1),
-      fiber: (item.fiberRatio * portion).toFixed(1),
+      kcal: (item.kcalPerGram * PORTION).toFixed(0),
+      carbohydrate: (item.carbohydrateRatio * PORTION).toFixed(1),
+      protein: (item.proteinRatio * PORTION).toFixed(1),
+      fat: (item.fatRatio * PORTION).toFixed(1),
+      fiber: (item.fiberRatio * PORTION).toFixed(1),
     }));
-  }, [items, portion]);
+  }, [items]);
 
   if (items.length === 0) {
     return <p className="text-2xl">No results found</p>;
