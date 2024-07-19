@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Button from "../../../components/button/button";
 import Header from "../../../components/header/header";
+import theme from "../../../theme/theme";
 
 type FeatureCardProps = {
   title: string;
@@ -19,6 +20,8 @@ export default function FeatureCard({
   actionText,
   icon,
 }: FeatureCardProps) {
+  const sx = { color: theme.colors.primary.contrast };
+
   return (
     <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
       <div className="flex flex-row items-center justify-center gap-2">
@@ -30,7 +33,7 @@ export default function FeatureCard({
       <p className="mt-2 mb-4 text-primary-contrast">{description}</p>
       <div className="grow" />
       <Link href={actionLink} className="self-end" passHref>
-        <Button variant="contained" endIcon={<ChevronRightIcon />}>
+        <Button variant="contained" endIcon={<ChevronRightIcon sx={sx} />}>
           {actionText}
         </Button>
       </Link>

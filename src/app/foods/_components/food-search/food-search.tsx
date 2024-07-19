@@ -7,6 +7,7 @@ import { Item } from "../../../../common/interfaces/item.interface";
 import Button from "../../../../components/button/button";
 import FormInput from "../../../../components/form-input/form-input";
 import LinearProgress from "../../../../components/linear-progress/linear-progress";
+import theme from "../../../../theme/theme";
 import { environmentVariables } from "../../../../utils/environment-variables";
 import SearchResults from "./search-results";
 
@@ -25,6 +26,7 @@ export default function FoodSearch() {
     defaultValues: initialFormData,
   });
   const [foods, setFoods] = useState([] as Item[]);
+  const sx = { color: theme.colors.primary.dark };
 
   const { isSubmitted, isSubmitting } = formState;
 
@@ -56,7 +58,7 @@ export default function FoodSearch() {
           size="small"
         />
         <Button type="submit" variant="contained" size="small">
-          <SearchIcon />
+          <SearchIcon sx={sx} />
         </Button>
       </form>
       {isSubmitting && <LinearProgress />}

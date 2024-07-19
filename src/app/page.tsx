@@ -9,12 +9,15 @@ import { useTranslation } from "react-i18next";
 
 import { useMemo } from "react";
 import Header from "../components/header/header";
+import theme from "../theme/theme";
 import FeatureCard from "./_components/feature-card/feature-card";
 
 export default function Page() {
   const { t } = useTranslation();
 
   const features = useMemo(() => {
+    const sx = { color: theme.colors.primary.dark };
+
     return [
       {
         title: "Item Listing",
@@ -22,7 +25,7 @@ export default function Page() {
           "Browse through a comprehensive list of food items, each with detailed nutritional values. Easily add new items to the list.",
         actionLink: "/items",
         actionText: "Go to Items",
-        icon: <ListIcon />,
+        icon: <ListIcon sx={sx} />,
       },
       {
         title: "Recipe Creation",
@@ -30,7 +33,7 @@ export default function Page() {
           "Create recipes by combining ingredients. Calculates the total nutritional values for your recipes, making meal planning a breeze.",
         actionLink: "/items/new-recipe",
         actionText: "Go to Recipes",
-        icon: <RestaurantMenuIcon />,
+        icon: <RestaurantMenuIcon sx={sx} />,
       },
       {
         title: "Nutrients Calculator",
@@ -38,7 +41,7 @@ export default function Page() {
           "Calculate the nutritional values of any item based on its weight. Get precise information on macronutrients to better manage your dietary needs.",
         actionLink: "/items/calculate-nutritional-values",
         actionText: "Go to Calculator",
-        icon: <CalculateIcon />,
+        icon: <CalculateIcon sx={sx} />,
       },
       {
         title: "Meal Recording",
@@ -46,7 +49,7 @@ export default function Page() {
           "Record your meals and get detailed nutritional equivalents for everything you consume. Track your intake over time.",
         actionLink: "/login",
         actionText: "Access",
-        icon: <EditNoteIcon />,
+        icon: <EditNoteIcon sx={sx} />,
       },
     ];
   }, []);
