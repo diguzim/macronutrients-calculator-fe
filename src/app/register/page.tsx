@@ -9,7 +9,7 @@ export default function RegisterPage() {
       <RegisterForm />
       <div className="flex flex-row gap-2 justify-center">
         {"Already registered?"}
-        <Link href="/login" className="text-primary">
+        <Link href="/login" className="text-primary-dark font-bold">
           Login now
         </Link>
       </div>

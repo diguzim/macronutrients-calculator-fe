@@ -8,10 +8,12 @@ export default function RegisterPage() {
       <Header size={1}>Login to MaCal</Header>
       <LoginForm />
       <div className="flex flex-row gap-2 justify-center">
-        {"Don't have an account?"}
-        <Link href="/register" className="text-primary">
-          Register now
-        </Link>
+        <p>
+          {"Don't have an account? "}
+          <Link href="/register" className="text-primary-dark font-bold">
+            Register now
+          </Link>
+        </p>
       </div>
     </div>
   );
