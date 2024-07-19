@@ -1,7 +1,6 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import Sidebar from "../components/sidebar/sidebar";
 import Topbar from "../components/topbar/topbar";
@@ -11,8 +10,6 @@ import I18nProvider from "../contexts/i18n/i18n.provider";
 import NotificationProvider from "../contexts/notification/notification.provider";
 import { materialTheme } from "../theme/material.theme";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MaCal - Macronutrient Calculator",
@@ -26,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-full`}>
+      <body className={"min-h-full"}>
         <AppRouterCacheProvider>
           <I18nProvider>
             <ThemeProvider theme={materialTheme}>

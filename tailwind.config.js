@@ -19,6 +19,9 @@ module.exports = {
           contrast: theme.colors.secondary.contrast,
         },
       },
+      fontFamily: {
+        sans: [theme.typography.fontFamily, "sans-serif"],
+      },
     },
   },
   plugins: [],

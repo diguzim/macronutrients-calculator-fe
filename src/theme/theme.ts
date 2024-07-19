@@ -5,7 +5,7 @@ const theme = {
       main: "#B3E5FC",
       light: "#E6F7FF",
       dark: "#81B3E0",
-      contrast: "#000000",
+      contrast: "#3C3E5D",
     },
     secondary: {
       main: "#A8E6CF",
@@ -15,7 +15,7 @@ const theme = {
     },
   },
   typography: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Inter",
   },
 };
 

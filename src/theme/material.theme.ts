@@ -20,7 +20,7 @@ export const materialTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: theme.typography.fontFamily,
+    fontFamily: `${theme.typography.fontFamily} sans-serif`,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
