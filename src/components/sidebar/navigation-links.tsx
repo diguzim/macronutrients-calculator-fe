@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import SearchIcon from "@mui/icons-material/Search";
 import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
 import useAuth from "../../contexts/auth/use-auth";
@@ -24,6 +25,11 @@ const generalLinks: Link[] = [
   {
     name: "Food Search",
     href: "/foods",
+    icon: withSx(SearchIcon, sx),
+  },
+  {
+    name: "Meal Calculator",
+    href: "/meal-calculator",
     icon: withSx(SoupKitchenOutlinedIcon, sx),
   },
 ];

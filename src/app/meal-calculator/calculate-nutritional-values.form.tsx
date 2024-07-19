@@ -7,8 +7,8 @@ import TextField from "@mui/material/TextField";
 
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
-import Button from "../../../components/button/button";
-import { environmentVariables } from "../../../utils/environment-variables";
+import Button from "../../components/button/button";
+import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./calculate-nutritional-values.module.css";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
