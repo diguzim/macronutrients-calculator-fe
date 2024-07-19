@@ -1,11 +1,7 @@
-import { Suspense } from "react";
-
 import Link from "next/link";
 import Button from "../../components/button/button";
 import Header from "../../components/header/header";
-import LinearProgress from "../../components/linear-progress/linear-progress";
 import FoodSearch from "./food-search/food-search";
-import ItemsTable from "./items-table/items-table";
 
 export default function Page() {
   return (
@@ -15,9 +11,6 @@ export default function Page() {
         <p>{"Search for a food to see it's nutritional data"}</p>
       </header>
       <FoodSearch />
-      <Suspense fallback={<LinearProgress />}>
-        <ItemsTable />
-      </Suspense>
       <section>
         <Header size={2} className="mb-2">
           Actions

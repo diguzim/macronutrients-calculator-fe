@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { Item } from "../../../common/interfaces/item.interface";
 import Button from "../../../components/button/button";
 import FormInput from "../../../components/form-input/form-input";
+import LinearProgress from "../../../components/linear-progress/linear-progress";
 import { environmentVariables } from "../../../utils/environment-variables";
 import SearchResults from "./search-results";
 
@@ -20,10 +21,12 @@ const initialFormData: FormData = {
 const URL = `${environmentVariables().public.backendUrl}/items?`;
 
 export default function FoodSearch() {
-  const { control, handleSubmit, reset } = useForm<FormData>({
+  const { control, handleSubmit, formState } = useForm<FormData>({
     defaultValues: initialFormData,
   });
   const [foods, setFoods] = useState([] as Item[]);
+
+  const { isSubmitted, isSubmitting } = formState;
 
   const onSubmit = useCallback(async (data: FormData) => {
     const urlWithQuery =
@@ -56,7 +59,8 @@ export default function FoodSearch() {
           <SearchIcon />
         </Button>
       </form>
-      <SearchResults items={foods} />
+      {isSubmitting && <LinearProgress />}
+      {!isSubmitting && isSubmitted && <SearchResults items={foods} />}
     </div>
   );
 }
