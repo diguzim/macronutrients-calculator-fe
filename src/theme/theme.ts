@@ -11,7 +11,7 @@ const theme = {
       main: "#A8E6CF",
       light: "#DBFFF0",
       dark: "#76B09A",
-      contrast: "#000000",
+      contrast: "#565686",
     },
   },
   typography: {

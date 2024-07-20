@@ -7,8 +7,10 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Link from "next/link";
 import { useMemo } from "react";
 import { Item } from "../../../../common/interfaces/item.interface";
+import theme from "../../../../theme/theme";
 import { environmentVariables } from "../../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
@@ -18,6 +20,18 @@ type SearchResultsProps = {
 };
 
 const PORTION = 100;
+
+const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
+  <TableCell
+    sx={{
+      fontWeight: "bold",
+      fontSize: "1rem",
+      color: theme.colors.secondary.contrast,
+    }}
+  >
+    {children}
+  </TableCell>
+);
 
 export default function SearchResults({ items }: SearchResultsProps) {
   const itemsWithNutritionalValues = useMemo(() => {
@@ -42,34 +56,27 @@ export default function SearchResults({ items }: SearchResultsProps) {
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow className="bg-gray-200">
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Name
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Type
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Kcal
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Carbohydrates
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Protein
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Fat
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-                Fiber
-              </TableCell>
+            <TableRow className="bg-secondary">
+              <TableHeadCell>Name</TableHeadCell>
+              <TableHeadCell>Type</TableHeadCell>
+              <TableHeadCell>Kcal</TableHeadCell>
+              <TableHeadCell>Carbohydrates</TableHeadCell>
+              <TableHeadCell>Protein</TableHeadCell>
+              <TableHeadCell>Fat</TableHeadCell>
+              <TableHeadCell>Fiber</TableHeadCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {itemsWithNutritionalValues.map((item) => (
               <TableRow key={item.id}>
-                <TableCell>{item.name}</TableCell>
+                <TableCell>
+                  <Link
+                    className="text-primary-dark font-bold"
+                    href={`/foods/${item.id}`}
+                  >
+                    {item.name}
+                  </Link>
+                </TableCell>
                 <TableCell>{item.type}</TableCell>
                 <TableCell>{item.kcal}g</TableCell>
                 <TableCell>{item.carbohydrate}g</TableCell>
