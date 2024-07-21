@@ -28,8 +28,8 @@ const generalLinks: Link[] = [
     icon: withSx(SearchIcon, sx),
   },
   {
-    name: "Meal Calculator",
-    href: "/meal-calculator",
+    name: "Recipe Nutrition Calculator",
+    href: "/recipe-nutrition-calculator",
     icon: withSx(SoupKitchenOutlinedIcon, sx),
   },
 ];

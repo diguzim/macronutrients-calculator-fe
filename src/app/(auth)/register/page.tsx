@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Header from "../../components/header/header";
+import Header from "../../../components/header/header";
 import RegisterForm from "./register-form";
 
 export default function RegisterPage() {

@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
-import Button from "../../components/button/button";
-import FormInput from "../../components/form-input/form-input";
-import useAuth from "../../contexts/auth/use-auth";
-import { environmentVariables } from "../../utils/environment-variables";
+import Button from "../../../components/button/button";
+import FormInput from "../../../components/form-input/form-input";
+import useAuth from "../../../contexts/auth/use-auth";
+import { environmentVariables } from "../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/auth/login`;
 

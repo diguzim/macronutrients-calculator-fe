@@ -2,16 +2,16 @@
 
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
 import { useSnackbar } from "notistack";
-import { useCallback, useEffect, useState } from "react";
-import Button from "../../components/button/button";
-import { environmentVariables } from "../../utils/environment-variables";
-import styles from "./calculate-nutritional-values.module.css";
+import { useCallback, useState } from "react";
+import { Item } from "../../../common/interfaces/item.interface";
+import Button from "../../../components/button/button";
+import Header from "../../../components/header/header";
+import { environmentVariables } from "../../../utils/environment-variables";
+import NutritionalDetails from "./nutritional-details";
 
-const GET_URL = `${environmentVariables().public.backendUrl}/items/search?name=`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/calculate-nutritional-values`;
 
 type ItemWithWeight = {
@@ -42,35 +42,20 @@ const initialItemsWithWeights: ItemWithWeight[] = [
   generateEmptyItemWithWeight(),
 ];
 
-export default function CalculateNutritionalValuesForm() {
-  const [availableItems, setAvailableItems] = useState<any[]>([]);
-  const [nutritionalValues, setNutritionalValues] = useState<NutritionalValues>(
-    {
-      kcal: 0,
-      carbohydrate: 0,
-      protein: 0,
-      fat: 0,
-      fiber: 0,
-    }
-  );
+type CalculateNutritionalValuesFormProps = {
+  foods: Item[];
+};
+
+export default function CalculateNutritionalValuesForm({
+  foods: availableItems,
+}: CalculateNutritionalValuesFormProps) {
+  const [nutritionalValues, setNutritionalValues] =
+    useState<NutritionalValues | null>(null);
   const [itemsWithWeights, setItemsWithWeights] = useState<ItemWithWeight[]>(
     initialItemsWithWeights
   );
+  const [loadingCalculate, setLoadingCalculate] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-
-  const fetchFoods = useCallback(async () => {
-    const response = await fetch(GET_URL, {
-      next: {
-        tags: ["items"],
-      },
-    });
-    const items = (await response.json()) as any[];
-    setAvailableItems(items);
-  }, []);
-
-  useEffect(() => {
-    fetchFoods();
-  }, [fetchFoods]);
 
   const onAddItem = useCallback(() => {
     setItemsWithWeights((prev) => [...prev, generateEmptyItemWithWeight()]);
@@ -84,6 +69,7 @@ export default function CalculateNutritionalValuesForm() {
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoadingCalculate(true);
 
     const transformedData = {
       itemIdsWithWeights: itemsWithWeights.map((item) => ({
@@ -101,6 +87,8 @@ export default function CalculateNutritionalValuesForm() {
         body: JSON.stringify(transformedData),
       });
 
+      setLoadingCalculate(false);
+
       if (response.ok) {
         const data = await response.json();
         setNutritionalValues(data);
@@ -116,26 +104,28 @@ export default function CalculateNutritionalValuesForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit} className="flex flex-col gap-2 max-w-96">
+    <div className="flex flex-col gap-4">
+      <Header size={2} className="self-center">
+        Add Ingredients
+      </Header>
+      <form onSubmit={onSubmit} className="flex flex-col gap-2">
         {itemsWithWeights.map((itemWithWeight) => {
           return (
             <div
               key={itemWithWeight.tempKeyId}
-              className="flex gap-2  items-center"
+              className="flex flex-row gap-2 items-center"
             >
               {/* This is not a FormSelect because we need to control it's state by ourselves */}
               {/* Therefore we used the pure Select from mui */}
-              <Select
+              <TextField
                 label="Item"
-                name="Item"
-                id={`item-${itemWithWeight.tempKeyId}`}
                 value={itemWithWeight.itemId}
-                className="min-w-52"
+                select
+                className="flex-grow"
                 onChange={(e) => {
                   const selectedItemId = e.target.value;
                   const selectedItem = availableItems.find(
-                    (item) => item.id === selectedItemId
+                    (item) => item.id === parseInt(selectedItemId)
                   );
 
                   setItemsWithWeights((prev) =>
@@ -156,10 +146,10 @@ export default function CalculateNutritionalValuesForm() {
                     {item.name}
                   </MenuItem>
                 ))}
-              </Select>
+              </TextField>
               {/* Similar, but now with TextField from mui instead of FormInput */}
               <TextField
-                label="Weight"
+                label="Weight (g)"
                 type="number"
                 value={itemWithWeight.weight}
                 onChange={(e) => {
@@ -180,46 +170,23 @@ export default function CalculateNutritionalValuesForm() {
             </div>
           );
         })}
-        <Button onClick={onAddItem} variant="outlined" size="medium">
-          + Add item
+        <Button
+          className="self-start"
+          onClick={onAddItem}
+          variant="outlined"
+          size="medium"
+        >
+          + Ingredient
         </Button>
-        <Button type="submit" size="large">
-          Calculate
-        </Button>
+        <div className="mt-4 self-center">
+          <Button type="submit" size="large" disabled={loadingCalculate}>
+            Calculate
+          </Button>
+        </div>
       </form>
-      <div>
-        <h3>Result</h3>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Nutrient</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Kcal</td>
-              <td>{nutritionalValues.kcal}</td>
-            </tr>
-            <tr>
-              <td>Carbohydrates</td>
-              <td>{nutritionalValues.carbohydrate}</td>
-            </tr>
-            <tr>
-              <td>Protein</td>
-              <td>{nutritionalValues.protein}</td>
-            </tr>
-            <tr>
-              <td>Fat</td>
-              <td>{nutritionalValues.fat}</td>
-            </tr>
-            <tr>
-              <td>Fiber</td>
-              <td>{nutritionalValues.fiber}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      {nutritionalValues && !loadingCalculate && (
+        <NutritionalDetails nutritionalValues={nutritionalValues} />
+      )}
     </div>
   );
 }

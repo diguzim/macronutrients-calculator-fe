@@ -5,9 +5,9 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
 import { useSnackbar } from "notistack";
-import Button from "../../components/button/button";
-import FormInput from "../../components/form-input/form-input";
-import { environmentVariables } from "../../utils/environment-variables";
+import Button from "../../../components/button/button";
+import FormInput from "../../../components/form-input/form-input";
+import { environmentVariables } from "../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/auth/register`;
 

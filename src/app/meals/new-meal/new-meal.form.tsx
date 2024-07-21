@@ -14,7 +14,7 @@ import useAuth from "../../../contexts/auth/use-auth";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateMeals } from "../revalidate-meals";
 
-const GET_URL = `${environmentVariables().public.backendUrl}/items`;
+const GET_URL = `${environmentVariables().public.backendUrl}/items/search?name=`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/meals/create-from-items`;
 
 type ItemWithWeight = {
@@ -57,7 +57,7 @@ export default function NewMealForm() {
 
   const { enqueueSnackbar } = useSnackbar();
 
-  const fetchItems = useCallback(async () => {
+  const fetchFoods = useCallback(async () => {
     const response = await fetch(GET_URL, {
       next: {
         tags: ["items"],
@@ -68,8 +68,8 @@ export default function NewMealForm() {
   }, []);
 
   useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
+    fetchFoods();
+  }, [fetchFoods]);
 
   const onAddItem = useCallback(() => {
     setItemsWithWeights((prev) => [...prev, generateEmptyItemWithWeight()]);
@@ -84,7 +84,7 @@ export default function NewMealForm() {
   const onResetAll = useCallback(() => {
     setItemsWithWeights(initialItemsWithWeights);
     reset(initialFormData);
-  }, []);
+  }, [reset]);
 
   const onSubmit = async (data: FormData) => {
     if (!jwtToken) {

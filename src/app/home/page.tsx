@@ -29,19 +29,19 @@ export default function Page() {
         icon: withSx(ListIcon, sx),
       },
       {
-        title: "Recipe Creation",
+        title: "Recipe Calculator",
         description:
           "Create recipes by combining ingredients. Calculates the total nutritional values for your recipes, making meal planning a breeze.",
-        actionLink: "/items/new-recipe",
-        actionText: "Go to Recipes",
+        actionLink: "/recipe-nutrition-calculator",
+        actionText: "Go to Calculator",
         icon: withSx(RestaurantMenuIcon, sx),
       },
       {
         title: "Nutrients Calculator",
         description:
           "Calculate the nutritional values of any item based on its weight. Get precise information on macronutrients to better manage your dietary needs.",
-        actionLink: "/items/calculate-nutritional-values",
-        actionText: "Go to Calculator",
+        actionLink: "/food-details/c64bbd58-2800-44d8-8bc6-db760801d88c",
+        actionText: "Example",
         icon: withSx(CalculateIcon, sx),
       },
       {
