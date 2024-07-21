@@ -1,8 +1,11 @@
+"use client";
+
 import { Suspense } from "react";
+import withAuth from "../../utils/hocs/with-auth";
 import MealsTable from "./meals-table/meals-table";
 import NewMealForm from "./new-meal/new-meal.form";
 
-export default function Page() {
+function Page() {
   return (
     <div className="flex flex-col gap-2 bg-white p-2">
       <h1>Meals</h1>
@@ -16,3 +19,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default withAuth(Page);
