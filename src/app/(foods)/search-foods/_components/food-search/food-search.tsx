@@ -4,12 +4,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useSnackbar } from "notistack";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Item } from "../../../../common/interfaces/item.interface";
-import Button from "../../../../components/button/button";
-import FormInput from "../../../../components/form-input/form-input";
-import LinearProgress from "../../../../components/linear-progress/linear-progress";
-import theme from "../../../../theme/theme";
-import { environmentVariables } from "../../../../utils/environment-variables";
+import { Item } from "../../../../../common/interfaces/item.interface";
+import Button from "../../../../../components/button/button";
+import FormInput from "../../../../../components/form-input/form-input";
+import LinearProgress from "../../../../../components/linear-progress/linear-progress";
+import theme from "../../../../../theme/theme";
+import { environmentVariables } from "../../../../../utils/environment-variables";
 import SearchResults from "./search-results";
 
 type FormData = {

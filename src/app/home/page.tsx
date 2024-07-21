@@ -21,11 +21,11 @@ export default function Page() {
 
     return [
       {
-        title: "Item Listing",
+        title: "Search Foods",
         description:
           "Browse through a comprehensive list of food items, each with detailed nutritional values. Easily add new items to the list.",
-        actionLink: "/items",
-        actionText: "Go to Items",
+        actionLink: "/search-foods",
+        actionText: "Search",
         icon: withSx(ListIcon, sx),
       },
       {

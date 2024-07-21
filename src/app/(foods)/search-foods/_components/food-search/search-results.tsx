@@ -9,9 +9,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Link from "next/link";
 import { useMemo } from "react";
-import { Item } from "../../../../common/interfaces/item.interface";
-import theme from "../../../../theme/theme";
-import { environmentVariables } from "../../../../utils/environment-variables";
+import { Item } from "../../../../../common/interfaces/item.interface";
+import theme from "../../../../../theme/theme";
+import { environmentVariables } from "../../../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
 
@@ -72,7 +72,7 @@ export default function SearchResults({ items }: SearchResultsProps) {
                 <TableCell>
                   <Link
                     className="text-primary-dark font-bold"
-                    href={`/foods/${item.id}`}
+                    href={`/food-details/${item.id}`}
                   >
                     {item.name}
                   </Link>

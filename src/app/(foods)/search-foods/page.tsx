@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Button from "../../components/button/button";
-import Header from "../../components/header/header";
+import Button from "../../../components/button/button";
+import Header from "../../../components/header/header";
 import FoodSearch from "./_components/food-search/food-search";
 
 export default function Page() {

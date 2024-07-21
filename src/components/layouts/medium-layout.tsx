@@ -1,4 +1,4 @@
-export default function FoodsLayout({
+export default function MediumLayout({
   children,
 }: {
   children: React.ReactNode;

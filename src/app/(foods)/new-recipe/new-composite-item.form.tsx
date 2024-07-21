@@ -13,7 +13,7 @@ import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../../components/button/button";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "../revalidate-items";
+import { revalidateItems } from "../search-foods/revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;

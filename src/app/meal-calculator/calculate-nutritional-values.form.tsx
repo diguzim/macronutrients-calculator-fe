@@ -11,7 +11,7 @@ import Button from "../../components/button/button";
 import { environmentVariables } from "../../utils/environment-variables";
 import styles from "./calculate-nutritional-values.module.css";
 
-const GET_URL = `${environmentVariables().public.backendUrl}/items`;
+const GET_URL = `${environmentVariables().public.backendUrl}/items/search?name=`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/calculate-nutritional-values`;
 
 type ItemWithWeight = {
@@ -58,7 +58,7 @@ export default function CalculateNutritionalValuesForm() {
   );
   const { enqueueSnackbar } = useSnackbar();
 
-  const fetchItems = useCallback(async () => {
+  const fetchFoods = useCallback(async () => {
     const response = await fetch(GET_URL, {
       next: {
         tags: ["items"],
@@ -69,8 +69,8 @@ export default function CalculateNutritionalValuesForm() {
   }, []);
 
   useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
+    fetchFoods();
+  }, [fetchFoods]);
 
   const onAddItem = useCallback(() => {
     setItemsWithWeights((prev) => [...prev, generateEmptyItemWithWeight()]);

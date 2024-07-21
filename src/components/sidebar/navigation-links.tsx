@@ -24,7 +24,7 @@ const sx: SxProps = { color: theme.colors.primary.contrast };
 const generalLinks: Link[] = [
   {
     name: "Food Search",
-    href: "/foods",
+    href: "/search-foods",
     icon: withSx(SearchIcon, sx),
   },
   {

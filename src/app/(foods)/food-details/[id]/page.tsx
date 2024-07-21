@@ -4,12 +4,12 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import TextField from "@mui/material/TextField";
 import { useCallback, useEffect, useState } from "react";
 
-import { Item } from "../../../common/interfaces/item.interface";
-import Header from "../../../components/header/header";
-import LinearProgress from "../../../components/linear-progress/linear-progress";
-import Link from "../../../components/link/link";
-import theme from "../../../theme/theme";
-import { environmentVariables } from "../../../utils/environment-variables";
+import { Item } from "../../../../common/interfaces/item.interface";
+import Header from "../../../../components/header/header";
+import LinearProgress from "../../../../components/linear-progress/linear-progress";
+import Link from "../../../../components/link/link";
+import theme from "../../../../theme/theme";
+import { environmentVariables } from "../../../../utils/environment-variables";
 import FoodDetails from "./food-details";
 
 const URL = `${environmentVariables().public.backendUrl}/items/`;
@@ -57,7 +57,12 @@ export default function Page({ params }: PageProps) {
   }, [id]);
 
   if (loading) {
-    return <LinearProgress />;
+    return (
+      <div className="flex flex-col gap-10">
+        <p className="self-center">Loading food details...</p>
+        <LinearProgress />
+      </div>
+    );
   }
 
   if (!food) {
@@ -80,7 +85,7 @@ export default function Page({ params }: PageProps) {
       />
       <FoodDetails food={food} portion={portion} />
       <div className="block">
-        <Link href="/foods">
+        <Link href="/search-foods">
           <ChevronLeftIcon sx={{ color: theme.colors.primary.dark }} />
           Back to search
         </Link>
