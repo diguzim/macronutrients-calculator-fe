@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import SearchIcon from "@mui/icons-material/Search";
+import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 
 import theme from "../../theme/theme";
 import { withSx } from "../../utils/hocs/with-sx.hoc";
@@ -35,6 +36,11 @@ const generalLinks: Link[] = [
     name: "Meals Tracker",
     href: "/meals",
     icon: withSx(RestaurantIcon, sx),
+  },
+  {
+    name: "Recipes",
+    href: "/recipes",
+    icon: withSx(SoupKitchenIcon, sx),
   },
 ];
 
