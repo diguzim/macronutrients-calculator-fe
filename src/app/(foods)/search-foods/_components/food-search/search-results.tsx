@@ -53,6 +53,9 @@ export default function SearchResults({ items }: SearchResultsProps) {
 
   return (
     <div className="flex flex-col gap-4">
+      <p className="ml-2">
+        <span className="font-bold">{items.length}</span> results found
+      </p>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
@@ -88,6 +91,9 @@ export default function SearchResults({ items }: SearchResultsProps) {
           </TableBody>
         </Table>
       </TableContainer>
+      <p className="text-sm text-gray-600 ml-2">
+        * Values based on 100g portion
+      </p>
     </div>
   );
 }
