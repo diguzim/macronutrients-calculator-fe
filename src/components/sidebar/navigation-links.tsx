@@ -4,11 +4,10 @@ import { SxProps } from "@mui/system";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import CalculateIcon from "@mui/icons-material/Calculate";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
 import SearchIcon from "@mui/icons-material/Search";
-import SoupKitchenOutlinedIcon from "@mui/icons-material/SoupKitchenOutlined";
 
-import useAuth from "../../contexts/auth/use-auth";
 import theme from "../../theme/theme";
 import { withSx } from "../../utils/hocs/with-sx.hoc";
 import NavigationLink from "./navigation-link";
@@ -30,25 +29,21 @@ const generalLinks: Link[] = [
   {
     name: "Recipe Nutrition Calculator",
     href: "/recipe-nutrition-calculator",
-    icon: withSx(SoupKitchenOutlinedIcon, sx),
+    icon: withSx(CalculateIcon, sx),
   },
-];
-
-const authenticatedLinks: Link[] = [
   {
-    name: "Meals",
+    name: "Meals Tracker",
     href: "/meals",
-    icon: withSx(LocalDiningIcon, sx),
+    icon: withSx(RestaurantIcon, sx),
   },
 ];
 
 export default function NavigationLinks() {
   const pathname = usePathname();
-  const { isAuthenticated } = useAuth();
 
   const links = useMemo(() => {
-    return [...generalLinks, ...(isAuthenticated ? authenticatedLinks : [])];
-  }, [isAuthenticated]);
+    return generalLinks;
+  }, []);
 
   return (
     <nav className="flex flex-col">

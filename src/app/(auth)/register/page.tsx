@@ -10,7 +10,7 @@ export default function RegisterPage() {
       <div className="flex flex-row gap-2 justify-center">
         {"Already registered?"}
         <Link href="/login" className="text-primary-dark font-bold">
-          Login now
+          Go to Login
         </Link>
       </div>
     </div>

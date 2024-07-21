@@ -1,9 +1,8 @@
 "use client";
 
 import CalculateIcon from "@mui/icons-material/Calculate";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import ListIcon from "@mui/icons-material/List";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import SearchIcon from "@mui/icons-material/Search";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
@@ -21,36 +20,36 @@ export default function Page() {
 
     return [
       {
-        title: "Search Foods",
+        title: "Food Search",
         description:
-          "Browse through a comprehensive list of food items, each with detailed nutritional values. Easily add new items to the list.",
+          "Browse through a comprehensive list of food items, each with detailed nutritional values.",
         actionLink: "/search-foods",
         actionText: "Search",
-        icon: withSx(ListIcon, sx),
-      },
-      {
-        title: "Recipe Calculator",
-        description:
-          "Create recipes by combining ingredients. Calculates the total nutritional values for your recipes, making meal planning a breeze.",
-        actionLink: "/recipe-nutrition-calculator",
-        actionText: "Go to Calculator",
-        icon: withSx(RestaurantMenuIcon, sx),
+        icon: withSx(SearchIcon, sx),
       },
       {
         title: "Nutrients Calculator",
         description:
-          "Calculate the nutritional values of any item based on its weight. Get precise information on macronutrients to better manage your dietary needs.",
+          "Calculate the nutritional values of any item based on its weight.",
         actionLink: "/food-details/c64bbd58-2800-44d8-8bc6-db760801d88c",
-        actionText: "Example",
+        actionText: "Check an Example",
         icon: withSx(CalculateIcon, sx),
       },
       {
-        title: "Meal Recording",
+        title: "Recipe Calculator",
+        description:
+          "Calculate the nutritional values of your recipes based on the ingredients and their quantities.",
+        actionLink: "/recipe-nutrition-calculator",
+        actionText: "Go to Calculator",
+        icon: withSx(CalculateIcon, sx),
+      },
+      {
+        title: "Meals Tracker",
         description:
           "Record your meals and get detailed nutritional equivalents for everything you consume. Track your intake over time.",
-        actionLink: "/login",
+        actionLink: "/meals",
         actionText: "Access",
-        icon: withSx(EditNoteIcon, sx),
+        icon: withSx(RestaurantIcon, sx),
       },
     ];
   }, []);
