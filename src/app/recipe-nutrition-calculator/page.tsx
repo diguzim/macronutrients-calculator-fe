@@ -3,8 +3,8 @@
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { Item } from "../../common/interfaces/item.interface";
-import Header from "../../components/header/header";
 import LinearProgress from "../../components/linear-progress/linear-progress";
+import PageTitle from "../../components/page-title/page-title";
 import { environmentVariables } from "../../utils/environment-variables";
 import CalculateNutritionalValuesForm from "./_components/calculate-nutritional-values.form";
 
@@ -40,13 +40,10 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-10">
-      <header className="flex flex-col gap-2 items-center">
-        <Header size={1}>Recipe Nutrition Calculator</Header>
-        <p>
-          Add each portion that composes you meal and figure out what the
-          nutritional values of the meal are.
-        </p>
-      </header>
+      <PageTitle
+        title="Recipe Nutrition Calculator"
+        description="Add each portion that composes you meal and figure out what the nutritional values of the meal are."
+      />
       {loadingFoods ? (
         <LinearProgress />
       ) : (

@@ -1,12 +1,10 @@
-import Header from "../../../components/header/header";
+import PageTitle from "../../../components/page-title/page-title";
 import NewItemForm from "./new-item-form";
 
 export default function Page() {
   return (
     <div className="flex flex-col gap-2">
-      <header>
-        <Header size={1}>Add Item</Header>
-      </header>
+      <PageTitle title="Add Item" />
       <NewItemForm />
     </div>
   );

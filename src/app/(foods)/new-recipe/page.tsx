@@ -1,12 +1,10 @@
-import Header from "../../../components/header/header";
+import PageTitle from "../../../components/page-title/page-title";
 import NewCompositeItemForm from "./new-composite-item.form";
 
 export default function Page() {
   return (
     <div className="flex flex-col gap-2">
-      <header>
-        <Header size={1}>Create Recipe</Header>
-      </header>
+      <PageTitle title="Create Recipe" />
       <NewCompositeItemForm />
     </div>
   );

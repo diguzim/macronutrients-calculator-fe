@@ -8,6 +8,7 @@ import { Item } from "../../../../common/interfaces/item.interface";
 import Header from "../../../../components/header/header";
 import LinearProgress from "../../../../components/linear-progress/linear-progress";
 import Link from "../../../../components/link/link";
+import PageTitle from "../../../../components/page-title/page-title";
 import theme from "../../../../theme/theme";
 import { environmentVariables } from "../../../../utils/environment-variables";
 import FoodDetails from "./food-details";
@@ -71,11 +72,7 @@ export default function Page({ params }: PageProps) {
 
   return (
     <div className="flex flex-col gap-10">
-      <header className="flex flex-col gap-2 items-center">
-        <Header size={1}>
-          {food.name} ({food.type})
-        </Header>
-      </header>
+      <PageTitle title={`${food.name} (${food.type})`} />
       <TextField
         label="Portion (g)"
         type="number"
