@@ -9,7 +9,7 @@ type AuthContextType = {
   logout: () => void;
 };
 
-const authContextDefaultValue: AuthContextType = {
+export const authContextDefaultValue: AuthContextType = {
   isAuthenticated: false,
   user: null,
   jwtToken: null,
