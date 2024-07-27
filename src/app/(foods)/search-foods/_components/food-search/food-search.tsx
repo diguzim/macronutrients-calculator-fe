@@ -1,6 +1,7 @@
 "use client";
 
 import SearchIcon from "@mui/icons-material/Search";
+import { useSearchParams } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -29,6 +30,10 @@ export default function FoodSearch() {
   const [foods, setFoods] = useState([] as Item[]);
   const sx = { color: theme.colors.primary.contrast };
   const { enqueueSnackbar } = useSnackbar();
+
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get("search");
+  console.log("searchTerm", searchTerm);
 
   const { isSubmitted, isSubmitting } = formState;
 
