@@ -2,8 +2,6 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
 
-import Sidebar from "../components/sidebar/sidebar";
-
 import AppBar from "../components/app-bar/app-bar";
 import AuthProvider from "../contexts/auth/auth.provider";
 import I18nProvider from "../contexts/i18n/i18n.provider";
@@ -29,14 +27,11 @@ export default function RootLayout({
             <ThemeProvider theme={materialTheme}>
               <AuthProvider>
                 <NotificationProvider>
-                  <div className="flex flex-row w-full min-h-full">
-                    <Sidebar />
-                    <div className="flex flex-col w-full h-full">
-                      <AppBar />
-                      <main className="flex flex-col flex-1 p-6 items-center">
-                        {children}
-                      </main>
-                    </div>
+                  <div className="flex flex-col w-full min-h-full">
+                    <AppBar />
+                    <main className="flex flex-col flex-1 p-6 items-center">
+                      {children}
+                    </main>
                   </div>
                 </NotificationProvider>
               </AuthProvider>

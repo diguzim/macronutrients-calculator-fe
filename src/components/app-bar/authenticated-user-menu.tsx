@@ -7,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import useAuth from "../../contexts/auth/use-auth";
 
-export default function UserMenu() {
+export default function AuthenticatedUserMenu() {
   const { logout } = useAuth();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
