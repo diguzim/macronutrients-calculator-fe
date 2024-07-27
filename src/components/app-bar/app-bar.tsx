@@ -9,6 +9,7 @@ import Link from "next/link";
 import useAuth from "../../contexts/auth/use-auth";
 import Header from "../header/header";
 import AuthenticatedUserMenu from "./authenticated-user-menu";
+import SearchInput from "./search-input";
 import UnauthenticatedUserMenu from "./unauthenticated-user-menu";
 
 export default function AppBar() {
@@ -36,6 +37,7 @@ export default function AppBar() {
           ) : (
             <AuthenticatedUserMenu />
           )}
+          <SearchInput />
         </Toolbar>
       </MuiAppBar>
     </Box>
