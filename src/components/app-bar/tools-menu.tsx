@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ROUTES } from "../../utils/constants/routes";
 import Button from "../button/button";
 import Header from "../header/header";
+import MenuPositioner from "./menu-positioner";
 
 type Page = {
   title: string;
@@ -57,21 +58,15 @@ const GroupedPages: GroupedPage[] = [
   },
 ];
 
-type AboutBarProps = {
+type ToolsMenuProps = {
   closeBar: () => void;
   visible: boolean;
 };
 
-export default function ToolsBar(props: AboutBarProps) {
+export default function ToolsMenu(props: ToolsMenuProps) {
   return (
-    <div
-      className={`
-      relative z-10
-      ${props.visible ? "opacity-0 invisible" : "opacity-100 visible"}
-      transition-opacity duration-300 ease-in-out
-    `}
-    >
-      <div className="absolute bg-white w-full flex flex-row justify-center gap-12 border-t-2 border-b-2 border-gray-300 py-6 shadow-2xl">
+    <MenuPositioner visible={props.visible}>
+      <div className="flex flex-row justify-center gap-12">
         {GroupedPages.map((group) => (
           <div key={group.title} className="flex flex-col">
             <Header size={2} className="mb-4">
@@ -99,6 +94,6 @@ export default function ToolsBar(props: AboutBarProps) {
           </div>
         ))}
       </div>
-    </div>
+    </MenuPositioner>
   );
 }

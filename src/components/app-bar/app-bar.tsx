@@ -9,16 +9,17 @@ import { useCallback, useState } from "react";
 import useAuth from "../../contexts/auth/use-auth";
 import { ROUTES } from "../../utils/constants/routes";
 import Header from "../header/header";
-import AboutBar from "./about-bar";
+import AboutMenu from "./about-menu";
 import AuthenticatedUserMenu from "./authenticated-user-menu";
 import SearchInput from "./search-input";
-import ToolsBar from "./tools-bar";
+import ToolsMenu from "./tools-menu";
 import TopLeftButtons from "./top-left-buttons";
 import UnauthenticatedUserMenu from "./unauthenticated-user-menu";
 
 export default function AppBar() {
   const { isAuthenticated } = useAuth();
   const [displayedBar, setDisplayedBar] = useState("none");
+  console.log("displayedBar", displayedBar);
 
   const closeBar = useCallback(() => {
     setDisplayedBar("none");
@@ -59,8 +60,8 @@ export default function AppBar() {
           <SearchInput />
         </Toolbar>
       </MuiAppBar>
-      <ToolsBar closeBar={closeBar} visible={displayedBar === "tools"} />
-      {displayedBar === "about" && <AboutBar closeBar={closeBar} />}
+      <ToolsMenu closeBar={closeBar} visible={displayedBar === "tools"} />
+      <AboutMenu closeBar={closeBar} visible={displayedBar === "about"} />
     </Box>
   );
 }
