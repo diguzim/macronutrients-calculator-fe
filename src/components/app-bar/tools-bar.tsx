@@ -59,11 +59,18 @@ const GroupedPages: GroupedPage[] = [
 
 type AboutBarProps = {
   closeBar: () => void;
+  visible: boolean;
 };
 
 export default function ToolsBar(props: AboutBarProps) {
   return (
-    <div className="relative z-10">
+    <div
+      className={`
+      relative z-10
+      ${props.visible ? "opacity-0 invisible" : "opacity-100 visible"}
+      transition-opacity duration-300 ease-in-out
+    `}
+    >
       <div className="absolute bg-white w-full flex flex-row justify-center gap-12 border-t-2 border-b-2 border-gray-300 py-6 shadow-2xl">
         {GroupedPages.map((group) => (
           <div key={group.title} className="flex flex-col">

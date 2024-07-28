@@ -59,7 +59,7 @@ export default function AppBar() {
           <SearchInput />
         </Toolbar>
       </MuiAppBar>
-      {displayedBar === "tools" && <ToolsBar closeBar={closeBar} />}
+      <ToolsBar closeBar={closeBar} visible={displayedBar === "tools"} />
       {displayedBar === "about" && <AboutBar closeBar={closeBar} />}
     </Box>
   );
