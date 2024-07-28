@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from "react";
 import Button from "../../../components/button/button";
 import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "../search-foods/revalidate-items";
+import { revalidateItems } from "../foods/revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;

@@ -11,7 +11,7 @@ import Button from "../../../components/button/button";
 import FormSelect from "../../../components/form-select/form-select";
 import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "../search-foods/revalidate-items";
+import { revalidateItems } from "../foods/revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
@@ -70,7 +70,7 @@ export default function NewItemForm() {
         enqueueSnackbar("Item added successfully", {
           variant: "success",
         });
-        router.push(ROUTES.SEARCH_FOODS);
+        router.push(ROUTES.FOODS);
       } else {
         throw new Error("Error adding item");
       }
