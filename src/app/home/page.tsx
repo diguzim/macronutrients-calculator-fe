@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import Header from "../../components/header/header";
 import theme from "../../theme/theme";
+import { ROUTES } from "../../utils/constants/routes";
 import { withSx } from "../../utils/hocs/with-sx.hoc";
 import FeatureCard from "./_components/feature-card/feature-card";
 
@@ -23,7 +24,7 @@ export default function Page() {
         title: "Food Search",
         description:
           "Browse through a comprehensive list of food items, each with detailed nutritional values.",
-        actionLink: "/search-foods",
+        actionLink: ROUTES.SEARCH_FOODS,
         actionText: "Search",
         icon: withSx(SearchIcon, sx),
       },
@@ -31,7 +32,7 @@ export default function Page() {
         title: "Nutrients Calculator",
         description:
           "Calculate the nutritional values of any item based on its weight.",
-        actionLink: "/food-details/c64bbd58-2800-44d8-8bc6-db760801d88c",
+        actionLink: `${ROUTES.FOOD_DETAILS}/c64bbd58-2800-44d8-8bc6-db760801d88c`,
         actionText: "Check an Example",
         icon: withSx(CalculateIcon, sx),
       },
@@ -39,7 +40,7 @@ export default function Page() {
         title: "Recipe Calculator",
         description:
           "Calculate the nutritional values of your recipes based on the ingredients and their quantities.",
-        actionLink: "/recipe-nutrition-calculator",
+        actionLink: ROUTES.RECIPE_NUTRITION_CALCULATOR,
         actionText: "Go to Calculator",
         icon: withSx(CalculateIcon, sx),
       },
@@ -47,7 +48,7 @@ export default function Page() {
         title: "Meals Tracker",
         description:
           "Record your meals and get detailed nutritional equivalents for everything you consume. Track your intake over time.",
-        actionLink: "/meals",
+        actionLink: ROUTES.MEALS,
         actionText: "Access",
         icon: withSx(RestaurantIcon, sx),
       },

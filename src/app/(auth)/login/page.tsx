@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageTitle from "../../../components/page-title/page-title";
+import { ROUTES } from "../../../utils/constants/routes";
 import LoginForm from "./login-form";
 
 export default function RegisterPage() {
@@ -10,7 +11,7 @@ export default function RegisterPage() {
       <div className="flex flex-row gap-2 justify-center">
         <p>
           {"Don't have an account? "}
-          <Link href="/register" className="text-primary-dark font-bold">
+          <Link href={ROUTES.REGISTER} className="text-primary-dark font-bold">
             Register now
           </Link>
         </p>

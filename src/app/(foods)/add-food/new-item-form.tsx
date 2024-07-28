@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import Button from "../../../components/button/button";
 import FormSelect from "../../../components/form-select/form-select";
+import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "../search-foods/revalidate-items";
 
@@ -69,7 +70,7 @@ export default function NewItemForm() {
         enqueueSnackbar("Item added successfully", {
           variant: "success",
         });
-        router.push("/items");
+        router.push(ROUTES.SEARCH_FOODS);
       } else {
         throw new Error("Error adding item");
       }

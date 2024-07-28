@@ -8,6 +8,7 @@ import { useSnackbar } from "notistack";
 import Button from "../../../components/button/button";
 import FormInput from "../../../components/form-input/form-input";
 import useAuth from "../../../contexts/auth/use-auth";
+import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/auth/login`;
@@ -48,7 +49,7 @@ export default function RegisterForm() {
           const { token, user } = await response.json();
           login(user, token);
           setIsLoading(false);
-          router.push("/meals");
+          router.push(ROUTES.MEALS);
           reset(initialFormData);
           enqueueSnackbar("Login successful!", { variant: "success" });
         } else {

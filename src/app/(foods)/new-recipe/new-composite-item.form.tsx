@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../../components/button/button";
+import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateItems } from "../search-foods/revalidate-items";
 
@@ -114,7 +115,7 @@ export default function NewCompositeItemForm() {
         enqueueSnackbar("Recipe created successfully", {
           variant: "success",
         });
-        router.push("/items");
+        router.push(ROUTES.RECIPES);
       } else {
         throw new Error("Error creating recipe");
       }

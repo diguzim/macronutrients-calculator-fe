@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useCallback, useState } from "react";
 
 import useAuth from "../../contexts/auth/use-auth";
+import { ROUTES } from "../../utils/constants/routes";
 import Header from "../header/header";
 import AboutBar from "./about-bar";
 import AuthenticatedUserMenu from "./authenticated-user-menu";
@@ -42,7 +43,7 @@ export default function AppBar() {
         elevation={0}
       >
         <Toolbar>
-          <Link href="/home" passHref className="mr-4">
+          <Link href={ROUTES.HOME} passHref className="mr-4">
             <Header size={1}>MaCal</Header>
           </Link>
           <TopLeftButtons

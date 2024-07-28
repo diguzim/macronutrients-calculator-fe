@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
 import Button from "../../../components/button/button";
 import FormInput from "../../../components/form-input/form-input";
+import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/auth/register`;
@@ -44,7 +45,7 @@ export default function RegisterForm() {
       if (response.ok) {
         enqueueSnackbar("Registration successful!", { variant: "success" });
         reset(initialFormData);
-        router.push("/login");
+        router.push(ROUTES.LOGIN);
       } else {
         throw new Error("Error registering user");
       }

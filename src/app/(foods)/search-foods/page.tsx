@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "../../../components/button/button";
 import PageTitle from "../../../components/page-title/page-title";
+import { ROUTES } from "../../../utils/constants/routes";
 import FoodSearch from "./_components/food-search/food-search";
 
 export default function Page() {
@@ -13,10 +14,10 @@ export default function Page() {
       <FoodSearch />
       <section className="flex flex-col self-center">
         <div className="flex flex-row gap-4">
-          <Link href="foods/add-food" passHref>
+          <Link href={ROUTES.ADD_FOOD} passHref>
             <Button>Add Food</Button>
           </Link>
-          <Link href="foods/new-recipe" passHref>
+          <Link href={ROUTES.RECIPES} passHref>
             <Button>Create Recipe</Button>
           </Link>
         </div>

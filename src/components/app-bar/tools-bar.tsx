@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 import Link from "next/link";
 
+import { ROUTES } from "../../utils/constants/routes";
 import Button from "../button/button";
 import Header from "../header/header";
 
@@ -24,7 +25,7 @@ const GroupedPages: GroupedPage[] = [
     pages: [
       {
         title: "Search foods",
-        link: "/search-foods",
+        link: ROUTES.SEARCH_FOODS,
         icon: SearchIcon,
       },
     ],
@@ -34,7 +35,7 @@ const GroupedPages: GroupedPage[] = [
     pages: [
       {
         title: "Recipe calculator",
-        link: "/recipe-nutrition-calculator",
+        link: ROUTES.RECIPE_NUTRITION_CALCULATOR,
         icon: CalculateIcon,
       },
     ],
@@ -44,12 +45,12 @@ const GroupedPages: GroupedPage[] = [
     pages: [
       {
         title: "Meals tracker",
-        link: "/meals",
+        link: ROUTES.MEALS,
         icon: RestaurantIcon,
       },
       {
         title: "Recipes",
-        link: "/recipes",
+        link: ROUTES.RECIPES,
         icon: SoupKitchenIcon,
       },
     ],
