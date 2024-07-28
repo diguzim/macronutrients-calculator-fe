@@ -37,7 +37,7 @@ export default function AppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <MuiAppBar
         position="static"
         sx={{ backgroundColor: "transparent" }}
