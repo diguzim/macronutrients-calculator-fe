@@ -1,4 +1,5 @@
 import CalculateIcon from "@mui/icons-material/Calculate";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import SearchIcon from "@mui/icons-material/Search";
 import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
@@ -25,7 +26,7 @@ const GroupedPages: GroupedPage[] = [
     title: "Nutritional Data",
     pages: [
       {
-        title: "Search foods",
+        title: "Search Foods",
         link: ROUTES.FOODS,
         icon: SearchIcon,
       },
@@ -35,7 +36,7 @@ const GroupedPages: GroupedPage[] = [
     title: "Calculators",
     pages: [
       {
-        title: "Recipe calculator",
+        title: "Recipe Calculator",
         link: ROUTES.RECIPE_NUTRITION_CALCULATOR,
         icon: CalculateIcon,
       },
@@ -45,14 +46,19 @@ const GroupedPages: GroupedPage[] = [
     title: "Private Space",
     pages: [
       {
-        title: "Meals tracker",
-        link: ROUTES.MEALS,
-        icon: RestaurantIcon,
+        title: "Favorite Foods",
+        link: ROUTES.FAVORITES,
+        icon: FavoriteIcon,
       },
       {
         title: "Recipes",
         link: ROUTES.RECIPES,
         icon: SoupKitchenIcon,
+      },
+      {
+        title: "Meals Tracker",
+        link: ROUTES.MEALS,
+        icon: RestaurantIcon,
       },
     ],
   },
