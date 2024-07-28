@@ -5,6 +5,7 @@ type AuthContextType = {
   isAuthenticated: boolean;
   user: User | null;
   jwtToken: string | null;
+  loading: boolean;
   login: (user: User, jwtToken: string) => void;
   logout: () => void;
 };
@@ -13,6 +14,7 @@ export const authContextDefaultValue: AuthContextType = {
   isAuthenticated: false,
   user: null,
   jwtToken: null,
+  loading: true,
   login: () => {},
   logout: () => {},
 };
