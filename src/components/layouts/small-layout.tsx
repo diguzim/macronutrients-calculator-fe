@@ -3,5 +3,5 @@ export default function SmallLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="min-w-[600px]">{children}</div>;
+  return <div className="min-w-[600px] p-6">{children}</div>;
 }

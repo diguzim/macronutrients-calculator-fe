@@ -3,5 +3,5 @@ export default function MediumLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="min-w-[1000px]">{children}</div>;
+  return <div className="min-w-[1000px] p-6">{children}</div>;
 }

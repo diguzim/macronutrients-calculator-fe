@@ -57,30 +57,41 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-12 mb-16">
-        <div className="flex-1 flex flex-col justify-center gap-6">
-          <Header size={1} className="text-6xl text-center font-bold">
-            UNDERSTAND YOUR FOOD
-          </Header>
-          <p>
-            MaCal (Macronutrients Calculator) is designed to help you manage and
-            understand your nutritional intake effectively.
-          </p>
-        </div>
-        <div className="flex-1 relative aspect-square">
-          <Image src="/nuts.png" alt="Food" layout="fill" objectFit="contain" />
+      <div className="p-12 mb-16 bg-gradient-to-b from-primary-dark to-white">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex flex-row gap-12">
+            <div className="flex-1 flex flex-col justify-center gap-6">
+              <Header size={1} className="text-6xl text-center font-bold">
+                UNDERSTAND YOUR FOOD
+              </Header>
+              <p>
+                MaCal (Macronutrients Calculator) is designed to help you manage
+                and understand your nutritional intake effectively.
+              </p>
+            </div>
+            <div className="flex-1 relative aspect-square">
+              <Image
+                src="/nuts.png"
+                alt="Food"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
-      <section className="flex flex-col gap-3">
-        <Header className="mb-4 self-center font-semibold" size={2}>
-          One Place - Many features
-        </Header>
-        <div className="flex flex-row flex-wrap gap-10">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
-          ))}
-        </div>
-      </section>
+      <div className="max-w-[1200px] mx-auto">
+        <section className="flex flex-col gap-3">
+          <Header className="mb-4 self-center font-semibold" size={2}>
+            One Place - Many features
+          </Header>
+          <div className="flex flex-row flex-wrap gap-10">
+            {features.map((feature, index) => (
+              <FeatureCard key={index} {...feature} />
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

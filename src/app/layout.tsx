@@ -29,7 +29,7 @@ export default function RootLayout({
                 <NotificationProvider>
                   <div className="flex flex-col w-full min-h-full">
                     <AppBar />
-                    <main className="flex flex-col flex-1 p-6 items-center">
+                    <main className="flex flex-col flex-1 items-center">
                       {children}
                     </main>
                   </div>
