@@ -4,12 +4,13 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import useAuth from "../../contexts/auth/use-auth";
+import { ROUTES } from "../../utils/constants/routes";
 
 export default function AuthenticatedUserMenu() {
-  const { logout } = useAuth();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const router = useRouter();
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -17,6 +18,10 @@ export default function AuthenticatedUserMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    router.push(ROUTES.LOGOUT);
   };
 
   return (
@@ -48,7 +53,7 @@ export default function AuthenticatedUserMenu() {
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={logout}>Logout</MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>
   );

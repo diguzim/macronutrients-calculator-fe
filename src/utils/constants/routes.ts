@@ -9,4 +9,5 @@ export const ROUTES = {
   RECIPES: "/recipes",
   LOGIN: "/login",
   REGISTER: "/register",
+  LOGOUT: "/logout",
 };
