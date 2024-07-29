@@ -1,8 +1,8 @@
 import CalculateIcon from "@mui/icons-material/Calculate";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import SearchIcon from "@mui/icons-material/Search";
 import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
+import StarIcon from "@mui/icons-material/Star";
 import Link from "next/link";
 
 import { ROUTES } from "../../utils/constants/routes";
@@ -46,9 +46,9 @@ const GroupedPages: GroupedPage[] = [
     title: "Private Space",
     pages: [
       {
-        title: "Favorite Foods",
-        link: ROUTES.FAVORITES,
-        icon: FavoriteIcon,
+        title: "Custom Foods",
+        link: ROUTES.CUSTOM_FOODS,
+        icon: StarIcon,
       },
       {
         title: "Recipes",
