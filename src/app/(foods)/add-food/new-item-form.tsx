@@ -44,41 +44,44 @@ export default function NewItemForm() {
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
 
-  const onSubmit = useCallback(async (data: FormData) => {
-    const transformedData = {
-      ...data,
-      weight: Number(data.weight),
-      protein: Number(data.protein),
-      fat: Number(data.fat),
-      carbohydrate: Number(data.carbohydrate),
-      fiber: Number(data.fiber),
-      kcal: Number(data.kcal),
-    };
+  const onSubmit = useCallback(
+    async (data: FormData) => {
+      const transformedData = {
+        ...data,
+        weight: Number(data.weight),
+        protein: Number(data.protein),
+        fat: Number(data.fat),
+        carbohydrate: Number(data.carbohydrate),
+        fiber: Number(data.fiber),
+        kcal: Number(data.kcal),
+      };
 
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(transformedData),
-      });
-
-      if (response.ok) {
-        await revalidatePublicFoods();
-        reset(initialFormData);
-        enqueueSnackbar("Item added successfully", {
-          variant: "success",
+      try {
+        const response = await fetch(URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(transformedData),
         });
-        router.push(ROUTES.FOODS);
-      } else {
-        throw new Error("Error adding item");
+
+        if (response.ok) {
+          await revalidatePublicFoods();
+          reset(initialFormData);
+          enqueueSnackbar("Item added successfully", {
+            variant: "success",
+          });
+          router.push(ROUTES.FOODS);
+        } else {
+          throw new Error("Error adding item");
+        }
+      } catch (error) {
+        console.log("error", error);
+        enqueueSnackbar("Error adding item", { variant: "error" });
       }
-    } catch (error) {
-      console.log("error", error);
-      enqueueSnackbar("Error adding item", { variant: "error" });
-    }
-  }, []);
+    },
+    [enqueueSnackbar, reset, router]
+  );
 
   return (
     <form

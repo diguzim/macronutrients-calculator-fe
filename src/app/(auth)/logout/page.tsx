@@ -25,6 +25,7 @@ export default function LogoutPage() {
       preventDuplicate: true,
     });
     router.push(ROUTES.HOME);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -89,7 +89,7 @@ export default function NewCompositeItemForm() {
   const onResetAll = useCallback(() => {
     setItemsWithWeights(initialItemsWithWeights);
     reset(initialFormData);
-  }, []);
+  }, [reset]);
 
   const onSubmit = async (data: FormData) => {
     const transformedData = {

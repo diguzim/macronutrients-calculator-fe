@@ -32,28 +32,31 @@ export default function RegisterForm() {
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
-  const onSubmit = useCallback(async (data: FormData) => {
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  const onSubmit = useCallback(
+    async (data: FormData) => {
+      try {
+        const response = await fetch(URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
 
-      if (response.ok) {
-        enqueueSnackbar("Registration successful!", { variant: "success" });
-        reset(initialFormData);
-        router.push(ROUTES.LOGIN);
-      } else {
-        throw new Error("Error registering user");
+        if (response.ok) {
+          enqueueSnackbar("Registration successful!", { variant: "success" });
+          reset(initialFormData);
+          router.push(ROUTES.LOGIN);
+        } else {
+          throw new Error("Error registering user");
+        }
+      } catch (error) {
+        console.error(error);
+        enqueueSnackbar("Error registering user", { variant: "error" });
       }
-    } catch (error) {
-      console.error(error);
-      enqueueSnackbar("Error registering user", { variant: "error" });
-    }
-  }, []);
+    },
+    [enqueueSnackbar, reset, router]
+  );
 
   return (
     <form
