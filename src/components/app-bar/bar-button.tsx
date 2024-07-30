@@ -7,12 +7,14 @@ type BarButtonProps = {
   children: ReactNode;
   onClick: () => void;
   active: boolean;
+  leftIcon?: ReactNode;
 };
 
 export default function BarButton(props: BarButtonProps) {
   return (
     <Button
       variant="text"
+      size="large"
       onClick={props.onClick}
       endIcon={
         <ExpandMoreIcon
@@ -23,6 +25,7 @@ export default function BarButton(props: BarButtonProps) {
           }}
         />
       }
+      startIcon={props.leftIcon}
     >
       {props.children}
     </Button>

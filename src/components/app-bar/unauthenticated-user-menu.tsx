@@ -8,10 +8,12 @@ export default function UnauthenticatedUserMenu() {
   return (
     <div className="flex flex-row gap-4">
       <Link href={ROUTES.REGISTER} passHref>
-        <Button variant="outlined">Register</Button>
+        <Button variant="outlined" size="large">
+          Register
+        </Button>
       </Link>
       <Link href={ROUTES.LOGIN} passHref>
-        <Button>Login</Button>
+        <Button size="large">Login</Button>
       </Link>
     </div>
   );

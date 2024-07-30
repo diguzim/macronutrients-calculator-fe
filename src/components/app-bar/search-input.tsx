@@ -29,13 +29,13 @@ export default function SearchInput() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-row gap-4 ml-4 w-40"
+      className="flex flex-row gap-4 ml-4 w-48"
     >
       <FormInput
         control={control}
         name="search"
         placeholder="Search..."
-        size="small"
+        size="medium"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
