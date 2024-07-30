@@ -58,7 +58,7 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <div className="p-12 mb-16 bg-gradient-to-b from-primary-dark to-white">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-screen-xl mx-auto mt-24">
           <div className="flex flex-row gap-12">
             <div className="flex-1 flex flex-col justify-center gap-6">
               <Header size={1} className="text-6xl text-center font-bold">
@@ -80,7 +80,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <section className="flex flex-col gap-3">
           <Header className="mb-4 self-center font-semibold" size={2}>
             One Place - Many features

@@ -8,7 +8,7 @@ import NewMealForm from "./new-meal/new-meal.form";
 
 function Page() {
   return (
-    <div className="flex flex-col gap-2 bg-white p-2">
+    <div className="flex flex-col gap-2 p-2">
       <PageTitle title="Meals" />
       <Suspense fallback={<div>Loading...</div>}>
         <MealsTable />

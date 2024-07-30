@@ -1,9 +1,9 @@
-import SmallLayout from "../../../../components/layout/small-layout";
+import Layout from "../../../../components/layout/layout";
 
 export default function FoodIdLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <SmallLayout>{children}</SmallLayout>;
+  return <Layout>{children}</Layout>;
 }
