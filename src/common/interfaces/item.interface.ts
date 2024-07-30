@@ -1,4 +1,4 @@
-export type Item = {
+export type Food = {
   id: number;
   name: string;
   type: string;

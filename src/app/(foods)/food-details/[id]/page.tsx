@@ -4,7 +4,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import TextField from "@mui/material/TextField";
 import { useCallback, useEffect, useState } from "react";
 
-import { Item } from "../../../../common/interfaces/item.interface";
+import { Food } from "../../../../common/interfaces/item.interface";
 import Header from "../../../../components/header/header";
 import LinearProgress from "../../../../components/linear-progress/linear-progress";
 import Link from "../../../../components/link/link";
@@ -24,7 +24,7 @@ type PageProps = {
 };
 
 export default function Page({ params }: PageProps) {
-  const [food, setFood] = useState<Item | null>(null);
+  const [food, setFood] = useState<Food | null>(null);
   const [loading, setLoading] = useState(true);
   const [portion, setPortion] = useState(100);
 

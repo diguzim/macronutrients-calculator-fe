@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 
 import { useSnackbar } from "notistack";
 import { useCallback, useState } from "react";
-import { Item } from "../../../common/interfaces/item.interface";
+import { Food } from "../../../common/interfaces/item.interface";
 import Button from "../../../components/button/button";
 import Header from "../../../components/header/header";
 import { environmentVariables } from "../../../utils/environment-variables";
@@ -43,7 +43,7 @@ const initialItemsWithWeights: ItemWithWeight[] = [
 ];
 
 type CalculateNutritionalValuesFormProps = {
-  foods: Item[];
+  foods: Food[];
 };
 
 export default function CalculateNutritionalValuesForm({

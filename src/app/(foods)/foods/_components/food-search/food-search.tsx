@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Item } from "../../../../../common/interfaces/item.interface";
+import { Food } from "../../../../../common/interfaces/item.interface";
 import Button from "../../../../../components/button/button";
 import FormInput from "../../../../../components/form-input/form-input";
 import LinearProgress from "../../../../../components/linear-progress/linear-progress";
@@ -29,7 +29,7 @@ export default function FoodSearch() {
   const { control, handleSubmit, setValue } = useForm<FormData>({
     defaultValues: initialFormData,
   });
-  const [foods, setFoods] = useState(null as Item[] | null);
+  const [foods, setFoods] = useState(null as Food[] | null);
   const sx = { color: theme.colors.primary.contrast };
   const { enqueueSnackbar } = useSnackbar();
   const [isLoading, setIsLoading] = useState(false);
@@ -94,7 +94,7 @@ export default function FoodSearch() {
         </Button>
       </form>
       {isLoading && <LinearProgress />}
-      {foods && <SearchResults items={foods} />}
+      {foods && <SearchResults foods={foods} />}
     </div>
   );
 }

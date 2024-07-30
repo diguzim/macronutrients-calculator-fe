@@ -2,7 +2,7 @@
 
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
-import { Item } from "../../common/interfaces/item.interface";
+import { Food } from "../../common/interfaces/item.interface";
 import LinearProgress from "../../components/linear-progress/linear-progress";
 import PageTitle from "../../components/page-title/page-title";
 import { RESOURCE_TAGS } from "../../utils/constants/resource-tags";
@@ -12,7 +12,7 @@ import CalculateNutritionalValuesForm from "./_components/calculate-nutritional-
 const GET_URL = `${environmentVariables().public.backendUrl}/items/search?name=`;
 
 export default function Page() {
-  const [foods, setFoods] = useState([] as Item[]);
+  const [foods, setFoods] = useState([] as Food[]);
   const [loadingFoods, setLoadingFoods] = useState(true);
   const { enqueueSnackbar } = useSnackbar();
 

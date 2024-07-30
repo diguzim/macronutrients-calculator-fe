@@ -7,11 +7,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
 
-import { Item } from "../../../../common/interfaces/item.interface";
+import { Food } from "../../../../common/interfaces/item.interface";
 import theme from "../../../../theme/theme";
 
 type FoodDetailsProps = {
-  food: Item;
+  food: Food;
   portion: number;
 };
 

@@ -9,14 +9,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Link from "next/link";
 import { useMemo } from "react";
-import { Item } from "../../../../../common/interfaces/item.interface";
+import { Food } from "../../../../../common/interfaces/item.interface";
 import theme from "../../../../../theme/theme";
 import { environmentVariables } from "../../../../../utils/environment-variables";
 
 const URL = `${environmentVariables().public.backendUrl}/items`;
 
 type SearchResultsProps = {
-  items: Item[];
+  foods: Food[];
 };
 
 const PORTION = 100;
@@ -33,7 +33,7 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
   </TableCell>
 );
 
-export default function SearchResults({ items }: SearchResultsProps) {
+export default function SearchResults({ foods: items }: SearchResultsProps) {
   const itemsWithNutritionalValues = useMemo(() => {
     return items.map((item) => ({
       id: item.id,
