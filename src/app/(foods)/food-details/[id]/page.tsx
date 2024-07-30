@@ -10,6 +10,7 @@ import LinearProgress from "../../../../components/linear-progress/linear-progre
 import Link from "../../../../components/link/link";
 import PageTitle from "../../../../components/page-title/page-title";
 import theme from "../../../../theme/theme";
+import { ROUTES } from "../../../../utils/constants/routes";
 import { environmentVariables } from "../../../../utils/environment-variables";
 import FoodDetails from "./food-details";
 
@@ -82,7 +83,7 @@ export default function Page({ params }: PageProps) {
       />
       <FoodDetails food={food} portion={portion} />
       <div className="block">
-        <Link href="/search-foods">
+        <Link href={ROUTES.FOODS}>
           <ChevronLeftIcon sx={{ color: theme.colors.primary.dark }} />
           Back to search
         </Link>

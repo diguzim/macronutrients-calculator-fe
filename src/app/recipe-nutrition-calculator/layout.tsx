@@ -5,5 +5,5 @@ export default function RecipeNutritionaCalculatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return <Layout size="md">{children}</Layout>;
 }

@@ -1,9 +1,9 @@
-import SmallLayout from "../../../components/layout/small-layout";
+import Layout from "../../../components/layout/layout";
 
 export default function RegisterLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <SmallLayout>{children}</SmallLayout>;
+  return <Layout size="sm">{children}</Layout>;
 }

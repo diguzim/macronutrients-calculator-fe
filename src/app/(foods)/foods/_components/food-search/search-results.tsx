@@ -62,7 +62,7 @@ export default function SearchResults({ items }: SearchResultsProps) {
             <TableRow className="bg-secondary">
               <TableHeadCell>Name</TableHeadCell>
               <TableHeadCell>Type</TableHeadCell>
-              <TableHeadCell>Kcal</TableHeadCell>
+              <TableHeadCell>Calories</TableHeadCell>
               <TableHeadCell>Carbohydrates</TableHeadCell>
               <TableHeadCell>Protein</TableHeadCell>
               <TableHeadCell>Fat</TableHeadCell>
@@ -81,7 +81,7 @@ export default function SearchResults({ items }: SearchResultsProps) {
                   </Link>
                 </TableCell>
                 <TableCell>{item.type}</TableCell>
-                <TableCell>{item.kcal}g</TableCell>
+                <TableCell>{item.kcal} kcal</TableCell>
                 <TableCell>{item.carbohydrate}g</TableCell>
                 <TableCell>{item.protein}g</TableCell>
                 <TableCell>{item.fat}g</TableCell>
