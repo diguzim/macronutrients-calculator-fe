@@ -1,9 +1,9 @@
-import MediumLayout from "../../../components/layouts/medium-layout";
+import Layout from "../../../components/layouts/layout";
 
 export default function RecipesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <MediumLayout>{children}</MediumLayout>;
+  return <Layout size="lg">{children}</Layout>;
 }
