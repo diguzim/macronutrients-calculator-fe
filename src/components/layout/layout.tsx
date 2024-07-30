@@ -19,9 +19,9 @@ export default function Layout({
       <div
         className={`
           ${size === "container" && "container mx-auto"}
-          ${size === "sm" && "max-w-sm mx-auto"}
-          ${size === "md" && "max-w-md mx-auto"}
-          ${size === "lg" && "max-w-lg mx-auto"}
+          ${size === "sm" && "max-w-screen-sm mx-auto"}
+          ${size === "md" && "max-w-screen-md mx-auto"}
+          ${size === "lg" && "max-w-screen-lg mx-auto"}
           ${size === "full" && "w-full"}
         `}
       >
