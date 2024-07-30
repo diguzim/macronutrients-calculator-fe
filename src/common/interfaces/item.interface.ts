@@ -1,5 +1,5 @@
 export type Food = {
-  id: number;
+  id: string;
   name: string;
   type: string;
   kcalPerGram: number;
