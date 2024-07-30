@@ -12,9 +12,10 @@ import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../../components/button/button";
+import { RESOURCE_TAGS } from "../../../utils/constants/resource-tags";
 import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "../foods/revalidate-items";
+import { revalidatePublicFoods } from "../foods/revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;
@@ -64,7 +65,7 @@ export default function NewCompositeItemForm() {
   const fetchItems = useCallback(async () => {
     const response = await fetch(GET_URL, {
       next: {
-        tags: ["items"],
+        tags: [RESOURCE_TAGS.PUBLIC_FOODS],
       },
     });
     const items = (await response.json()) as any[];
@@ -110,7 +111,7 @@ export default function NewCompositeItemForm() {
       });
 
       if (response.ok) {
-        await revalidateItems();
+        await revalidatePublicFoods();
         onResetAll();
         enqueueSnackbar("Recipe created successfully", {
           variant: "success",

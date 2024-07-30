@@ -10,6 +10,7 @@ import LinearProgress from "../../../../components/linear-progress/linear-progre
 import Link from "../../../../components/link/link";
 import PageTitle from "../../../../components/page-title/page-title";
 import theme from "../../../../theme/theme";
+import { RESOURCE_TAGS } from "../../../../utils/constants/resource-tags";
 import { ROUTES } from "../../../../utils/constants/routes";
 import { environmentVariables } from "../../../../utils/environment-variables";
 import FoodDetails from "./food-details";
@@ -40,7 +41,7 @@ export default function Page({ params }: PageProps) {
     const fetchFood = async () => {
       const response = await fetch(URL + id, {
         next: {
-          tags: ["items"],
+          tags: [RESOURCE_TAGS.PUBLIC_FOODS],
         },
       });
 

@@ -11,7 +11,7 @@ import Button from "../../../components/button/button";
 import FormSelect from "../../../components/form-select/form-select";
 import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidateItems } from "../foods/revalidate-items";
+import { revalidatePublicFoods } from "../foods/revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
@@ -65,7 +65,7 @@ export default function NewItemForm() {
       });
 
       if (response.ok) {
-        await revalidateItems();
+        await revalidatePublicFoods();
         reset(initialFormData);
         enqueueSnackbar("Item added successfully", {
           variant: "success",

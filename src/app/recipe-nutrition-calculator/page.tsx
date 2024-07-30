@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Item } from "../../common/interfaces/item.interface";
 import LinearProgress from "../../components/linear-progress/linear-progress";
 import PageTitle from "../../components/page-title/page-title";
+import { RESOURCE_TAGS } from "../../utils/constants/resource-tags";
 import { environmentVariables } from "../../utils/environment-variables";
 import CalculateNutritionalValuesForm from "./_components/calculate-nutritional-values.form";
 
@@ -19,7 +20,7 @@ export default function Page() {
     const fetchFoods = async () => {
       const response = await fetch(GET_URL, {
         next: {
-          tags: ["items"],
+          tags: [RESOURCE_TAGS.PUBLIC_FOODS],
         },
       });
 

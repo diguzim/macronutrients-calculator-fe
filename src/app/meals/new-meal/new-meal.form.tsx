@@ -11,6 +11,7 @@ import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../../components/button/button";
 import useAuth from "../../../contexts/auth/use-auth";
+import { RESOURCE_TAGS } from "../../../utils/constants/resource-tags";
 import { environmentVariables } from "../../../utils/environment-variables";
 import { revalidateMeals } from "../revalidate-meals";
 
@@ -60,7 +61,7 @@ export default function NewMealForm() {
   const fetchFoods = useCallback(async () => {
     const response = await fetch(GET_URL, {
       next: {
-        tags: ["items"],
+        tags: [RESOURCE_TAGS.PUBLIC_FOODS],
       },
     });
     const items = (await response.json()) as any[];

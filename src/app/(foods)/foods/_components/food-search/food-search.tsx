@@ -10,6 +10,7 @@ import Button from "../../../../../components/button/button";
 import FormInput from "../../../../../components/form-input/form-input";
 import LinearProgress from "../../../../../components/linear-progress/linear-progress";
 import theme from "../../../../../theme/theme";
+import { RESOURCE_TAGS } from "../../../../../utils/constants/resource-tags";
 import { ROUTES } from "../../../../../utils/constants/routes";
 import { environmentVariables } from "../../../../../utils/environment-variables";
 import SearchResults from "./search-results";
@@ -44,7 +45,7 @@ export default function FoodSearch() {
       setIsLoading(true);
       const response = await fetch(urlWithQuery, {
         next: {
-          tags: ["items"],
+          tags: [RESOURCE_TAGS.PUBLIC_FOODS],
         },
       });
 
