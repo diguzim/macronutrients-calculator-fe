@@ -1,9 +1,13 @@
-import FullLayout from "../../components/layouts/full-layout";
+import Layout from "../../components/layout/layout";
 
 export default function HomeLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <FullLayout>{children}</FullLayout>;
+  return (
+    <Layout disableBackgroundEffect size="full">
+      {children}
+    </Layout>
+  );
 }

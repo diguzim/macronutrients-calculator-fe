@@ -1,4 +1,4 @@
-import SmallLayout from "../../../../components/layouts/small-layout";
+import SmallLayout from "../../../../components/layout/small-layout";
 
 export default function FoodIdLayout({
   children,

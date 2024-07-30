@@ -1,9 +1,9 @@
-import Layout from "../../../components/layouts/layout";
+import Layout from "../../../components/layout/layout";
 
 export default function RecipesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="lg">{children}</Layout>;
+  return <Layout>{children}</Layout>;
 }

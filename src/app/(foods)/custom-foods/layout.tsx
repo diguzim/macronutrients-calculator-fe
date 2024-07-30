@@ -1,4 +1,4 @@
-import MediumLayout from "../../../components/layouts/medium-layout";
+import MediumLayout from "../../../components/layout/medium-layout";
 
 export default function RecipesLayout({
   children,

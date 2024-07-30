@@ -1,9 +1,9 @@
-import SmallLayout from "../../../components/layouts/small-layout";
+import Layout from "../../../components/layout/layout";
 
 export default function LoginLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <SmallLayout>{children}</SmallLayout>;
+  return <Layout>{children}</Layout>;
 }
