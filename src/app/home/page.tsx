@@ -82,7 +82,7 @@ export default function Page() {
       </div>
       <div className="max-w-screen-xl mx-auto">
         <section className="flex flex-col gap-3">
-          <Header className="mb-4 self-center font-semibold" size={2}>
+          <Header className="mb-4 self-center" size={2}>
             One Place - Many features
           </Header>
           <div className="flex flex-row flex-wrap gap-10">
