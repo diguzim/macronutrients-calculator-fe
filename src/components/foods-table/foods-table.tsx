@@ -25,6 +25,17 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
   </TableCell>
 );
 
+const TableBodyCell = ({ children }: { children: React.ReactNode }) => (
+  <TableCell
+    sx={{
+      fontSize: "1rem",
+      color: theme.colors.primary.contrast,
+    }}
+  >
+    {children}
+  </TableCell>
+);
+
 type FoodsTableProps = {
   foods: Food[];
 };
@@ -61,20 +72,20 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
         <TableBody>
           {foodsWithNutritionalValues.map((food) => (
             <TableRow key={food.id}>
-              <TableCell>
+              <TableBodyCell>
                 <Link
-                  className="text-primary-dark font-bold"
+                  className="text-primary-contrast font-bold"
                   href={`/food-details/${food.id}`}
                 >
                   {food.name}
                 </Link>
-              </TableCell>
-              <TableCell>{food.type}</TableCell>
-              <TableCell>{food.kcal} kcal</TableCell>
-              <TableCell>{food.carbohydrate}g</TableCell>
-              <TableCell>{food.protein}g</TableCell>
-              <TableCell>{food.fat}g</TableCell>
-              <TableCell>{food.fiber}g</TableCell>
+              </TableBodyCell>
+              <TableBodyCell>{food.type}</TableBodyCell>
+              <TableBodyCell>{food.kcal} kcal</TableBodyCell>
+              <TableBodyCell>{food.carbohydrate}g</TableBodyCell>
+              <TableBodyCell>{food.protein}g</TableBodyCell>
+              <TableBodyCell>{food.fat}g</TableBodyCell>
+              <TableBodyCell>{food.fiber}g</TableBodyCell>
             </TableRow>
           ))}
         </TableBody>
