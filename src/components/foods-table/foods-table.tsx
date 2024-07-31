@@ -7,7 +7,6 @@ import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
 
 import { Food } from "../../common/interfaces/item.interface";
-import Link from "../link/link";
 import TableBodyCell from "../table/table-body-cell";
 import TableHeadCell from "../table/table-head-cell";
 import TableHeadRow from "../table/table-head-row";
@@ -16,9 +15,10 @@ const PORTION = 100;
 
 type FoodsTableProps = {
   foods: Food[];
+  onFoodClick: (foodId: string) => void;
 };
 
-export default function FoodsTable({ foods }: FoodsTableProps) {
+export default function FoodsTable({ foods, onFoodClick }: FoodsTableProps) {
   const foodsWithNutritionalValues = useMemo(() => {
     return foods.map((food) => ({
       id: food.id,
@@ -49,10 +49,12 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
         </TableHead>
         <TableBody>
           {foodsWithNutritionalValues.map((food) => (
-            <TableRow key={food.id}>
-              <TableBodyCell>
-                <Link href={`/food-details/${food.id}`}>{food.name}</Link>
-              </TableBodyCell>
+            <TableRow
+              key={food.id}
+              onClick={() => onFoodClick(food.id)}
+              className="cursor-pointer hover:bg-gray"
+            >
+              <TableBodyCell>{food.name}</TableBodyCell>
               <TableBodyCell>{food.type}</TableBodyCell>
               <TableBodyCell>{food.kcal} kcal</TableBodyCell>
               <TableBodyCell>{food.carbohydrate}g</TableBodyCell>

@@ -1,8 +1,8 @@
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import { Food } from "../../../../../common/interfaces/item.interface";
-import FoodsTable from "../../../../../components/foods-table/foods-table";
+import { Food } from "../../../../common/interfaces/item.interface";
+import FoodsTable from "../../../../components/foods-table/foods-table";
 
 type SearchResultsProps = {
   foods: Food[];
@@ -13,7 +13,7 @@ export default function SearchResults({ foods: items }: SearchResultsProps) {
 
   const onFoodClick = useCallback(
     (foodId: string) => {
-      router.push(`/food-details/${foodId}`);
+      router.push(`/custom-food-details/${foodId}`);
     },
     [router]
   );

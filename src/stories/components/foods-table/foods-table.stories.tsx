@@ -56,7 +56,7 @@ const foods: Food[] = [
   {
     id: "5",
     name: "White Rice",
-    type: "raw Carb",
+    type: "raw",
     kcalPerGram: 1.3,
     carbohydrateRatio: 0.28,
     proteinRatio: 0.02,
@@ -68,5 +68,8 @@ const foods: Food[] = [
 export const Default: Story = {
   args: {
     foods,
+    onFoodClick: (foodId: string) => {
+      alert(`Food clicked: ${foodId}`);
+    },
   },
 };
