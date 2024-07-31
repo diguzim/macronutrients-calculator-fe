@@ -3,15 +3,15 @@
 import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 
-import FormInput from "../../../components/form-input/form-input";
-
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import Button from "../../../components/button/button";
-import FormSelect from "../../../components/form-select/form-select";
-import { ROUTES } from "../../../utils/constants/routes";
-import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidatePublicFoods } from "../foods/revalidate-items";
+import Button from "../../../../components/button/button";
+import FormInput from "../../../../components/form-input/form-input";
+import FormSelect from "../../../../components/form-select/form-select";
+import useAuth from "../../../../contexts/auth/use-auth";
+import { ROUTES } from "../../../../utils/constants/routes";
+import { environmentVariables } from "../../../../utils/environment-variables";
+import { revalidatePublicFoods } from "../../foods/revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 
@@ -37,12 +37,13 @@ const initialFormData: FormData = {
   kcal: 0,
 };
 
-export default function NewItemForm() {
+export default function CreateForm() {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: initialFormData,
   });
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
+  const { jwtToken } = useAuth();
 
   const onSubmit = useCallback(
     async (data: FormData) => {
@@ -61,6 +62,7 @@ export default function NewItemForm() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${jwtToken}`,
           },
           body: JSON.stringify(transformedData),
         });
@@ -71,22 +73,22 @@ export default function NewItemForm() {
           enqueueSnackbar("Item added successfully", {
             variant: "success",
           });
-          router.push(ROUTES.FOODS);
+          router.push(ROUTES.CUSTOM_FOODS);
         } else {
-          throw new Error("Error adding item");
+          throw new Error("Error creating custom food");
         }
       } catch (error) {
         console.log("error", error);
-        enqueueSnackbar("Error adding item", { variant: "error" });
+        enqueueSnackbar("Error creating custom food", { variant: "error" });
       }
     },
-    [enqueueSnackbar, reset, router]
+    [enqueueSnackbar, jwtToken, reset, router]
   );
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 max-w-96"
+      className="flex flex-col gap-2 bg-white p-12 rounded-md  border-grey shadow-2xl"
     >
       <FormInput name="name" control={control} label="Name" required />
       <FormSelect
@@ -141,7 +143,7 @@ export default function NewItemForm() {
         type="number"
         required
       />
-      <Button type="submit" size="large">
+      <Button type="submit" size="large" sx={{ marginTop: "24px" }}>
         Create
       </Button>
     </form>

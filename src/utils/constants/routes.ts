@@ -2,7 +2,7 @@ export const ROUTES = {
   HOME: "/home",
   FOODS: "/foods",
   CUSTOM_FOODS: "/custom-foods",
-  ADD_FOOD: "/add-food",
+  CUSTOM_FOODS_CREATE: "/custom-foods/create",
   FOOD_DETAILS: "/food-details",
   RECIPE_NUTRITION_CALCULATOR: "/recipe-nutrition-calculator",
   MEALS: "/meals",
