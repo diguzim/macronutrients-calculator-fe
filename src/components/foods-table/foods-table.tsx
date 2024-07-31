@@ -1,40 +1,18 @@
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Link from "next/link";
 import { useMemo } from "react";
 
 import { Food } from "../../common/interfaces/item.interface";
-import theme from "../../theme/theme";
+import Link from "../link/link";
+import TableBodyCell from "../table/table-body-cell";
+import TableHeadCell from "../table/table-head-cell";
+import TableHeadRow from "../table/table-head-row";
 
 const PORTION = 100;
-
-const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
-  <TableCell
-    sx={{
-      fontWeight: "bold",
-      fontSize: "1rem",
-      color: theme.colors.black,
-    }}
-  >
-    {children}
-  </TableCell>
-);
-
-const TableBodyCell = ({ children }: { children: React.ReactNode }) => (
-  <TableCell
-    sx={{
-      fontSize: "1rem",
-      color: theme.colors.black,
-    }}
-  >
-    {children}
-  </TableCell>
-);
 
 type FoodsTableProps = {
   foods: Food[];
@@ -59,7 +37,7 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
       <Table size="small" aria-label="foods table">
         <caption>* Values based on 100g portion</caption>
         <TableHead>
-          <TableRow className="bg-gray">
+          <TableHeadRow>
             <TableHeadCell>Name</TableHeadCell>
             <TableHeadCell>Type</TableHeadCell>
             <TableHeadCell>Calories</TableHeadCell>
@@ -67,18 +45,13 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
             <TableHeadCell>Protein</TableHeadCell>
             <TableHeadCell>Fat</TableHeadCell>
             <TableHeadCell>Fiber</TableHeadCell>
-          </TableRow>
+          </TableHeadRow>
         </TableHead>
         <TableBody>
           {foodsWithNutritionalValues.map((food) => (
             <TableRow key={food.id}>
               <TableBodyCell>
-                <Link
-                  className="text-primary font-bold"
-                  href={`/food-details/${food.id}`}
-                >
-                  {food.name}
-                </Link>
+                <Link href={`/food-details/${food.id}`}>{food.name}</Link>
               </TableBodyCell>
               <TableBodyCell>{food.type}</TableBodyCell>
               <TableBodyCell>{food.kcal} kcal</TableBodyCell>

@@ -8,24 +8,13 @@ import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
 
 import { Food } from "../../../../common/interfaces/item.interface";
-import theme from "../../../../theme/theme";
+import TableHeadCell from "../../../../components/table/table-head-cell";
+import TableHeadRow from "../../../../components/table/table-head-row";
 
 type FoodDetailsProps = {
   food: Food;
   portion: number;
 };
-
-const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
-  <TableCell
-    sx={{
-      fontWeight: "bold",
-      fontSize: "1rem",
-      color: theme.colors.black,
-    }}
-  >
-    {children}
-  </TableCell>
-);
 
 export default function FoodDetails({ food, portion }: FoodDetailsProps) {
   const itemDetails = useMemo(
@@ -46,11 +35,11 @@ export default function FoodDetails({ food, portion }: FoodDetailsProps) {
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow className="bg-gray">
+            <TableHeadRow>
               <TableHeadCell>Nutrient</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
               <TableHeadCell>Daily Value</TableHeadCell>
-            </TableRow>
+            </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>

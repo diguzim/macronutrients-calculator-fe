@@ -6,7 +6,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Header from "../../../components/header/header";
-import theme from "../../../theme/theme";
+import TableHeadCell from "../../../components/table/table-head-cell";
+import TableHeadRow from "../../../components/table/table-head-row";
 
 type NutritionalValues = {
   kcal: number;
@@ -19,19 +20,6 @@ type NutritionalValues = {
 type NutritionalDetailsProps = {
   nutritionalValues: NutritionalValues;
 };
-
-const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
-  <TableCell
-    sx={{
-      fontWeight: "bold",
-      fontSize: "1rem",
-      color: theme.colors.black,
-    }}
-  >
-    {children}
-  </TableCell>
-);
-
 export default function NutritionalDetails({
   nutritionalValues: nutritionalDetails,
 }: NutritionalDetailsProps) {
@@ -41,11 +29,11 @@ export default function NutritionalDetails({
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow className="bg-primary">
+            <TableHeadRow>
               <TableHeadCell>Nutrient</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
               <TableHeadCell>Daily Value</TableHeadCell>
-            </TableRow>
+            </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>

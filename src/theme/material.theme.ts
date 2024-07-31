@@ -65,9 +65,6 @@ export const materialTheme = createTheme({
       },
     },
     MuiTypography: {
-      defaultProps: {
-        variant: "body1",
-      },
       styleOverrides: {
         body1: {
           color: theme.colors.darkBlack,
