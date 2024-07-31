@@ -12,12 +12,6 @@ export const materialTheme = createTheme({
       dark: theme.colors.primary.dark,
       contrastText: theme.colors.primary.contrast,
     },
-    secondary: {
-      main: theme.colors.secondary.main,
-      light: theme.colors.secondary.light,
-      dark: theme.colors.secondary.dark,
-      contrastText: theme.colors.secondary.contrast,
-    },
   },
   typography: {
     fontFamily: `${theme.typography.fontFamily} sans-serif`,

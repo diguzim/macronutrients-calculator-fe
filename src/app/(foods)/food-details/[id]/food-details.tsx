@@ -20,7 +20,7 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
     sx={{
       fontWeight: "bold",
       fontSize: "1rem",
-      color: theme.colors.secondary.contrast,
+      color: theme.colors.primary.contrast,
     }}
   >
     {children}
@@ -46,7 +46,7 @@ export default function FoodDetails({ food, portion }: FoodDetailsProps) {
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow className="bg-secondary">
+            <TableRow className="bg-primary">
               <TableHeadCell>Nutrient</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
               <TableHeadCell>Daily Value</TableHeadCell>

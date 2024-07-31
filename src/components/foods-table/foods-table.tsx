@@ -18,7 +18,7 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
     sx={{
       fontWeight: "bold",
       fontSize: "1rem",
-      color: theme.colors.secondary.contrast,
+      color: theme.colors.primary.contrast,
     }}
   >
     {children}
@@ -59,7 +59,7 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
       <Table size="small" aria-label="foods table">
         <caption>* Values based on 100g portion</caption>
         <TableHead>
-          <TableRow className="bg-secondary">
+          <TableRow className="bg-primary">
             <TableHeadCell>Name</TableHeadCell>
             <TableHeadCell>Type</TableHeadCell>
             <TableHeadCell>Calories</TableHeadCell>

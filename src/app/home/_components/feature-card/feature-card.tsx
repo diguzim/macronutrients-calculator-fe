@@ -23,7 +23,7 @@ export default function FeatureCard({
   const sx = { color: theme.colors.primary.contrast };
 
   return (
-    <div className="flex flex-col bg-secondary-light px-4 py-5 w-80">
+    <div className="flex flex-col bg-primary-light px-4 py-5 w-80">
       <div className="flex flex-row items-center justify-center gap-2">
         <Header
           size={3}
@@ -33,7 +33,7 @@ export default function FeatureCard({
         </Header>
         {icon}
       </div>
-      <p className="mt-2 mb-4 text-secondary-contrast">{description}</p>
+      <p className="mt-2 mb-4 text-primary-contrast">{description}</p>
       <div className="grow" />
       <Link href={actionLink} className="self-end" passHref>
         <Button size="small" endIcon={<ChevronRightIcon sx={sx} />}>

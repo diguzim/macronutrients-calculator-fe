@@ -12,12 +12,6 @@ module.exports = {
           dark: theme.colors.primary.dark,
           contrast: theme.colors.primary.contrast,
         },
-        secondary: {
-          DEFAULT: theme.colors.secondary.main,
-          light: theme.colors.secondary.light,
-          dark: theme.colors.secondary.dark,
-          contrast: theme.colors.secondary.contrast,
-        },
       },
       fontFamily: {
         sans: [theme.typography.fontFamily, "sans-serif"],
