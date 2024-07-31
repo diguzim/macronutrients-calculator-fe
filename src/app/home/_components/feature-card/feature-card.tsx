@@ -1,4 +1,5 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 import Button from "../../../../components/button/button";
@@ -31,7 +32,9 @@ export default function FeatureCard({
         </Header>
         {icon}
       </div>
-      <p className="mt-2 mb-4 text-black">{description}</p>
+      <div className="mt-2 mb-4">
+        <Typography>{description}</Typography>
+      </div>
       <div className="grow" />
       <Link href={actionLink} className="self-end" passHref>
         <Button

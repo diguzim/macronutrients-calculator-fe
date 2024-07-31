@@ -2,6 +2,7 @@
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { useCallback, useEffect, useState } from "react";
 
 import { Food } from "../../../../common/interfaces/item.interface";
@@ -62,7 +63,7 @@ export default function Page({ params }: PageProps) {
   if (loading) {
     return (
       <div className="flex flex-col gap-10">
-        <p className="self-center">Loading food details...</p>
+        <Typography className="self-center">Loading food details...</Typography>
         <LinearProgress />
       </div>
     );

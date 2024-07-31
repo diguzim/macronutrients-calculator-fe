@@ -68,8 +68,8 @@ export default function Page() {
                 UNDERSTAND YOUR FOOD
               </span>
               <div>
-                <Typography variant="body1">Learn about yout food</Typography>
-                <Typography variant="body1">
+                <Typography>Learn about yout food</Typography>
+                <Typography>
                   Manage and understand your nutritional intake effectively.
                 </Typography>
               </div>
@@ -84,7 +84,7 @@ export default function Page() {
               >
                 Get Started
               </Button>
-              <Typography variant="body1">
+              <Typography>
                 Already registered? <Link href={ROUTES.LOGIN}>Login</Link>
               </Typography>
             </div>

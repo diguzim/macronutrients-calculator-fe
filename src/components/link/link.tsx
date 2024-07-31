@@ -11,8 +11,8 @@ export default function Link(props: LinkProps) {
       {...props}
       className={`
         ${props.className}
-        text-primary-dark
-        border-b-2 border-transparent hover:border-primary-dark transition duration-300
+        text-primary
+        border-b-2 border-transparent hover:border-primary transition duration-300
       `}
     >
       {props.children}
