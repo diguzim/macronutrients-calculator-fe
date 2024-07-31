@@ -10,7 +10,6 @@ export const materialTheme = createTheme({
       main: theme.colors.primary.main,
       light: theme.colors.primary.light,
       dark: theme.colors.primary.dark,
-      contrastText: theme.colors.primary.contrast,
     },
   },
   typography: {
@@ -33,7 +32,7 @@ export const materialTheme = createTheme({
       },
       styleOverrides: {
         root: {
-          color: theme.colors.primary.contrast,
+          color: theme.colors.primary.dark,
           fontFamily: "Roboto, sans-serif",
           fontWeight: 600,
           letterSpacing: "0.06em",

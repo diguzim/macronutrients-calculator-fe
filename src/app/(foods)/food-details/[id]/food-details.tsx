@@ -20,7 +20,7 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
     sx={{
       fontWeight: "bold",
       fontSize: "1rem",
-      color: theme.colors.primary.contrast,
+      color: theme.colors.black,
     }}
   >
     {children}

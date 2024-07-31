@@ -18,7 +18,7 @@ export default function AuthenticatedUserMenu(props: TopLeftButtonsProps) {
         leftIcon={
           <AccountCircle
             sx={{
-              color: theme.colors.primary.contrast,
+              color: theme.colors.black,
             }}
           />
         }

@@ -20,7 +20,7 @@ export default function FeatureCard({
   actionText,
   icon,
 }: FeatureCardProps) {
-  const sx = { color: theme.colors.primary.contrast };
+  const sx = { color: theme.colors.black };
 
   return (
     <div className="flex flex-col bg-primary-light px-4 py-5 w-80">
@@ -33,7 +33,7 @@ export default function FeatureCard({
         </Header>
         {icon}
       </div>
-      <p className="mt-2 mb-4 text-primary-contrast">{description}</p>
+      <p className="mt-2 mb-4 text-black">{description}</p>
       <div className="grow" />
       <Link href={actionLink} className="self-end" passHref>
         <Button size="small" endIcon={<ChevronRightIcon sx={sx} />}>

@@ -30,7 +30,7 @@ export default function FoodSearch() {
     defaultValues: initialFormData,
   });
   const [foods, setFoods] = useState(null as Food[] | null);
-  const sx = { color: theme.colors.primary.contrast };
+  const sx = { color: theme.colors.black };
   const { enqueueSnackbar } = useSnackbar();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();

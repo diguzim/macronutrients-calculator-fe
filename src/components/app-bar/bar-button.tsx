@@ -21,7 +21,7 @@ export default function BarButton(props: BarButtonProps) {
           sx={{
             transform: props.active ? "rotate(180deg)" : "rotate(0deg)",
             transition: "transform 0.3s",
-            color: theme.colors.primary.contrast,
+            color: theme.colors.black,
           }}
         />
       }

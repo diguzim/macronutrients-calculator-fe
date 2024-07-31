@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <HeaderElement
-      className={`text-primary-contrast ${sizeMappingClass[size]} ${weightMappingClass[size]} ${className}`}
+      className={`text-black ${sizeMappingClass[size]} ${weightMappingClass[size]} ${className}`}
       {...remainingProps}
     />
   );

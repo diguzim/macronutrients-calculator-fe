@@ -18,7 +18,7 @@ const TableHeadCell = ({ children }: { children: React.ReactNode }) => (
     sx={{
       fontWeight: "bold",
       fontSize: "1rem",
-      color: theme.colors.primary.contrast,
+      color: theme.colors.black,
     }}
   >
     {children}
@@ -29,7 +29,7 @@ const TableBodyCell = ({ children }: { children: React.ReactNode }) => (
   <TableCell
     sx={{
       fontSize: "1rem",
-      color: theme.colors.primary.contrast,
+      color: theme.colors.black,
     }}
   >
     {children}
@@ -74,7 +74,7 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
             <TableRow key={food.id}>
               <TableBodyCell>
                 <Link
-                  className="text-primary-contrast font-bold"
+                  className="text-black font-bold"
                   href={`/food-details/${food.id}`}
                 >
                   {food.name}
