@@ -64,5 +64,12 @@ export const materialTheme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        body1: {
+          color: theme.colors.darkBlack,
+        },
+      },
+    },
   },
 });

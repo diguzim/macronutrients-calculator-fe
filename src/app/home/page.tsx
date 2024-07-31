@@ -3,11 +3,14 @@
 import CalculateIcon from "@mui/icons-material/Calculate";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import SearchIcon from "@mui/icons-material/Search";
+import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 import { useMemo } from "react";
+import Button from "../../components/button/button";
 import Header from "../../components/header/header";
+import Link from "../../components/link/link";
 import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import { withSx } from "../../utils/hocs/with-sx.hoc";
@@ -57,17 +60,33 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="p-12 mb-16 bg-gradient-to-b from-primary-dark to-white">
+      <div className="p-12 mb-16 bg-gradient-to-b from-primary-dark via-primary-light to-white">
         <div className="max-w-screen-xl mx-auto mt-24">
           <div className="flex flex-row gap-12">
-            <div className="flex-1 flex flex-col justify-center gap-6">
-              <Header size={1} className="text-6xl text-center font-bold">
+            <div className="flex-1 flex flex-col items-start justify-center gap-6">
+              <span className="text-6xl text-center font-bold text-black">
                 UNDERSTAND YOUR FOOD
-              </Header>
-              <p>
-                MaCal (Macronutrients Calculator) is designed to help you manage
-                and understand your nutritional intake effectively.
-              </p>
+              </span>
+              <div>
+                <Typography variant="body1">Learn about yout food</Typography>
+                <Typography variant="body1">
+                  Manage and understand your nutritional intake effectively.
+                </Typography>
+              </div>
+              <Button
+                href={ROUTES.REGISTER}
+                size="large"
+                sx={{
+                  fontSize: "1.1rem",
+                  padding: "16px 64px",
+                  height: "60px",
+                }}
+              >
+                Get Started
+              </Button>
+              <Typography variant="body1">
+                Already registered? <Link href={ROUTES.LOGIN}>Login</Link>
+              </Typography>
             </div>
             <div className="flex-1 relative aspect-square">
               <Image
