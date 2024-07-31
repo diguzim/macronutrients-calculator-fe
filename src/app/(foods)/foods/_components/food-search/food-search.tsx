@@ -30,7 +30,6 @@ export default function FoodSearch() {
     defaultValues: initialFormData,
   });
   const [foods, setFoods] = useState(null as Food[] | null);
-  const sx = { color: theme.colors.black };
   const { enqueueSnackbar } = useSnackbar();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -90,7 +89,7 @@ export default function FoodSearch() {
           required
         />
         <Button type="submit" size="small">
-          <SearchIcon sx={sx} />
+          <SearchIcon sx={{ color: theme.colors.white }} />
         </Button>
       </form>
       {isLoading && <LinearProgress />}

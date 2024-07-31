@@ -1,4 +1,3 @@
-import Header from "../header/header";
 import Link from "../link/link";
 import MenuPositioner from "./menu-positioner";
 
@@ -11,7 +10,7 @@ export default function AboutMenu(props: AboutMenuProps) {
   return (
     <MenuPositioner visible={props.visible}>
       <div className="flex flex-col items-center max-w-96 mx-auto gap-4">
-        <Header size={2}>Objective</Header>
+        <p className="text-black text-3xl font-bold mb-4 ml-1">Objective</p>
         <p>
           MaCal is a web application that helps users track their daily
           nutritional intake. It provides tools to calculate the nutritional

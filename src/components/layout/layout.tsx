@@ -13,7 +13,7 @@ export default function Layout({
     <div
       className={`
         flex-1 w-full
-        ${!disableBackgroundEffect && "bg-gradient-to-b from-white to-primary"}
+        ${!disableBackgroundEffect && "bg-gradient-to-b from-white to-primary-light"}
       `}
     >
       <div

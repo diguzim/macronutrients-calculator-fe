@@ -3,8 +3,9 @@ const theme = {
   colors: {
     primary: {
       main: "#3277FF", // Cor principal
-      light: "#DDECFA", // Versão mais clara para fundo ou hover
-      dark: "#0334E0", // Versão mais escura para bordas ou texto
+      light: "#BFD0F8", // Versão mais clara para fundo ou hover
+      dark: "#1C59C9", // Versão mais escura para bordas ou texto
+      darker: "#143866", // Versão mais escura ainda para sombras
     },
     white: "#FFFFFF", // Branco para fundos e texto claro
     gray: "#f0f1f0", // Cinza médio para bordas e textos secundários

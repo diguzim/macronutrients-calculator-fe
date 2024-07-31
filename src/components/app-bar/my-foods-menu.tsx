@@ -6,9 +6,9 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 
+import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import Button from "../button/button";
-import Header from "../header/header";
 import MenuPositioner from "./menu-positioner";
 
 type Page = {
@@ -76,9 +76,9 @@ export default function MyFoodsMenu(props: MyFoodsMenuProps) {
       <div className="flex flex-row justify-center gap-12">
         {GroupedPages.map((group) => (
           <div key={group.title} className="flex flex-col">
-            <Header size={2} className="mb-4">
+            <p className="text-black text-3xl font-bold mb-4 ml-1">
               {group.title}
-            </Header>
+            </p>
             {group.pages.map((page) => (
               <Link key={page.title} href={page.link} passHref>
                 <Button
@@ -87,7 +87,7 @@ export default function MyFoodsMenu(props: MyFoodsMenuProps) {
                   onClick={props.closeBar}
                   size="large"
                   sx={{
-                    color: "inherit",
+                    color: theme.colors.primary.main,
                     textTransform: "none",
                     "&:hover": {
                       backgroundColor: "#f5f5f5",

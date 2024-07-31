@@ -45,7 +45,9 @@ export default function AppBar() {
       >
         <Toolbar>
           <Link href={ROUTES.HOME} passHref className="mr-4">
-            <Header size={1}>MaCal</Header>
+            <Header size={1} className="text-primary-darker">
+              MaCal
+            </Header>
           </Link>
           <TopLeftButtons
             displayedBar={displayedBar}

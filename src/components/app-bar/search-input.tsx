@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import FormInput from "../form-input/form-input";
 
@@ -32,6 +33,7 @@ export default function SearchInput() {
       className="flex flex-row gap-4 ml-4 w-48"
     >
       <FormInput
+        className="bg-gray"
         control={control}
         name="search"
         placeholder="Search..."
@@ -39,7 +41,7 @@ export default function SearchInput() {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon />
+              <SearchIcon sx={{ color: theme.colors.black }} />
             </InputAdornment>
           ),
         }}

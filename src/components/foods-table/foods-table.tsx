@@ -59,7 +59,7 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
       <Table size="small" aria-label="foods table">
         <caption>* Values based on 100g portion</caption>
         <TableHead>
-          <TableRow className="bg-primary">
+          <TableRow className="bg-gray">
             <TableHeadCell>Name</TableHeadCell>
             <TableHeadCell>Type</TableHeadCell>
             <TableHeadCell>Calories</TableHeadCell>
@@ -74,7 +74,7 @@ export default function FoodsTable({ foods }: FoodsTableProps) {
             <TableRow key={food.id}>
               <TableBodyCell>
                 <Link
-                  className="text-black font-bold"
+                  className="text-primary font-bold"
                   href={`/food-details/${food.id}`}
                 >
                   {food.name}

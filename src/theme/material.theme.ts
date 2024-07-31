@@ -32,19 +32,14 @@ export const materialTheme = createTheme({
       },
       styleOverrides: {
         root: {
-          color: theme.colors.primary.dark,
           fontFamily: "Roboto, sans-serif",
           fontWeight: 600,
           letterSpacing: "0.06em",
           textTransform: "uppercase",
-          textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
         },
-        sizeSmall: {
-          fontSize: "0.75rem",
-          textShadow: "none",
-        },
-        sizeLarge: {
-          fontSize: "1rem",
+        contained: {
+          color: theme.colors.white,
+          backgroundColor: theme.colors.primary.dark,
         },
         outlined: {
           color: theme.colors.primary.dark,
@@ -53,6 +48,19 @@ export const materialTheme = createTheme({
             backgroundColor: theme.colors.primary.light,
             borderColor: theme.colors.primary.light,
           },
+        },
+        text: {
+          color: theme.colors.black,
+          "&:hover": {
+            backgroundColor: theme.colors.gray,
+          },
+        },
+        sizeSmall: {
+          fontSize: "0.75rem",
+          textShadow: "none",
+        },
+        sizeLarge: {
+          fontSize: "1rem",
         },
       },
     },

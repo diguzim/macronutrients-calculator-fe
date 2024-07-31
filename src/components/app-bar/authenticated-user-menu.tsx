@@ -1,5 +1,3 @@
-"use client";
-
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import theme from "../../theme/theme";
 import BarButton from "./bar-button";
@@ -11,20 +9,18 @@ type TopLeftButtonsProps = {
 
 export default function AuthenticatedUserMenu(props: TopLeftButtonsProps) {
   return (
-    <>
-      <BarButton
-        onClick={() => props.handleBarItemClick("my-foods")}
-        active={props.active}
-        leftIcon={
-          <AccountCircle
-            sx={{
-              color: theme.colors.black,
-            }}
-          />
-        }
-      >
-        My Foods
-      </BarButton>
-    </>
+    <BarButton
+      onClick={() => props.handleBarItemClick("my-foods")}
+      active={props.active}
+      leftIcon={
+        <AccountCircle
+          sx={{
+            color: theme.colors.black,
+          }}
+        />
+      }
+    >
+      My Foods
+    </BarButton>
   );
 }

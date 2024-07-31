@@ -46,7 +46,7 @@ export default function FoodDetails({ food, portion }: FoodDetailsProps) {
       <TableContainer component={Paper}>
         <Table size="small" aria-label="simple table">
           <TableHead>
-            <TableRow className="bg-primary">
+            <TableRow className="bg-gray">
               <TableHeadCell>Nutrient</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
               <TableHeadCell>Daily Value</TableHeadCell>
