@@ -5,7 +5,7 @@ import withAuth from "../../../utils/hocs/with-auth";
 
 function CustomFoodsPage() {
   return (
-    <div className="flex flex-col gap-2 bg-white p-2">
+    <div className="flex flex-col gap-2">
       <PageTitle title="Custom Foods" />
     </div>
   );

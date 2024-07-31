@@ -73,8 +73,8 @@ export default function Page() {
               <Image
                 src="/nuts.png"
                 alt="Food"
-                layout="fill"
-                objectFit="contain"
+                fill
+                style={{ objectFit: "contain" }}
               />
             </div>
           </div>
