@@ -5,5 +5,13 @@ export default function RecipeNutritionaCalculatorLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="md">{children}</Layout>;
+  return (
+    <Layout
+      size="md"
+      title="Recipe Nutrition Calculator"
+      description="Add each portion that composes you meal and figure out what the nutritional values of the meal are."
+    >
+      {children}
+    </Layout>
+  );
 }

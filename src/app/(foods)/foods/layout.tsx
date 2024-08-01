@@ -5,5 +5,13 @@ export default function FoodsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="md">{children}</Layout>;
+  return (
+    <Layout
+      size="md"
+      title="Food Search"
+      description="Search for a food to see it's nutritional data"
+    >
+      {children}
+    </Layout>
+  );
 }

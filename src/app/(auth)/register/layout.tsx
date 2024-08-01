@@ -5,5 +5,9 @@ export default function RegisterLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="sm">{children}</Layout>;
+  return (
+    <Layout size="sm" title="Register">
+      {children}
+    </Layout>
+  );
 }

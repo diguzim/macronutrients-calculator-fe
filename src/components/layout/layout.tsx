@@ -1,13 +1,19 @@
+import PageTitle from "../page-title/page-title";
+
 type LayoutProps = {
   size?: "container" | "sm" | "md" | "lg" | "full";
   disableBackgroundEffect?: boolean;
   children: React.ReactNode;
+  title?: string;
+  description?: string;
 };
 
 export default function Layout({
   children,
   size = "container",
   disableBackgroundEffect = false,
+  title,
+  description,
 }: LayoutProps) {
   return (
     <div
@@ -25,7 +31,10 @@ export default function Layout({
           ${size === "full" && "w-full"}
         `}
       >
-        {children}
+        <div className="flex flex-col gap-10">
+          {title && <PageTitle title={title} description={description} />}
+          {children}
+        </div>
       </div>
     </div>
   );

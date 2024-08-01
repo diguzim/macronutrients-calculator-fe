@@ -75,11 +75,11 @@ export default function CreateForm() {
           });
           router.push(ROUTES.CUSTOM_FOODS);
         } else {
-          throw new Error("Error creating custom food");
+          throw new Error("Error creating food");
         }
       } catch (error) {
         console.log("error", error);
-        enqueueSnackbar("Error creating custom food", { variant: "error" });
+        enqueueSnackbar("Error creating food", { variant: "error" });
       }
     },
     [enqueueSnackbar, jwtToken, reset, router]

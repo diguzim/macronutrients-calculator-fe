@@ -5,5 +5,9 @@ export default function RecipesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="md">{children}</Layout>;
+  return (
+    <Layout size="md" title="Recipes">
+      {children}
+    </Layout>
+  );
 }
