@@ -5,13 +5,13 @@ import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import Button from "../../../../components/button/button";
-import FormInput from "../../../../components/form-input/form-input";
-import FormSelect from "../../../../components/form-select/form-select";
-import useAuth from "../../../../contexts/auth/use-auth";
-import { ROUTES } from "../../../../utils/constants/routes";
-import { environmentVariables } from "../../../../utils/environment-variables";
-import { revalidatePublicFoods } from "../../foods/revalidate-items";
+import Button from "../../../components/button/button";
+import FormInput from "../../../components/form-input/form-input";
+import FormSelect from "../../../components/form-select/form-select";
+import useAuth from "../../../contexts/auth/use-auth";
+import { ROUTES } from "../../../utils/constants/routes";
+import { environmentVariables } from "../../../utils/environment-variables";
+import { revalidatePublicFoods } from "../foods/revalidate-items";
 
 const URL = `${environmentVariables().public.backendUrl}/items/create-from-absolute-values`;
 

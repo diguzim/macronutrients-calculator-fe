@@ -1,7 +1,7 @@
 "use client";
 
-import PageTitle from "../../../../components/page-title/page-title";
-import withAuth from "../../../../utils/hocs/with-auth";
+import PageTitle from "../../../components/page-title/page-title";
+import withAuth from "../../../utils/hocs/with-auth";
 import CreateForm from "./create-form";
 
 function CreateCustomFoodPage() {
