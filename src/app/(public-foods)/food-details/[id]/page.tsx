@@ -16,7 +16,7 @@ import { ROUTES } from "../../../../utils/constants/routes";
 import { environmentVariables } from "../../../../utils/environment-variables";
 import FoodDetails from "./food-details";
 
-const URL = `${environmentVariables().public.backendUrl}/items/`;
+const URL = `${environmentVariables().public.backendUrl}/items/public/`;
 
 type PageProps = {
   params: {
