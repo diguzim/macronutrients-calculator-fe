@@ -10,9 +10,10 @@ export default function Link(props: LinkProps) {
     <NextLink
       {...props}
       className={`
-        ${props.className}
         text-primary
         border-b-2 border-transparent hover:border-primary transition duration-300
+        self-start
+        ${props.className}
       `}
     >
       {props.children}
