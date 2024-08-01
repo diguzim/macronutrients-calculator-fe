@@ -36,7 +36,7 @@ export default function FavoriteFoodsSearch() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  const incomingSearchTerm = searchParams.get("search");
+  const incomingSearchTerm = searchParams.get("search") || "";
   const { jwtToken } = useAuth();
 
   const fetchFoods = useCallback(
@@ -76,8 +76,8 @@ export default function FavoriteFoodsSearch() {
   useEffect(() => {
     if (incomingSearchTerm) {
       setValue("search", incomingSearchTerm);
-      fetchFoods(incomingSearchTerm);
     }
+    fetchFoods(incomingSearchTerm);
   }, [fetchFoods, incomingSearchTerm, setValue]);
 
   return (
@@ -91,7 +91,6 @@ export default function FavoriteFoodsSearch() {
           name="search"
           label="Search"
           size="small"
-          required
         />
         <Button type="submit" size="small">
           <SearchIcon sx={{ color: theme.colors.white }} />
