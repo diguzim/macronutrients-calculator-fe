@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { Food } from "../../../../common/interfaces/item.interface";
 import FoodsTable from "../../../../components/foods-table/foods-table";
+import { ROUTES } from "../../../../utils/constants/routes";
 
 type SearchResultsProps = {
   foods: Food[];
@@ -13,7 +14,7 @@ export default function SearchResults({ foods: items }: SearchResultsProps) {
 
   const onFoodClick = useCallback(
     (foodId: string) => {
-      router.push(`/custom-food-details/${foodId}`);
+      router.push(`${ROUTES.FAVORITE_FOOD_DETAILS}/${foodId}`);
     },
     [router]
   );

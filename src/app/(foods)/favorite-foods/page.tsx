@@ -3,12 +3,12 @@
 import Button from "../../../components/button/button";
 import { ROUTES } from "../../../utils/constants/routes";
 import withAuth from "../../../utils/hocs/with-auth";
-import CustomFoodSearch from "./_components/custom-food-search";
+import FavoriteFoodsSearch from "./_components/favorite-foods-search";
 
-function CustomFoodsPage() {
+function FavoriteFoodsPage() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <CustomFoodSearch />
+      <FavoriteFoodsSearch />
       <Button href={ROUTES.CREATE_FOOD} className="self-start">
         Create food
       </Button>
@@ -16,4 +16,4 @@ function CustomFoodsPage() {
   );
 }
 
-export default withAuth(CustomFoodsPage);
+export default withAuth(FavoriteFoodsPage);

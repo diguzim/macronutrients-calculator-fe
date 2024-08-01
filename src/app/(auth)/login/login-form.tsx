@@ -49,7 +49,7 @@ export default function RegisterForm() {
           const { token, user } = await response.json();
           login(user, token);
           setIsLoading(false);
-          router.push(ROUTES.CUSTOM_FOODS);
+          router.push(ROUTES.FAVORITE_FOODS);
           reset(initialFormData);
           enqueueSnackbar("Login successful!", { variant: "success" });
         } else {

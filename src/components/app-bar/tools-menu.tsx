@@ -46,8 +46,8 @@ const GroupedPages: GroupedPage[] = [
     title: "Private Space",
     pages: [
       {
-        title: "Custom Foods",
-        link: ROUTES.CUSTOM_FOODS,
+        title: "Favorite Foods",
+        link: ROUTES.FAVORITE_FOODS,
         icon: StarIcon,
       },
       {

@@ -73,7 +73,7 @@ export default function CreateForm() {
           enqueueSnackbar("Item added successfully", {
             variant: "success",
           });
-          router.push(ROUTES.CUSTOM_FOODS);
+          router.push(ROUTES.FAVORITE_FOODS);
         } else {
           throw new Error("Error creating food");
         }

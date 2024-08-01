@@ -26,7 +26,7 @@ const initialFormData: FormData = {
 
 const URL = `${environmentVariables().public.backendUrl}/items/search-private?`;
 
-export default function CustomFoodSearch() {
+export default function FavoriteFoodsSearch() {
   const { control, handleSubmit, setValue } = useForm<FormData>({
     defaultValues: initialFormData,
   });
@@ -49,7 +49,7 @@ export default function CustomFoodSearch() {
           Authorization: `Bearer ${jwtToken}`,
         },
         next: {
-          tags: [RESOURCE_TAGS.CUSTOM_FOODS],
+          tags: [RESOURCE_TAGS.FAVORITE_FOODS],
         },
       });
 
@@ -68,7 +68,7 @@ export default function CustomFoodSearch() {
 
   const onSubmit = useCallback(
     async (data: FormData) => {
-      router.push(`${ROUTES.CUSTOM_FOODS}?search=${data.search}`);
+      router.push(`${ROUTES.FAVORITE_FOODS}?search=${data.search}`);
     },
     [router]
   );
