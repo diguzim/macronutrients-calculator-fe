@@ -27,7 +27,7 @@ const GroupedPages: GroupedPage[] = [
     pages: [
       {
         title: "Search Foods",
-        link: ROUTES.FOODS,
+        link: ROUTES.FOOD_SEARCH,
         icon: SearchIcon,
       },
     ],

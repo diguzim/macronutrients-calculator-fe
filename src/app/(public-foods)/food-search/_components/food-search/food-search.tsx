@@ -63,7 +63,7 @@ export default function FoodSearch() {
 
   const onSubmit = useCallback(
     async (data: FormData) => {
-      router.push(`${ROUTES.FOODS}?search=${data.search}`);
+      router.push(`${ROUTES.FOOD_SEARCH}?search=${data.search}`);
     },
     [router]
   );

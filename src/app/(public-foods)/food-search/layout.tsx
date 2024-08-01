@@ -1,6 +1,6 @@
 import Layout from "../../../components/layout/layout";
 
-export default function FoodsLayout({
+export default function FoodSearchLayout({
   children,
 }: {
   children: React.ReactNode;

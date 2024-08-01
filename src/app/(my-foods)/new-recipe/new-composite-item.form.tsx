@@ -11,11 +11,11 @@ import FormInput from "../../../components/form-input/form-input";
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
+import { revalidatePublicFoods } from "../../(public-foods)/food-search/revalidate-items";
 import Button from "../../../components/button/button";
 import { RESOURCE_TAGS } from "../../../utils/constants/resource-tags";
 import { ROUTES } from "../../../utils/constants/routes";
 import { environmentVariables } from "../../../utils/environment-variables";
-import { revalidatePublicFoods } from "../foods/revalidate-items";
 
 const GET_URL = `${environmentVariables().public.backendUrl}/items`;
 const CREATE_URL = `${environmentVariables().public.backendUrl}/items/create-from-composition`;

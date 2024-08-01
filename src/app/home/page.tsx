@@ -27,7 +27,7 @@ export default function Page() {
         title: "Food Search",
         description:
           "Browse through a comprehensive list of food items, each with detailed nutritional values.",
-        actionLink: ROUTES.FOODS,
+        actionLink: ROUTES.FOOD_SEARCH,
         actionText: "Search",
         icon: withSx(SearchIcon, sx),
       },

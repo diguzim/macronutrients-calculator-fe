@@ -38,39 +38,28 @@ export default function FoodDetails({ food, portion }: FoodDetailsProps) {
             <TableHeadRow>
               <TableHeadCell>Nutrient</TableHeadCell>
               <TableHeadCell>Amount</TableHeadCell>
-              <TableHeadCell>Daily Value</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>{itemDetails.name}</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-            <TableRow>
               <TableCell>Calories</TableCell>
               <TableCell>{itemDetails.kcal} kcal</TableCell>
-              <TableCell></TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Carbohydrates</TableCell>
               <TableCell>{itemDetails.carbohydrate} g</TableCell>
-              <TableCell></TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Protein</TableCell>
               <TableCell>{itemDetails.protein} g</TableCell>
-              <TableCell></TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Fat</TableCell>
               <TableCell>{itemDetails.fat} g</TableCell>
-              <TableCell></TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Fiber</TableCell>
               <TableCell>{itemDetails.fiber} g</TableCell>
-              <TableCell></TableCell>
             </TableRow>
           </TableBody>
         </Table>

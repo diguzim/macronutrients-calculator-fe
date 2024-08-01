@@ -84,7 +84,7 @@ export default function Page({ params }: PageProps) {
         className="max-w-32"
       />
       <FoodDetails food={food} portion={portion} />
-      <Link href={ROUTES.FOODS}>
+      <Link href={ROUTES.FOOD_SEARCH}>
         <ChevronLeftIcon sx={{ color: theme.colors.primary }} />
         Back to search
       </Link>

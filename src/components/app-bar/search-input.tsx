@@ -23,7 +23,7 @@ export default function SearchInput() {
   const router = useRouter();
 
   const onSubmit = async (data: FormData) => {
-    router.push(`${ROUTES.FOODS}?search=${data.search}`);
+    router.push(`${ROUTES.FOOD_SEARCH}?search=${data.search}`);
     reset(initialFormData);
   };
 

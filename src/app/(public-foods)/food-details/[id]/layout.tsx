@@ -5,5 +5,5 @@ export default function FoodIdLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout size="md">{children}</Layout>;
+  return <Layout size="sm">{children}</Layout>;
 }
