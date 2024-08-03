@@ -17,7 +17,7 @@ export default function MenuPositioner({
       transition-opacity duration-300 ease-in-out
     `}
     >
-      <div className="absolute bg-white w-full border-t-2 border-b-2 border-gray py-6 shadow-2xl">
+      <div className="absolute bg-white w-full border-2 border-gray rounded py-4 shadow-2xl">
         {children}
       </div>
     </div>

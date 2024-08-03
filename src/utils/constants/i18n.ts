@@ -9,8 +9,8 @@ export type AvailableLanguage =
   (typeof AVAILABLE_LANGUAGES)[keyof typeof AVAILABLE_LANGUAGES];
 
 export const LANGUAGE_NAMES: Record<AvailableLanguage, string> = {
-  [AVAILABLE_LANGUAGES.EN]: "English",
-  [AVAILABLE_LANGUAGES.PT]: "Português",
+  [AVAILABLE_LANGUAGES.EN]: "En",
+  [AVAILABLE_LANGUAGES.PT]: "Pt",
 };
 
 export const LANGUAGE_FLAGS: Record<AvailableLanguage, string> = {
