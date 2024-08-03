@@ -11,7 +11,8 @@ import { ROUTES } from "../../utils/constants/routes";
 import Header from "../header/header";
 import AboutMenu from "./about-menu";
 import AuthenticatedUserMenu from "./authenticated-user-menu";
-import LanguageSwitcher from "./language-switcher";
+import LanguageButton from "./language-button";
+import LanguageMenu from "./language-menu";
 import MyFoodsMenu from "./my-foods-menu";
 import SearchInput from "./search-input";
 import ToolsMenu from "./tools-menu";
@@ -55,6 +56,10 @@ export default function AppBar() {
             handleBarItemClick={handleBarItemClick}
           />
           <div className="grow" />
+          <LanguageButton
+            active={displayedBar === "language"}
+            onCLick={() => handleBarItemClick("language")}
+          />
           {!isAuthenticated ? (
             <UnauthenticatedUserMenu />
           ) : (
@@ -64,11 +69,11 @@ export default function AppBar() {
             />
           )}
           <SearchInput />
-          <LanguageSwitcher />
         </Toolbar>
       </MuiAppBar>
       <ToolsMenu closeBar={closeBar} visible={displayedBar === "tools"} />
       <AboutMenu closeBar={closeBar} visible={displayedBar === "about"} />
+      <LanguageMenu closeBar={closeBar} visible={displayedBar === "language"} />
       <MyFoodsMenu closeBar={closeBar} visible={displayedBar === "my-foods"} />
     </Box>
   );
