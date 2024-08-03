@@ -5,10 +5,10 @@ import { AVAILABLE_LANGUAGES } from "../utils/constants/i18n";
 i18n.use(initReactI18next).init({
   resources: {
     [AVAILABLE_LANGUAGES.EN]: {
-      translation: require("./en.json"),
+      translation: require("./languages/en.json"),
     },
     [AVAILABLE_LANGUAGES.PT]: {
-      translation: require("./pt.json"),
+      translation: require("./languages/pt.json"),
     },
   },
   fallbackLng: "pt",

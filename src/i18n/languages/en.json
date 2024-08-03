@@ -1,0 +1,31 @@
+{
+  "general": {
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About",
+    "search": "Search",
+    "alreadyRegistered": "Already registered?"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "noAccount": "Don't have an account?",
+    "registerCTA": "Register now",
+    "alreadyRegistered": "Already registered?",
+    "loginCTA": "Go to Login",
+    "loginSuccess": "You have successfully logged in",
+    "loginError": "There was an error logging in",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "registrationSuccess": "You have successfully registered",
+    "registrationError": "There was an error registering"
+  },
+  "home": {
+    "title": "Understand your food",
+    "subtitle1": "Learn about yout food",
+    "subtitle2": "Manage and understand your nutritional intake effectively.",
+    "registerCTA": "Get Started"
+  }
+}

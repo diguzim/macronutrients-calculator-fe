@@ -64,14 +64,12 @@ export default function Page() {
         <div className="max-w-screen-xl mx-auto mt-24">
           <div className="flex flex-row gap-12">
             <div className="flex-1 flex flex-col items-start justify-center gap-6">
-              <span className="text-6xl text-center font-bold text-black">
-                UNDERSTAND YOUR FOOD
+              <span className="text-6xl text-center font-bold text-black uppercase">
+                {t("home.title")}
               </span>
               <div>
-                <Typography>Learn about yout food</Typography>
-                <Typography>
-                  Manage and understand your nutritional intake effectively.
-                </Typography>
+                <Typography>{t("home.subtitle1")}</Typography>
+                <Typography>{t("home.subtitle2")}</Typography>
               </div>
               <Button
                 href={ROUTES.REGISTER}
@@ -82,10 +80,11 @@ export default function Page() {
                   height: "60px",
                 }}
               >
-                Get Started
+                {t("home.registerCTA")}
               </Button>
               <Typography>
-                Already registered? <Link href={ROUTES.LOGIN}>Login</Link>
+                {t("general.alreadyRegistered")}{" "}
+                <Link href={ROUTES.LOGIN}>{t("auth.login")}</Link>
               </Typography>
             </div>
             <div className="flex-1 relative aspect-square">

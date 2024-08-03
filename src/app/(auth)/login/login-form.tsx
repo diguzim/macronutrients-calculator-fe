@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "notistack";
+import { useTranslation } from "react-i18next";
 import Button from "../../../components/button/button";
 import FormInput from "../../../components/form-input/form-input";
 import useAuth from "../../../contexts/auth/use-auth";
@@ -29,6 +30,7 @@ export default function RegisterForm() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  const { t } = useTranslation();
   const router = useRouter();
   const { login } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
@@ -48,20 +50,21 @@ export default function RegisterForm() {
         if (response.ok) {
           const { token, user } = await response.json();
           login(user, token);
-          setIsLoading(false);
           router.push(ROUTES.FAVORITE_FOODS);
           reset(initialFormData);
-          enqueueSnackbar("Login successful!", { variant: "success" });
+          enqueueSnackbar(t("auth.loginSuccess"), { variant: "success" });
         } else {
+          console.log("response", response);
           throw new Error("Error logging in user");
         }
       } catch (error) {
-        setIsLoading(false);
         console.error(error);
-        enqueueSnackbar("Error logging in user", { variant: "error" });
+        enqueueSnackbar(t("auth.loginError"), { variant: "error" });
       }
+
+      setIsLoading(false);
     },
-    [enqueueSnackbar, login, reset, router]
+    [enqueueSnackbar, login, reset, router, t]
   );
 
   return (
@@ -69,16 +72,21 @@ export default function RegisterForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-2 w-96"
     >
-      <FormInput name="email" control={control} label="Email" required />
+      <FormInput
+        name="email"
+        control={control}
+        label={t("auth.email")}
+        required
+      />
       <FormInput
         name="password"
         type="password"
         control={control}
-        label="Password"
+        label={t("auth.password")}
         required
       />
       <Button size="large" type="submit" disabled={isLoading}>
-        Login
+        {t("auth.login")}
       </Button>
     </form>
   );

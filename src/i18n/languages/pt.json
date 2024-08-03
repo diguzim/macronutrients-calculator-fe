@@ -2,8 +2,7 @@
   "general": {
     "home": "Inicio",
     "tools": "Ferramentas",
-    "about": "Sobre",
-    "contact": "Contato"
+    "about": "Sobre"
   },
   "auth": {
     "login": "Entrar",
