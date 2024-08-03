@@ -1,4 +1,10 @@
 {
+  "general": {
+    "home": "Inicio",
+    "tools": "Ferramentas",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
   "auth": {
     "login": "Entrar",
     "logout": "Sair",

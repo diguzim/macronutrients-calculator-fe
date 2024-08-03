@@ -1,20 +1,23 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-// I have 2 files: en.json and pt.json
+import { AVAILABLE_LANGUAGES } from "../utils/constants/i18n";
 
 i18n.use(initReactI18next).init({
   resources: {
-    en: {
+    [AVAILABLE_LANGUAGES.EN]: {
       translation: require("./en.json"),
     },
-    pt: {
+    [AVAILABLE_LANGUAGES.PT]: {
       translation: require("./pt.json"),
     },
   },
-  lng: "en",
-  fallbackLng: "en",
+  fallbackLng: "pt",
   interpolation: {
     escapeValue: false,
+  },
+  detection: {
+    order: ["localStorage", "navigator"],
+    caches: ["localStorage"],
   },
 });
 

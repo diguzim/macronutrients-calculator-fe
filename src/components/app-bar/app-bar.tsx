@@ -11,6 +11,7 @@ import { ROUTES } from "../../utils/constants/routes";
 import Header from "../header/header";
 import AboutMenu from "./about-menu";
 import AuthenticatedUserMenu from "./authenticated-user-menu";
+import LanguageSwitcher from "./language-switcher";
 import MyFoodsMenu from "./my-foods-menu";
 import SearchInput from "./search-input";
 import ToolsMenu from "./tools-menu";
@@ -63,6 +64,7 @@ export default function AppBar() {
             />
           )}
           <SearchInput />
+          <LanguageSwitcher />
         </Toolbar>
       </MuiAppBar>
       <ToolsMenu closeBar={closeBar} visible={displayedBar === "tools"} />

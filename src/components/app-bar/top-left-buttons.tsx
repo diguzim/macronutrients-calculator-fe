@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import BarButton from "./bar-button";
 
 type TopLeftButtonsProps = {
@@ -8,19 +9,21 @@ type TopLeftButtonsProps = {
 };
 
 export default function TopLeftButtons(props: TopLeftButtonsProps) {
+  const { t } = useTranslation();
+
   return (
     <>
       <BarButton
         onClick={() => props.handleBarItemClick("tools")}
         active={props.displayedBar === "tools"}
       >
-        Tools
+        {t("general.tools")}
       </BarButton>
       <BarButton
         onClick={() => props.handleBarItemClick("about")}
         active={props.displayedBar === "about"}
       >
-        About
+        {t("general.about")}
       </BarButton>
     </>
   );
