@@ -5,6 +5,8 @@ import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 import StarIcon from "@mui/icons-material/Star";
 import Link from "next/link";
 
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import Button from "../button/button";
@@ -21,55 +23,59 @@ type GroupedPage = {
   pages: Page[];
 };
 
-const GroupedPages: GroupedPage[] = [
-  {
-    title: "Nutritional Data",
-    pages: [
-      {
-        title: "Search Foods",
-        link: ROUTES.FOOD_SEARCH,
-        icon: SearchIcon,
-      },
-    ],
-  },
-  {
-    title: "Calculators",
-    pages: [
-      {
-        title: "Recipe Calculator",
-        link: ROUTES.RECIPE_NUTRITION_CALCULATOR,
-        icon: CalculateIcon,
-      },
-    ],
-  },
-  {
-    title: "Private Space",
-    pages: [
-      {
-        title: "Favorite Foods",
-        link: ROUTES.FAVORITE_FOODS,
-        icon: StarIcon,
-      },
-      {
-        title: "Recipes",
-        link: ROUTES.RECIPES,
-        icon: SoupKitchenIcon,
-      },
-      {
-        title: "Meals Tracker",
-        link: ROUTES.MEALS,
-        icon: RestaurantIcon,
-      },
-    ],
-  },
-];
-
 type ToolsMenuProps = {
   closeBar: () => void;
   visible: boolean;
 };
 
 export default function ToolsMenu(props: ToolsMenuProps) {
+  const { t } = useTranslation();
+
+  const GroupedPages = useMemo(() => {
+    return [
+      {
+        title: t("appBar.toolsMenu.nutritionalData"),
+        pages: [
+          {
+            title: t("appBar.toolsMenu.searchFoods"),
+            link: ROUTES.FOOD_SEARCH,
+            icon: SearchIcon,
+          },
+        ],
+      },
+      {
+        title: t("appBar.toolsMenu.calculators"),
+        pages: [
+          {
+            title: t("appBar.toolsMenu.recipeCalculator"),
+            link: ROUTES.RECIPE_NUTRITION_CALCULATOR,
+            icon: CalculateIcon,
+          },
+        ],
+      },
+      {
+        title: t("appBar.toolsMenu.privateSpace"),
+        pages: [
+          {
+            title: t("appBar.toolsMenu.favoriteFoods"),
+            link: ROUTES.FAVORITE_FOODS,
+            icon: StarIcon,
+          },
+          {
+            title: t("appBar.toolsMenu.recipes"),
+            link: ROUTES.RECIPES,
+            icon: SoupKitchenIcon,
+          },
+          {
+            title: t("appBar.toolsMenu.mealsTracker"),
+            link: ROUTES.MEALS,
+            icon: RestaurantIcon,
+          },
+        ],
+      },
+    ];
+  }, [t]);
+
   return (
     <MenuPositioner visible={props.visible}>
       <div className="flex flex-row justify-center gap-12">

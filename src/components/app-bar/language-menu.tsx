@@ -50,6 +50,7 @@ const LanguageMenu = (props: LanguageMenuProps) => {
             <Button
               key={language}
               variant="text"
+              aria-label={LANGUAGE_NAMES[language as AvailableLanguage]}
               onClick={() => changeLanguage(language)}
               className="flex flex-row gap-2"
               sx={{

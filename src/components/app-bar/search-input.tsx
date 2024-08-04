@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import FormInput from "../form-input/form-input";
@@ -21,6 +22,7 @@ export default function SearchInput() {
     defaultValues: initialFormData,
   });
   const router = useRouter();
+  const { t } = useTranslation();
 
   const onSubmit = async (data: FormData) => {
     router.push(`${ROUTES.FOOD_SEARCH}?search=${data.search}`);
@@ -36,7 +38,7 @@ export default function SearchInput() {
         className="bg-gray"
         control={control}
         name="search"
-        placeholder="Search..."
+        placeholder={`${t("general.search")}...`}
         size="medium"
         InputProps={{
           startAdornment: (

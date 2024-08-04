@@ -1,4 +1,5 @@
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import { useTranslation } from "react-i18next";
 import theme from "../../theme/theme";
 import BarButton from "./bar-button";
 
@@ -8,6 +9,8 @@ type TopLeftButtonsProps = {
 };
 
 export default function AuthenticatedUserMenu(props: TopLeftButtonsProps) {
+  const { t } = useTranslation();
+
   return (
     <BarButton
       onClick={() => props.handleBarItemClick("my-foods")}
@@ -20,7 +23,7 @@ export default function AuthenticatedUserMenu(props: TopLeftButtonsProps) {
         />
       }
     >
-      My Foods
+      {t("appBar.myFoodsMenu.button")}
     </BarButton>
   );
 }

@@ -6,6 +6,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SoupKitchenIcon from "@mui/icons-material/SoupKitchen";
 
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import theme from "../../theme/theme";
 import { ROUTES } from "../../utils/constants/routes";
 import Button from "../button/button";
@@ -22,55 +24,59 @@ type GroupedPage = {
   pages: Page[];
 };
 
-const GroupedPages: GroupedPage[] = [
-  {
-    title: "My Foods",
-    pages: [
-      {
-        title: "Favorite Foods",
-        link: ROUTES.FAVORITE_FOODS,
-        icon: FavoriteIcon,
-      },
-      {
-        title: "Recipes",
-        link: ROUTES.RECIPES,
-        icon: SoupKitchenIcon,
-      },
-    ],
-  },
-  {
-    title: "Food Log",
-    pages: [
-      {
-        title: "Daily Food Log",
-        link: ROUTES.MEALS,
-        icon: CalendarTodayIcon,
-      },
-    ],
-  },
-  {
-    title: "Account",
-    pages: [
-      {
-        title: "Profile",
-        link: ROUTES.PROFILE,
-        icon: AccountCircle,
-      },
-      {
-        title: "Logout",
-        link: ROUTES.LOGOUT,
-        icon: LogoutIcon,
-      },
-    ],
-  },
-];
-
 type MyFoodsMenuProps = {
   closeBar: () => void;
   visible: boolean;
 };
 
 export default function MyFoodsMenu(props: MyFoodsMenuProps) {
+  const { t } = useTranslation();
+
+  const GroupedPages = useMemo(() => {
+    return [
+      {
+        title: t("appBar.myFoodsMenu.myFoods"),
+        pages: [
+          {
+            title: t("appBar.myFoodsMenu.favoriteFoods"),
+            link: ROUTES.FAVORITE_FOODS,
+            icon: FavoriteIcon,
+          },
+          {
+            title: t("appBar.myFoodsMenu.recipes"),
+            link: ROUTES.RECIPES,
+            icon: SoupKitchenIcon,
+          },
+        ],
+      },
+      {
+        title: t("appBar.myFoodsMenu.foodLog"),
+        pages: [
+          {
+            title: t("appBar.myFoodsMenu.dailyFoodLog"),
+            link: ROUTES.MEALS,
+            icon: CalendarTodayIcon,
+          },
+        ],
+      },
+      {
+        title: t("appBar.myFoodsMenu.account"),
+        pages: [
+          {
+            title: t("appBar.myFoodsMenu.profile"),
+            link: ROUTES.PROFILE,
+            icon: AccountCircle,
+          },
+          {
+            title: t("appBar.myFoodsMenu.logout"),
+            link: ROUTES.LOGOUT,
+            icon: LogoutIcon,
+          },
+        ],
+      },
+    ];
+  }, [t]);
+
   return (
     <MenuPositioner visible={props.visible}>
       <div className="flex flex-row justify-center gap-12">

@@ -12,6 +12,36 @@
     "nutrient": "Nutrient",
     "amount": "Amount"
   },
+  "appBar": {
+    "toolsMenu": {
+      "button": "Tools",
+      "nutritionalData": "Nutritional Data",
+      "searchFoods": "Search Foods",
+      "calculators": "Calculators",
+      "recipeCalculator": "Recipe Calculator",
+      "privateSpace": "Private Space",
+      "favoriteFoods": "Favorite Foods",
+      "recipes": "Recipes",
+      "mealsTracker": "Meals Tracker"
+    },
+    "aboutMenu": {
+      "button": "About",
+      "objective": "Objective",
+      "objectiveParagraph": "MaCal is a web application that helps users track their daily nutritional intake. It provides tools to calculate the nutritional value of recipes and track meals.",
+      "developedBy": "Developed by"
+    },
+    "myFoodsMenu": {
+      "button": "My Foods",
+      "myFoods": "My Foods",
+      "favoriteFoods": "Favorite Foods",
+      "recipes": "Recipes",
+      "foodLog": "Food Log",
+      "dailyFoodLog": "Daily Food Log",
+      "account": "Account",
+      "profile": "Profile",
+      "logout": "Logout"
+    }
+  },
   "auth": {
     "login": "Login",
     "logout": "Logout",
