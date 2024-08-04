@@ -1,12 +1,103 @@
 {
   "general": {
-    "home": "Inicio",
+    "home": "Início",
     "tools": "Ferramentas",
-    "about": "Sobre"
+    "about": "Sobre",
+    "search": "Pesquisar",
+    "alreadyRegistered": "Já registrado?",
+    "noResults": "Sem resultados",
+    "resultsFound": "resultados encontrados",
+    "name": "Nome",
+    "type": "Tipo",
+    "nutrient": "Nutriente",
+    "amount": "Quantidade"
+  },
+  "appBar": {
+    "toolsMenu": {
+      "button": "Ferramentas",
+      "nutritionalData": "Dados Nutricionais",
+      "searchFoods": "Pesquisar Alimentos",
+      "calculators": "Calculadoras",
+      "recipeCalculator": "Calculadora de Receitas",
+      "privateSpace": "Espaço Privado",
+      "favoriteFoods": "Alimentos Favoritos",
+      "recipes": "Receitas",
+      "mealsTracker": "Rastreador de Refeições"
+    },
+    "aboutMenu": {
+      "button": "Sobre",
+      "objective": "Objetivo",
+      "objectiveParagraph": "MaCal é uma aplicação web que ajuda os usuários a rastrear sua ingestão nutricional diária. Ele fornece ferramentas para calcular o valor nutricional de receitas e rastrear refeições.",
+      "developedBy": "Desenvolvido por"
+    },
+    "myFoodsMenu": {
+      "button": "Meus Alimentos",
+      "myFoods": "Meus Alimentos",
+      "favoriteFoods": "Alimentos Favoritos",
+      "recipes": "Receitas",
+      "foodLog": "Registro de Alimentos",
+      "dailyFoodLog": "Registro Diário de Alimentos",
+      "account": "Conta",
+      "profile": "Perfil",
+      "logout": "Sair"
+    }
   },
   "auth": {
     "login": "Entrar",
     "logout": "Sair",
-    "register": "Registrar"
+    "register": "Cadastre-se",
+    "noAccount": "Não tem uma conta?",
+    "registerCTA": "Cadastre-se agora",
+    "alreadyRegistered": "Já possui conta?",
+    "loginCTA": "Ir para Login",
+    "loginSuccess": "Você entrou com sucesso",
+    "loginError": "Houve um erro ao entrar",
+    "email": "Email",
+    "password": "Senha",
+    "name": "Nome",
+    "registrationSuccess": "Você se cadastrou com sucesso",
+    "registrationError": "Houve um erro ao cadastrar"
+  },
+  "home": {
+    "title": "Entenda sua comida",
+    "subtitle1": "Aprenda sobre sua comida",
+    "subtitle2": "Gerencie e entenda sua ingestão nutricional de forma eficaz.",
+    "registerCTA": "Começar"
+  },
+  "foodSearch": {
+    "title": "Pesquisa de Alimentos",
+    "subtitle1": "Pesquise um alimento para ver seus dados nutricionais",
+    "searchError": "Houve um erro ao pesquisar o alimento"
+  },
+  "publicFoodDetails": {
+    "title": "Detalhes do Alimento",
+    "errorLoading": "Houve um erro ao carregar os detalhes do alimento",
+    "loading": "Carregando detalhes do alimento",
+    "notFound": "Alimento não encontrado",
+    "portionInputLabel": "Porção (g)",
+    "backToSearch": "Voltar para pesquisa",
+    "tableAriaLabel": "Tabela de Alimentos"
+  },
+  "favoriteFoods": {
+    "title": "Alimentos Favoritos",
+    "createFoodCTA": "Criar Alimento",
+    "errorLoading": "Houve um erro ao carregar seus alimentos favoritos"
+  },
+  "createFood": {
+    "title": "Criar Alimento",
+    "createCTA": "Criar",
+    "createSuccess": "Alimento criado com sucesso",
+    "createError": "Houve um erro ao criar o alimento"
+  },
+  "nutrients": {
+    "caloriesLabel": "Calorias",
+    "carbohydratesLabel": "Carboidratos",
+    "proteinLabel": "Proteína",
+    "totalFatLabel": "Gordura",
+    "fiberLabel": "Fibra"
+  },
+  "foodsTable": {
+    "portionCaption": "* Valores baseados em porção de 100g",
+    "tableAriaLabel": "Tabela de Alimentos"
   }
 }
