@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import Layout from "../../../components/layout/layout";
 
 export default function CreateFoodLayout({
@@ -5,8 +8,10 @@ export default function CreateFoodLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { t } = useTranslation();
+
   return (
-    <Layout size="sm" title="Create a Food">
+    <Layout size="sm" title={t("createFood.title")}>
       {children}
     </Layout>
   );

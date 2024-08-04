@@ -53,6 +53,12 @@
     "createFoodCTA": "Create Food",
     "errorLoading": "There was an error loading your favorite foods"
   },
+  "createFood": {
+    "title": "Create Food",
+    "createCTA": "Create",
+    "createSuccess": "Food created successfully",
+    "createError": "There was an error creating the food"
+  },
   "nutrients": {
     "caloriesLabel": "Calories",
     "carbohydratesLabel": "Carbohydrates",
