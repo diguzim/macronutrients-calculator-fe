@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Food } from "../../../../common/interfaces/item.interface";
 import TableHeadCell from "../../../../components/table/table-head-cell";
 import TableHeadRow from "../../../../components/table/table-head-row";
@@ -17,6 +18,8 @@ type FoodDetailsProps = {
 };
 
 export default function FoodDetails({ food, portion }: FoodDetailsProps) {
+  const { t } = useTranslation();
+
   const itemDetails = useMemo(
     () => ({
       id: food.id,
@@ -33,32 +36,32 @@ export default function FoodDetails({ food, portion }: FoodDetailsProps) {
   return (
     <div className="flex flex-col gap-10">
       <TableContainer component={Paper}>
-        <Table size="small" aria-label="simple table">
+        <Table size="small" aria-label={t("publicFoodDetails.tableAriaLabel")}>
           <TableHead>
             <TableHeadRow>
-              <TableHeadCell>Nutrient</TableHeadCell>
-              <TableHeadCell>Amount</TableHeadCell>
+              <TableHeadCell>{t("general.nutrient")}</TableHeadCell>
+              <TableHeadCell>{t("general.amount")}</TableHeadCell>
             </TableHeadRow>
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>Calories</TableCell>
+              <TableCell>{t("nutrients.caloriesLabel")}</TableCell>
               <TableCell>{itemDetails.kcal} kcal</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Carbohydrates</TableCell>
+              <TableCell>{t("nutrients.carbohydratesLabel")}</TableCell>
               <TableCell>{itemDetails.carbohydrate} g</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Protein</TableCell>
+              <TableCell>{t("nutrients.proteinLabel")}</TableCell>
               <TableCell>{itemDetails.protein} g</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Fat</TableCell>
+              <TableCell>{t("nutrients.totalFatLabel")}</TableCell>
               <TableCell>{itemDetails.fat} g</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Fiber</TableCell>
+              <TableCell>{t("nutrients.fiberLabel")}</TableCell>
               <TableCell>{itemDetails.fiber} g</TableCell>
             </TableRow>
           </TableBody>

@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useCallback, useEffect, useState } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Food } from "../../../../common/interfaces/item.interface";
 import Header from "../../../../components/header/header";
 import LinearProgress from "../../../../components/linear-progress/linear-progress";
@@ -28,6 +29,7 @@ export default function Page({ params }: PageProps) {
   const [food, setFood] = useState<Food | null>(null);
   const [loading, setLoading] = useState(true);
   const [portion, setPortion] = useState(100);
+  const { t } = useTranslation();
 
   const handleOnChangePortion = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,6 +49,7 @@ export default function Page({ params }: PageProps) {
       });
 
       if (!response.ok) {
+        console.error("response", response);
         setLoading(false);
         return;
       }
@@ -63,21 +66,23 @@ export default function Page({ params }: PageProps) {
   if (loading) {
     return (
       <div className="flex flex-col gap-10">
-        <Typography className="self-center">Loading food details...</Typography>
+        <Typography className="self-center">
+          {t("publicFoodDetails.loading")}
+        </Typography>
         <LinearProgress />
       </div>
     );
   }
 
   if (!food) {
-    return <Header size={1}>Food not found</Header>;
+    return <Header size={1}>{t("publicFoodDetails.notFound")}</Header>;
   }
 
   return (
     <div className="flex flex-col gap-10">
       <PageTitle title={`${food.name} (${food.type})`} />
       <TextField
-        label="Portion (g)"
+        label={t("publicFoodDetails.portionInputLabel")}
         type="number"
         value={portion}
         onChange={handleOnChangePortion}
@@ -86,7 +91,7 @@ export default function Page({ params }: PageProps) {
       <FoodDetails food={food} portion={portion} />
       <Link href={ROUTES.FOOD_SEARCH}>
         <ChevronLeftIcon sx={{ color: theme.colors.primary }} />
-        Back to search
+        {t("publicFoodDetails.backToSearch")}
       </Link>
     </div>
   );

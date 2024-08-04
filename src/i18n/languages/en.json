@@ -8,7 +8,9 @@
     "noResults": "No results",
     "resultsFound": "results found",
     "name": "Name",
-    "type": "Type"
+    "type": "Type",
+    "nutrient": "Nutrient",
+    "amount": "Amount"
   },
   "auth": {
     "login": "Login",
@@ -37,6 +39,15 @@
     "subtitle1": "Search for a food to see it's nutritional data",
     "searchError": "There was an error searching for the food"
   },
+  "publicFoodDetails": {
+    "title": "Food Details",
+    "errorLoading": "There was an error loading the food details",
+    "loading": "Loading food details",
+    "notFound": "Food not found",
+    "portionInputLabel": "Portion (g)",
+    "backToSearch": "Back to search",
+    "tableAriaLabel": "Foods table"
+  },
   "favoriteFoods": {
     "title": "Favorite Foods",
     "createFoodCTA": "Create Food",
@@ -45,8 +56,8 @@
   "nutrients": {
     "caloriesLabel": "Calories",
     "carbohydratesLabel": "Carbohydrates",
-    "totalFatLabel": "Fat",
     "proteinLabel": "Protein",
+    "totalFatLabel": "Fat",
     "fiberLabel": "Fiber"
   },
   "foodsTable": {
