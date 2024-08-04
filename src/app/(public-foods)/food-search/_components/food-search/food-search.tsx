@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Food } from "../../../../../common/interfaces/item.interface";
 import Button from "../../../../../components/button/button";
 import FormInput from "../../../../../components/form-input/form-input";
@@ -34,6 +35,7 @@ export default function FoodSearch() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const incomingSearchTerm = searchParams.get("search");
 
@@ -49,7 +51,7 @@ export default function FoodSearch() {
       });
 
       if (!response.ok) {
-        enqueueSnackbar("Error searching foods", { variant: "error" });
+        enqueueSnackbar(t("foodSearch.searchError"), { variant: "error" });
         return;
       } else {
         const items = await response.json();
@@ -58,7 +60,7 @@ export default function FoodSearch() {
       }
       setIsLoading(false);
     },
-    [enqueueSnackbar]
+    [enqueueSnackbar, t]
   );
 
   const onSubmit = useCallback(
@@ -84,7 +86,7 @@ export default function FoodSearch() {
         <FormInput
           control={control}
           name="search"
-          label="Search"
+          label={t("general.search")}
           size="small"
           required
         />

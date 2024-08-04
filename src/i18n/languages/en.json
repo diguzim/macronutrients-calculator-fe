@@ -32,6 +32,11 @@
     "subtitle2": "Manage and understand your nutritional intake effectively.",
     "registerCTA": "Get Started"
   },
+  "foodSearch": {
+    "title": "Food Search",
+    "subtitle1": "Search for a food to see it's nutritional data",
+    "searchError": "There was an error searching for the food"
+  },
   "favoriteFoods": {
     "title": "Favorite Foods",
     "createFoodCTA": "Create Food",
