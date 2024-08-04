@@ -6,6 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { useMemo } from "react";
 
+import { useTranslation } from "react-i18next";
 import { Food } from "../../common/interfaces/item.interface";
 import TableBodyCell from "../table/table-body-cell";
 import TableHeadCell from "../table/table-head-cell";
@@ -19,6 +20,8 @@ type FoodsTableProps = {
 };
 
 export default function FoodsTable({ foods, onFoodClick }: FoodsTableProps) {
+  const { t } = useTranslation();
+
   const foodsWithNutritionalValues = useMemo(() => {
     return foods.map((food) => ({
       id: food.id,
@@ -35,16 +38,16 @@ export default function FoodsTable({ foods, onFoodClick }: FoodsTableProps) {
   return (
     <TableContainer component={Paper}>
       <Table size="small" aria-label="foods table">
-        <caption>* Values based on 100g portion</caption>
+        <caption>{t("foodsTable.portionCaption")}</caption>
         <TableHead>
           <TableHeadRow>
-            <TableHeadCell>Name</TableHeadCell>
-            <TableHeadCell>Type</TableHeadCell>
-            <TableHeadCell>Calories</TableHeadCell>
-            <TableHeadCell>Carbohydrates</TableHeadCell>
-            <TableHeadCell>Protein</TableHeadCell>
-            <TableHeadCell>Fat</TableHeadCell>
-            <TableHeadCell>Fiber</TableHeadCell>
+            <TableHeadCell>{t("general.name")}</TableHeadCell>
+            <TableHeadCell>{t("general.type")}</TableHeadCell>
+            <TableHeadCell>{t("nutrients.caloriesLabel")}</TableHeadCell>
+            <TableHeadCell>{t("nutrients.carbohydratesLabel")}</TableHeadCell>
+            <TableHeadCell>{t("nutrients.proteinLabel")}</TableHeadCell>
+            <TableHeadCell>{t("nutrients.totalFatLabel")}</TableHeadCell>
+            <TableHeadCell>{t("nutrients.fiberLabel")}</TableHeadCell>
           </TableHeadRow>
         </TableHead>
         <TableBody>

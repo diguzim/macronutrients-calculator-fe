@@ -4,7 +4,11 @@
     "tools": "Tools",
     "about": "About",
     "search": "Search",
-    "alreadyRegistered": "Already registered?"
+    "alreadyRegistered": "Already registered?",
+    "noResults": "No results",
+    "resultsFound": "results found",
+    "name": "Name",
+    "type": "Type"
   },
   "auth": {
     "login": "Login",
@@ -27,5 +31,21 @@
     "subtitle1": "Learn about yout food",
     "subtitle2": "Manage and understand your nutritional intake effectively.",
     "registerCTA": "Get Started"
+  },
+  "favoriteFoods": {
+    "title": "Favorite Foods",
+    "createFoodCTA": "Create Food",
+    "errorLoading": "There was an error loading your favorite foods"
+  },
+  "nutrients": {
+    "caloriesLabel": "Calories",
+    "carbohydratesLabel": "Carbohydrates",
+    "totalFatLabel": "Fat",
+    "proteinLabel": "Protein",
+    "fiberLabel": "Fiber"
+  },
+  "foodsTable": {
+    "portionCaption": "* Values based on 100g portion",
+    "tableAriaLabel": "Foods table"
   }
 }

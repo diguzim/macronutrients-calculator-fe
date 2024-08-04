@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Food } from "../../../../common/interfaces/item.interface";
 import Button from "../../../../components/button/button";
 import FormInput from "../../../../components/form-input/form-input";
@@ -35,6 +36,7 @@ export default function FavoriteFoodsSearch() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const incomingSearchTerm = searchParams.get("search") || "";
   const { jwtToken } = useAuth();
@@ -54,7 +56,8 @@ export default function FavoriteFoodsSearch() {
       });
 
       if (!response.ok) {
-        enqueueSnackbar("Error searching foods", { variant: "error" });
+        // enqueueSnackbar("Error searching foods", { variant: "error" });
+        enqueueSnackbar(t("favoriteFoods.errorLoading"), { variant: "error" });
         return;
       } else {
         const items = await response.json();
@@ -89,7 +92,7 @@ export default function FavoriteFoodsSearch() {
         <FormInput
           control={control}
           name="search"
-          label="Search"
+          label={t("general.search")}
           size="small"
         />
         <Button type="submit" size="small">
