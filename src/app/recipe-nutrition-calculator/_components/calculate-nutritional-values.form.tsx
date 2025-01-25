@@ -125,7 +125,7 @@ export default function CalculateNutritionalValuesForm({
                 onChange={(e) => {
                   const selectedItemId = e.target.value;
                   const selectedItem = availableItems.find(
-                    (item) => item.id === parseInt(selectedItemId)
+                    (item) => item.id.toString() === selectedItemId
                   );
 
                   setItemsWithWeights((prev) =>
